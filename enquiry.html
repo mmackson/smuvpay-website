@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2029">
+  <meta name="description" content="Contact SMUVPAY about payment infrastructure, independent rails, OTC and global money movement.">
+  <title>Enquiries | SMUVPAY</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="subpage">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="SMUVPAY home"><span class="brand-mark" aria-hidden="true">S</span><span class="brand-name">SMUV<span>PAY</span></span></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button><nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="index.html#model">The model</a><a href="index.html#capabilities">Capabilities</a><a href="index.html#institutional">Institutional stack</a><a href="index.html#rails">Independent rails</a><a href="index.html#otc">OTC desk</a><a href="index.html#how-it-works">How it works</a><a href="index.html#partners">Partners</a><a href="regulatory.html">Regulatory guide</a><a href="enquiry.html" aria-current="page">Enquiries</a><a class="nav-contact" href="#main">Let's connect <span aria-hidden="true">↗</span></a></nav></div></header>
+
+  <main id="main">
+    <section class="guide-hero"><div class="wrap"><a class="back-link" href="index.html">← Back to SMUVPAY</a><p class="eyebrow light">Contact / enquiries</p><h1>Start a<br><em>conversation.</em></h1><p>Tell us about your payment flow, markets and currencies. We'll get back to you with the next steps.</p><div class="guide-meta"><span>support@smuvpay.com</span><span>London · Tallinn</span></div></div></section>
+
+    <section class="section enquiry-section"><div class="wrap enquiry-layout">
+      <div class="enquiry-form-wrap">
+        <p class="eyebrow">Send an enquiry</p>
+        <h2 class="enquiry-heading">What are you<br><em>building?</em></h2>
+        <form class="enquiry-form" id="enquiry-form" action="mailto:support@smuvpay.com" method="get">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Your name"></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
+          <div class="field field-wide"><label for="company">Company</label><input id="company" name="company" type="text" placeholder="Company (optional)"></div>
+          <div class="field field-wide"><label for="message">How can we help?</label><textarea id="message" name="message" rows="5" required placeholder="Tell us about your payment flow, markets, currencies…"></textarea></div>
+          <div class="form-actions"><button class="button button-mint" type="submit">Send enquiry <span aria-hidden="true">↗</span></button><p class="form-note">Opens your email client addressed to support@smuvpay.com.</p></div>
+        </form>
+      </div>
+      <aside class="enquiry-contact">
+        <p class="eyebrow">Email</p>
+        <a href="mailto:support@smuvpay.com">support@smuvpay.com</a>
+        <p class="eyebrow">London</p>
+        <address>International House, 36–38 Cornhill,<br>London EC3V 3NG, United Kingdom</address>
+        <p class="eyebrow">Tallinn</p>
+        <address>Pärnu mnt 105,<br>11312 Tallinn, Estonia</address>
+      </aside>
+    </div></section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-main"><a class="brand" href="index.html" aria-label="SMUVPAY home"><span class="brand-mark" aria-hidden="true">S</span><span class="brand-name">SMUV<span>PAY</span></span></a><div class="footer-links"><a href="index.html">Home</a><a href="index.html#capabilities">Capabilities</a><a href="index.html#rails">Independent rails</a><a href="index.html#otc">OTC desk</a><a href="regulatory.html">Regulatory guide</a><a href="https://www.linkedin.com/company/136184957/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div><div class="wrap footer-contact"><div><span class="footer-label">Email</span><a class="contact-email" href="mailto:support@smuvpay.com">support@smuvpay.com</a></div><div><span class="footer-label">London</span><address>International House, 36–38 Cornhill, London EC3V 3NG, United Kingdom</address></div><div><span class="footer-label">Tallinn</span><address>Pärnu mnt 105, 11312 Tallinn, Estonia</address></div></div><div class="wrap footer-legal"><p>SMUVPAY may act as a technology, commercial, advisory and/or referral layer. Banking, acquiring, safeguarding, custody, card issuance, digital-asset and other regulated financial services are provided only by appropriately authorised third-party institutions where applicable.</p><span>© <span id="year">2026</span> SMUVPAY</span></div></footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('enquiry-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = (document.getElementById('name').value || '').trim();
+        var email = (document.getElementById('email').value || '').trim();
+        var company = (document.getElementById('company').value || '').trim();
+        var message = (document.getElementById('message').value || '').trim();
+        var subject = 'Website enquiry' + (name ? ' — ' + name : '');
+        var body = 'Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\n\n' + message;
+        window.location.href = 'mailto:support@smuvpay.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      });
+    })();
+  </script>
+</body>
+</html>
