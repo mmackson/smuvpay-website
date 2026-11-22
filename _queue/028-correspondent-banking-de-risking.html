@@ -1,0 +1,58 @@
+<!--
+slug: correspondent-banking-de-risking
+title: Correspondent banking and de-risking: why payments get stuck
+h1: Correspondent banking and de-risking:<br><em>why payments get stuck.</em>
+desc: How correspondent banking works, why de-risking cuts off corridors and businesses, and practical steps to stop cross-border payments getting stuck or returned.
+cat: Cross-border payments
+mins: 4
+summary: Most cross-border payments pass through correspondent banks that never meet you. How the chain works, why banks de-risk whole corridors, and what to do when a payment is stuck.
+lede: Correspondent banking is the network of accounts banks hold with each other so they can pay in currencies and countries where they have no branch. De-risking is when banks cut those relationships, or refuse certain clients, to avoid compliance risk. Most stuck cross-border payments trace back to one of the two.
+-->
+      <h2>How correspondent banking works</h2>
+      <p>A bank in Kenya that wants to pay US dollars cannot settle directly in the US banking system. Instead, it holds a dollar account with a US bank, its <strong>correspondent</strong>. The US bank calls that account a <strong>vostro</strong> account ("yours, held with us"). The Kenyan bank calls it a <strong>nostro</strong> ("ours, held with you").</p>
+      <p>When a Kenyan business pays a supplier in Germany in dollars, the money may move from the Kenyan bank, to its US correspondent, to the German bank's own US correspondent, and finally to the German bank. Each step is an entry on a correspondent's books, triggered by a <a href="swift-vs-sepa-vs-faster-payments.html">SWIFT message</a>. Every bank in the chain screens the payment, and every one can take a fee.</p>
+      <p>The US dollar is the clearest case because so much trade is priced in it, but the same model applies to euros, sterling and other currencies paid across borders.</p>
+
+      <h2>Why payments get stuck</h2>
+      <ul>
+        <li><strong>Sanctions screening hits.</strong> A name, address, vessel, port or keyword in the payment matches or resembles an entry on a sanctions list. The bank holds the payment until a person reviews it.</li>
+        <li><strong>Requests for information (RFIs).</strong> An intermediary bank asks the sending bank for the purpose of the payment, an invoice or details about the parties. Each question travels back through the chain, and answers can take days.</li>
+        <li><strong>Missing or poor data.</strong> Incomplete beneficiary names, unstructured addresses or vague payment purposes trigger manual checks. This is one reason the move to <a href="iso-20022-explained.html">ISO 20022</a> and structured addresses matters.</li>
+        <li><strong>No route.</strong> The sending bank has no correspondent that can reach the beneficiary's bank in that currency, so the payment is rejected or routed through a longer chain.</li>
+        <li><strong>Cut-offs and holidays.</strong> A payment that reaches an intermediary after its cut-off waits until the next business day there, which may not match your calendar.</li>
+      </ul>
+
+      <h2>What de-risking is</h2>
+      <p>De-risking means a bank ends or restricts a relationship to avoid risk, rather than managing it case by case. It happens at two levels:</p>
+      <ul>
+        <li><strong>Bank to bank.</strong> A large correspondent closes accounts for smaller banks in certain countries, because the compliance cost and penalty risk outweigh the revenue. The Bank for International Settlements has tracked a steady fall in active correspondent relationships worldwide since around 2011, with some smaller and lower-income countries hit hardest.</li>
+        <li><strong>Bank to client.</strong> A bank exits whole client sectors it sees as high risk, such as money service businesses, payment providers, crypto firms, charities working in conflict zones and some high-risk merchant categories.</li>
+      </ul>
+      <p>The drivers are commercial and regulatory. Correspondent banks are expected to understand their respondent banks' controls, and large fines for sanctions and anti-money-laundering failures have made many banks cautious. Regulators, including the FATF, have said that wholesale de-risking is not what the rules require and that risk should be managed case by case. Banks still decide whom they serve.</p>
+
+      <h2>How de-risking shows up for a business</h2>
+      <ul>
+        <li>Payments to one country start taking days instead of hours, or come back unpaid.</li>
+        <li>Your bank asks detailed questions about a corridor you have used for years.</li>
+        <li>Your bank, or your payment provider's bank, gives notice to close your account, often without a detailed reason.</li>
+        <li>Fees on a corridor rise because fewer intermediaries are willing to serve it.</li>
+      </ul>
+
+      <h2>What to do when a payment is stuck</h2>
+      <ol>
+        <li><strong>Get the UETR.</strong> Ask your bank for the payment's unique end-to-end reference and where it currently sits.</li>
+        <li><strong>Answer RFIs quickly and fully.</strong> Have invoices, contracts and shipping documents ready. A partial answer often leads to a second question.</li>
+        <li><strong>Check the data.</strong> Confirm the beneficiary's legal name, full structured address, account number and bank identifier.</li>
+        <li><strong>Avoid resending.</strong> Sending a second payment while the first is under review can lead to a double payment or more scrutiny.</li>
+      </ol>
+
+      <h2>How to reduce exposure</h2>
+      <ul>
+        <li><strong>Write clear payment purposes.</strong> "Invoice 4471, industrial pumps" clears faster than "services" or "transfer".</li>
+        <li><strong>Pay locally where possible.</strong> A provider with accounts in the receiving country can pay over the domestic rail and avoid the correspondent chain.</li>
+        <li><strong>Keep more than one banking route.</strong> A second bank or payment partner means one closure does not stop your business.</li>
+        <li><strong>Hold strong compliance records.</strong> A documented <a href="aml-programme-fintech.html">AML programme</a> and clear ownership details make your business easier for a bank to keep.</li>
+        <li><strong>Consider alternative rails.</strong> For some corridors, <a href="stablecoins-treasury.html">stablecoins</a> can settle where bank routes are thin, with their own compliance work at each end.</li>
+      </ul>
+      <p>SMUVPAY works with several banking and correspondent partners, so a corridor that one bank exits can often be served through another. See our <a href="../index.html#rails">independent rails</a> approach.</p>
+      <p>Sanctions and AML obligations differ by jurisdiction, so take local legal advice on any corridor you are unsure about.</p>

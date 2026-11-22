@@ -1,0 +1,56 @@
+<!--
+slug: merchant-category-codes
+title: Merchant category codes (MCC): what they are and why they matter
+h1: Merchant category codes (MCC):<br><em>what they are and why they matter.</em>
+desc: Merchant category codes explained: what an MCC is, who assigns it, how it affects interchange, approvals, risk rules and rewards, and how to fix a wrong code.
+cat: Merchant acquiring
+mins: 5
+summary: Your merchant category code tells every bank what kind of business you are. Here is how MCCs are assigned and how they affect fees, approvals and risk.
+lede: A merchant category code (MCC) is a four-digit number that tells the card schemes and issuing banks what type of business you run. It is set when your merchant account is opened and travels with every transaction. It can change your fees, your approval rate and whether some customers can pay you at all.
+-->
+      <h2>What a merchant category code is</h2>
+      <p>A merchant category code is a four-digit number assigned to every merchant account that accepts cards. The codes follow the ISO 18245 standard, and Visa and Mastercard each publish their own lists that broadly align with it. Some well-known examples:</p>
+      <ul>
+        <li><strong>5411</strong> Grocery stores and supermarkets</li>
+        <li><strong>5812</strong> Restaurants</li>
+        <li><strong>5814</strong> Fast food restaurants</li>
+        <li><strong>4111</strong> Local and suburban commuter transport</li>
+        <li><strong>5967</strong> Direct marketing, inbound telemarketing</li>
+        <li><strong>7995</strong> Betting, including lottery tickets and casino gaming chips</li>
+        <li><strong>6051</strong> Non-financial institutions, including foreign currency, money orders and some crypto purchases</li>
+      </ul>
+      <p>The code travels in the authorisation message for every transaction, so the issuer knows the type of merchant before deciding whether to approve the payment.</p>
+
+      <h2>Who assigns your MCC</h2>
+      <p>Your acquirer assigns the code at onboarding, based on how you describe your business and what its underwriters see on your website and documents. If you sell through a payment facilitator, the payfac assigns it for your sub-merchant account. Our guide to <a href="payfac-vs-iso.html">PayFacs and ISOs</a> explains that model.</p>
+      <p>The code should describe your main line of business. If you run two very different businesses, such as a shop and a travel agency, you may need two merchant accounts with separate codes.</p>
+
+      <h2>How your MCC affects fees and interchange</h2>
+      <p>In some markets, interchange tables include category-specific rates. In the US, for example, schemes publish lower rates for some categories such as supermarkets, utilities or charities. In the UK and EEA, consumer interchange is capped regardless of category, so the effect there is smaller. Our guide to <a href="interchange-fees-explained.html">interchange fees</a> explains how rates are set.</p>
+      <p>Acquirers also price by category. A code associated with high dispute rates will usually carry a higher markup, a reserve or both.</p>
+
+      <h2>Approval rates</h2>
+      <p>Issuers use the MCC in their fraud models. A payment at a category with high fraud may face stricter checks. Some issuers also block whole categories by policy, for example gambling codes on certain debit cards, and many UK banks let customers block gambling transactions themselves. A wrong code can trigger these blocks on a business that should not be affected. See <a href="payment-approval-rate.html">how to raise your approval rate</a> for other causes of declines.</p>
+
+      <h2>Risk and monitoring</h2>
+      <p>The schemes treat some codes as <strong>high-risk</strong>, and acquirers must register merchants in them with the scheme and monitor them more closely. Examples include betting (7995), dating and escort services (7273), direct marketing categories such as 5966 and 5967, and some financial services codes. Exact lists and requirements differ between Visa and Mastercard and change over time. Being in one of these categories is not a problem in itself, but it affects pricing, reserves and the number of acquirers willing to board you. Our <a href="high-risk-merchant-account.html">high-risk merchant account</a> guide covers what to expect.</p>
+
+      <h2>Customer rewards and corporate card rules</h2>
+      <p>Card issuers use MCCs to decide rewards, such as extra points on travel or dining. Corporate card programmes often restrict employees to specific categories. A code that does not match your business can stop a business customer's card from working or deny a consumer the rewards they expect, which leads to complaints and sometimes disputes.</p>
+
+      <h2>The risks of a wrong or misleading MCC</h2>
+      <p>Using a code that hides what you sell is called miscoding. Schemes treat deliberate miscoding as a serious breach, particularly when it disguises a high-risk activity such as gambling as something lower risk. The consequences can include scheme fines for the acquirer, termination of the merchant account and, for the worst cases, a listing on the Mastercard MATCH list. See <a href="merchant-account-terminated-match-list.html">why merchant accounts get terminated</a> for how that works.</p>
+      <p>Honest miscoding also happens. Your business may have changed since onboarding, or the acquirer chose a generic code. Either way, it is worth checking.</p>
+
+      <h2>A worked example</h2>
+      <p>A UK company sells online courses and launched with a generic code for miscellaneous business services. Corporate customers report that their company cards are declined, because their programmes only allow education and training categories. The company asks its acquirer to review the code, explains its business with evidence, and the acquirer moves it to an education code. Corporate card declines drop, and the change is properly recorded with the scheme.</p>
+
+      <h2>How to check and fix your MCC</h2>
+      <ol>
+        <li><strong>Find your code.</strong> It often appears in your acquirer dashboard or merchant agreement. If not, ask your account manager.</li>
+        <li><strong>Compare it to what you sell.</strong> Look up the code's description in the scheme lists your acquirer can share.</li>
+        <li><strong>Request a change in writing</strong> if it is wrong, with a short description of your business and evidence such as your website and product range.</li>
+        <li><strong>Tell your acquirer before you change your model.</strong> Adding a new product line in a different category may need a new code or a new account.</li>
+        <li><strong>Watch your data after the change.</strong> Compare approvals, fees and disputes before and after.</li>
+      </ol>
+      <p>SMUVPAY helps merchants with acquiring set-up, including category and risk review, through its <a href="../index.html#industries">industry coverage</a>. Category rules and high-risk lists vary by scheme and region, so confirm the current position with your acquirer.</p>

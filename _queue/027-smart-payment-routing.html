@@ -1,0 +1,52 @@
+<!--
+slug: smart-payment-routing
+title: Smart payment routing: rules that raise approvals and cut costs
+h1: Smart payment routing:<br><em>rules that raise approvals and cut costs.</em>
+desc: Smart payment routing explained: rules that send each card payment to the right acquirer, when to retry a decline, and how to test rules without losing sales.
+cat: Payment infrastructure
+mins: 5
+summary: The routing rules that send each payment to the acquirer most likely to approve it at the lowest cost, plus safe retry logic and how to test changes.
+lede: Smart payment routing is the logic that decides which acquirer or processor handles each payment, based on things like the card's country, card type, amount and recent performance. Done well, it raises approval rates and lowers fees at the same time. Done badly, it adds complexity, triggers scheme retry fees and makes problems harder to trace.
+-->
+      <h2>What you need before smart payment routing works</h2>
+      <p>Routing needs at least two acquirers or processors and a layer that can choose between them. That layer can be your own code, or a <a href="payment-orchestrator.html">payment orchestrator</a>, which covers why and when to add one. This post is about the rules themselves, once you have more than one route.</p>
+      <p>You also need data. For each route, track approval rate, cost per transaction and response time, split by card country, card brand, debit or credit, and amount band. A rule built on a total approval rate across all traffic will send the wrong payments to the wrong place.</p>
+
+      <h2>Rules that raise approvals</h2>
+      <ol>
+        <li><strong>Route by issuing country to a local acquirer.</strong> Issuers tend to approve domestic transactions more readily than cross-border ones, and domestic transactions usually carry lower scheme fees and, in some regions, lower interchange. A German card processed by an acquirer in the EU, or a UK card processed by a UK acquirer, is the most common win.</li>
+        <li><strong>Route by card type.</strong> Some acquirers perform better on commercial cards, prepaid cards or particular brands. Let the data choose.</li>
+        <li><strong>Route by performance, with limits.</strong> Shift a share of traffic towards whichever route has the best recent approval rate for that segment, but keep a minimum share on each so you keep measuring the others.</li>
+        <li><strong>Fail over on errors.</strong> If an acquirer times out or returns a technical error, send the payment to the next route straight away. The issuer never saw it, so this is not a retry in the scheme sense.</li>
+        <li><strong>Use the right authentication.</strong> Apply 3-D Secure where it is required or where risk is high, and request exemptions where they apply. Our guide to <a href="3d-secure-sca.html">3-D Secure and SCA</a> covers how to do this without losing sales.</li>
+      </ol>
+
+      <h2>Rules that cut costs</h2>
+      <ul>
+        <li><strong>Send low-risk domestic traffic to the cheapest route.</strong> If two acquirers approve UK debit at the same rate, the cheaper one should take it.</li>
+        <li><strong>Watch pricing models.</strong> An acquirer on interchange-plus pricing may be cheaper for debit and consumer cards, while a blended rate may be cheaper for premium and commercial cards. Our guide to <a href="interchange-fees-explained.html">interchange fees</a> explains why costs vary by card.</li>
+        <li><strong>Choose the network on co-badged cards.</strong> In the EU, where a card carries two brands, such as a domestic scheme and Visa or Mastercard, merchants can choose which to process on, although the cardholder can override that choice. The cheaper network is often the domestic one.</li>
+        <li><strong>Respect volume commitments.</strong> If a contract gives you a lower rate above a monthly volume, routing should make sure you reach it.</li>
+      </ul>
+
+      <h2>Retrying declines safely</h2>
+      <p>A declined payment can sometimes be approved on a second attempt, either on another route or later. But card schemes watch for repeated attempts on the same card. Visa and Mastercard both limit how many times a declined transaction can be retried and charge acquirers fees for excessive retries, which are passed on to merchants. The exact limits change, so ask your acquirer for the current rules.</p>
+      <ul>
+        <li><strong>Never retry hard declines:</strong> lost or stolen card, closed account, invalid card number, or a "do not try again" response.</li>
+        <li><strong>Retry soft declines selectively:</strong> insufficient funds, issuer unavailable, or "do not honour". For subscriptions, a retry a few days later, often timed around common paydays, usually works better than an instant one.</li>
+        <li><strong>Read the retry signals.</strong> Mastercard sends merchant advice codes, and Visa groups decline codes into categories, which tell you whether a retry is allowed, should wait, or should stop. Your provider should pass these through.</li>
+        <li><strong>Count every attempt.</strong> Retries on a second acquirer still count against the same card.</li>
+      </ul>
+
+      <h2>A worked example</h2>
+      <p>A merchant attempts £2 million of card payments a month, 40% on UK cards and 60% on EU cards, all through a UK acquirer. EU cards approve at 86%, UK cards at 93%. The merchant adds an EU acquirer and routes EU cards to it. If EU approvals rise to 90%, that is four extra approved payments in every hundred EU attempts. On £1.2 million of monthly EU attempts, four percentage points is about £48,000 a month of extra approved sales. These figures are illustrative; actual uplift depends on issuers, product and fraud levels, which is why you test.</p>
+
+      <h2>How to test routing changes</h2>
+      <ol>
+        <li>Change one rule at a time, for one segment.</li>
+        <li>Split traffic, for example 80% on the current route and 20% on the new one, for long enough to see a few thousand payments per side.</li>
+        <li>Compare approval rate, fraud rate, chargebacks and total cost, not approvals alone. More approvals with more fraud is not a win.</li>
+        <li>Keep a log of every rule change with a date, so a later drop in approvals can be traced.</li>
+        <li>Review rules monthly. Acquirer performance changes, and a rule that was right in spring can be wrong by autumn.</li>
+      </ol>
+      <p>Routing is one lever among several. Our guide to <a href="payment-approval-rate.html">raising your approval rate</a> covers the others, from checkout data to <a href="network-tokenisation.html">network tokens</a>. SMUVPAY designs routing across multiple acquirers and <a href="../index.html#rails">payment rails</a>, with the reporting needed to see which rules are paying for themselves.</p>

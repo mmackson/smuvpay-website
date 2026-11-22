@@ -1,0 +1,55 @@
+<!--
+slug: accept-stablecoin-payments
+title: How businesses accept stablecoin payments: setup, costs and controls
+h1: How businesses accept<br><em>stablecoin payments.</em>
+desc: How to accept stablecoin payments as a business: wallet vs processor, networks, confirmations, refunds, compliance checks and converting USDT or USDC to fiat.
+cat: Treasury & digital assets
+mins: 5
+summary: The practical steps to accept stablecoin payments from customers: choosing a set-up, handling networks and confirmations, screening wallets and converting to fiat.
+lede: To accept stablecoin payments, a business gives the customer a wallet address on a supported network, waits for the transfer to confirm on-chain, then either holds the stablecoins or converts them to fiat. The work is in the details around that: which coins and networks, who holds the keys, how refunds and underpayments are handled, and which compliance checks run on each payment.
+-->
+      <h2>Three ways to accept stablecoin payments</h2>
+      <p>Most businesses pick one of three set-ups. The choice decides how much you build, who holds the funds, and who carries the compliance load.</p>
+      <ul>
+        <li><strong>Your own wallet.</strong> You publish an address and customers send funds to it. It is cheap and simple, but you handle key security, matching payments to orders, screening and conversion yourself. This suits low volumes or B2B invoices with known counterparties.</li>
+        <li><strong>A crypto payment processor.</strong> The processor generates a unique address or payment link per order, watches the chain, tells your system when the payment is confirmed and can convert to fiat automatically. You pay a processing fee, often in the region of 0.5% to 1.5%, though pricing varies widely by provider and volume.</li>
+        <li><strong>A payments partner with stablecoin rails.</strong> Stablecoin collection sits next to cards, bank transfers and payouts in one account, with settlement to your bank in EUR, GBP or USD. This suits businesses that want stablecoins as one more payment method rather than a separate operation.</li>
+      </ul>
+      <p>Whichever route you choose, the processor or partner is usually a regulated or registered crypto service provider in its home market. Check that before you sign, because their status affects whether your bank will accept the incoming fiat settlements.</p>
+
+      <h2>Choose the coins and networks first</h2>
+      <p>The two stablecoins most customers hold are USDT and USDC. Both run on several blockchains, and a token on one network cannot be received at an address on another without a bridge or conversion. If a customer sends USDT on Tron to an address you only monitor on Ethereum, the funds may be hard or impossible to recover.</p>
+      <p>Keep the list short. Two coins on two or three networks covers most customers. Name the network clearly at checkout and on invoices, and reject unsupported options in the payment flow rather than in the small print. Network fees range from fractions of a cent to several dollars per transfer depending on the chain and how busy it is, and the sender usually pays them. Our comparison of <a href="stablecoins-treasury.html">stablecoins in treasury</a> covers issuer and reserve risk, which also matters when choosing what to accept.</p>
+
+      <h2>Confirmations, underpayments and refunds</h2>
+      <p>Card payments come with chargeback rules. Stablecoin payments do not, so you write your own rules and publish them.</p>
+      <ol>
+        <li><strong>Confirmation policy.</strong> Decide how many block confirmations you wait for before you treat a payment as final. Processors set this per network. Faster chains confirm in seconds; others take minutes.</li>
+        <li><strong>Price lock window.</strong> If you price in EUR or GBP, lock the stablecoin amount for a fixed window, typically 10 to 30 minutes, and requote after it expires.</li>
+        <li><strong>Underpayments and overpayments.</strong> Customers often send slightly less because of exchange withdrawal fees. Set a tolerance, for example accept anything within 1%, and a process for the rest: request a top-up, refund, or credit the account.</li>
+        <li><strong>Refunds.</strong> On-chain transfers cannot be reversed. Refunds are new outgoing payments, so verify the refund address with the customer, ideally through their logged-in account, and refund to the original sender only where you can confirm it is theirs.</li>
+      </ol>
+
+      <h2>Compliance checks on every payment</h2>
+      <p>Accepting digital assets brings anti-money-laundering obligations, either directly or through your provider. A sensible baseline:</p>
+      <ul>
+        <li><strong>Wallet screening.</strong> Run each incoming address through blockchain analytics to flag links to sanctioned entities, mixers, darknet markets or stolen funds. Decide in advance what score triggers a hold.</li>
+        <li><strong>Customer due diligence.</strong> For B2B payments, the same KYB checks you run for bank-paid customers still apply. For consumer payments, thresholds for identity checks depend on your jurisdiction and business model.</li>
+        <li><strong>Travel rule data.</strong> When a payment comes from a regulated exchange, that exchange may need to send originator details to the receiving service provider. Thresholds and data fields vary by country, and in the EU there is no minimum amount for transfers between crypto service providers.</li>
+        <li><strong>Record keeping.</strong> Store the transaction hash, network, amount, exchange rate used, order reference and screening result for every payment.</li>
+      </ul>
+
+      <h2>Converting to fiat and keeping the books</h2>
+      <p>Most businesses do not want price or issuer exposure, so they convert to fiat daily or on each payment. Your effective cost is the processing fee plus the conversion spread plus any bank withdrawal fee. For a merchant taking €200,000 a month, a 1% processing fee and a 0.3% conversion spread cost about €2,600 a month. For larger balances, a quote from an <a href="otc-desk-stablecoins.html">OTC desk</a> often beats an automatic conversion at a retail rate.</p>
+      <p>For accounting, record revenue at the fiat value when the payment is received. If you hold stablecoins and convert later, many tax authorities treat the conversion as a disposal, and any difference can create a gain or loss even on a dollar-pegged token. Agree the treatment with your accountant before launch, not at year end.</p>
+
+      <h2>Launch checklist</h2>
+      <ol>
+        <li>Which coins and networks will you accept, and are they named at checkout?</li>
+        <li>Who holds the keys, and what happens if a key or provider fails?</li>
+        <li>What is your confirmation, price-lock, tolerance and refund policy?</li>
+        <li>How are wallets screened, and who reviews flagged payments?</li>
+        <li>When and how do you convert to fiat, and does your bank accept the settlements?</li>
+        <li>Does your provider hold the right registration or licence for your markets? Our <a href="../regulatory.html">regulatory overview</a> explains what to look for.</li>
+      </ol>
+      <p>SMUVPAY runs stablecoin collection alongside cards, bank rails and payouts, with conversion to fiat through the same account. Rules on accepting and holding cryptoassets differ by country, so take local legal and tax advice before you go live.</p>

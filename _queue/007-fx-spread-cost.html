@@ -1,0 +1,66 @@
+<!--
+slug: fx-spread-cost
+title: FX spreads: how to calculate the real cost of currency conversion
+h1: FX spreads:<br><em>the real cost of currency conversion.</em>
+desc: How to calculate the FX spread on a currency conversion, compare it to the mid-market rate, and find the true all-in cost of business FX payments.
+cat: Cross-border payments
+mins: 4
+summary: The FX spread is the gap between the rate you get and the mid-market rate. How to calculate it in percentage and cash terms, where it hides, and how to bring it down.
+lede: The FX spread is the difference between the exchange rate you are given and the mid-market rate at that moment. To find the real cost of a currency conversion, compare the amount you received with what the mid-market rate would have given you, then add any fees on top.
+-->
+      <h2>What an FX spread is</h2>
+      <p>Every currency pair has a <strong>mid-market rate</strong>: the midpoint between the price at which large banks are buying and the price at which they are selling. It is the rate you see on financial news sites and data terminals. Businesses do not trade at mid. A bank or FX provider quotes you a rate slightly worse than mid and keeps the difference. That difference is the spread, sometimes called the markup.</p>
+      <p>Because the spread is built into the rate, it rarely appears on an invoice. A provider can advertise "no fees" and still charge 2% or more through the rate. That is why the transfer fee is usually the smaller part of what a cross-border payment costs.</p>
+
+      <h2>How to calculate the real cost of currency conversion</h2>
+      <p>You need three numbers: the rate you were given, the mid-market rate at the time of the trade, and any explicit fees.</p>
+      <ol>
+        <li><strong>Spread in percent</strong> = (mid-market rate − your rate) ÷ mid-market rate × 100.</li>
+        <li><strong>Spread in cash</strong> = amount converted × spread percent.</li>
+        <li><strong>All-in cost</strong> = spread in cash + transfer fee + any receiving or intermediary fees.</li>
+      </ol>
+      <p>Worked example: you convert £100,000 to euros. Mid-market is 1.1500, so at mid you would receive €115,000. Your bank gives you 1.1270 and charges a £25 payment fee. You receive €112,700.</p>
+      <ul>
+        <li>Spread: (1.1500 − 1.1270) ÷ 1.1500 = <strong>2.0%</strong></li>
+        <li>Spread in cash: €2,300, about £2,000</li>
+        <li>All-in cost: roughly <strong>£2,025</strong> on a £100,000 payment</li>
+      </ul>
+      <p>The same trade at a 0.4% spread would cost about £400 plus the fee. On £1 million of conversions a year, the gap between the two is around £16,000.</p>
+
+      <h2>Typical spread ranges</h2>
+      <p>Spreads depend on the provider, the currency pair, the amount and the time of day, so treat these as rough guides rather than fixed prices:</p>
+      <ul>
+        <li><strong>High-street bank business accounts:</strong> often 1.5% to 3% or more on major pairs, especially on small amounts.</li>
+        <li><strong>Specialist FX and payment providers:</strong> commonly 0.3% to 1% on major pairs, lower as volumes grow.</li>
+        <li><strong>Large corporate and institutional flows:</strong> can be a few hundredths of a percent on liquid pairs such as EUR/USD and GBP/USD.</li>
+        <li><strong>Exotic or illiquid currencies:</strong> wider for everyone, sometimes several percent, because the provider takes more risk and pays more to source the currency.</li>
+      </ul>
+
+      <h2>Where the spread hides</h2>
+      <ul>
+        <li><strong>Card payments in a foreign currency:</strong> the card scheme sets the base rate, and your card issuer may add a foreign transaction fee, often around 2% to 3%. If a customer accepts dynamic currency conversion at checkout, a further markup is applied.</li>
+        <li><strong>Automatic conversion on receipt:</strong> if your bank receives US dollars into a sterling account, it converts them at its own rate without asking you.</li>
+        <li><strong>Payout platforms:</strong> marketplaces and payroll tools often convert as part of the payout, with the markup inside the quoted rate.</li>
+        <li><strong>Correspondent chains:</strong> on a <a href="swift-vs-sepa-vs-faster-payments.html">SWIFT payment</a>, an intermediary bank may convert the funds on the way if the currency does not match the receiving account.</li>
+        <li><strong>Weekend rates:</strong> many providers widen spreads when markets close on Friday evening, to protect against prices moving before they reopen.</li>
+      </ul>
+
+      <h2>How to compare FX providers fairly</h2>
+      <ol>
+        <li>Ask for a quote on the same amount, pair and value date from each provider at the same moment.</li>
+        <li>Record the mid-market rate at that time from a neutral data source.</li>
+        <li>Work out each provider's spread in basis points (one basis point is 0.01%).</li>
+        <li>Add fixed fees, including receiving and intermediary fees, and compare the all-in cost on your usual payment size.</li>
+        <li>Repeat at different times. Some providers are sharp on the first trade and wider afterwards.</li>
+      </ol>
+
+      <h2>Ways to reduce FX cost</h2>
+      <ul>
+        <li><strong>Hold currency balances.</strong> If you earn and spend in euros, keep a euro account and convert only the net amount you need.</li>
+        <li><strong>Convert in fewer, larger trades.</strong> Spreads usually narrow as size increases.</li>
+        <li><strong>Pay out locally.</strong> Converting first and paying on a domestic rail avoids hidden conversions in the correspondent chain.</li>
+        <li><strong>Negotiate a fixed margin over mid.</strong> Once your volumes are known, ask for pricing written as a set number of basis points over a named reference rate.</li>
+        <li><strong>Plan ahead.</strong> A forward contract fixes a rate for a future date. It controls rate risk rather than the spread, but it stops rushed conversions at poor rates.</li>
+      </ul>
+      <p>For very large conversions, including between fiat currencies and stablecoins, an <a href="otc-desk-stablecoins.html">OTC desk</a> quotes one price for the full amount. SMUVPAY's <a href="../index.html#otc">OTC desk</a> quotes against a reference rate, so the spread is visible before you trade.</p>
+      <p>FX rules and hedging products vary by jurisdiction, so take local financial advice before putting a hedging programme in place.</p>

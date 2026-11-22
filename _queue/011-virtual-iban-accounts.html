@@ -1,0 +1,65 @@
+<!--
+slug: virtual-iban-accounts
+title: Virtual IBANs and virtual accounts explained
+h1: Virtual IBANs and virtual accounts:<br><em>what they are and how they work.</em>
+desc: Virtual IBANs explained: how virtual accounts route payments to one master account, why they make reconciliation easier, and the compliance points to check.
+cat: Cross-border payments
+mins: 5
+summary: A virtual IBAN looks like a normal account number but routes funds into a master account. How virtual accounts work, where they help, and what to check before you use them.
+lede: A virtual IBAN is an account number that receives payments like a normal IBAN but has no separate balance of its own. Every payment sent to it lands in one underlying master account, tagged with the virtual number, so you know exactly who paid without matching references by hand.
+-->
+      <h2>What a virtual IBAN is</h2>
+      <p>An IBAN (International Bank Account Number) identifies a bank account across borders. It starts with a two-letter country code and two check digits, followed by a national bank code and account number. A UK IBAN is 22 characters, a German one is 22, a French one is 27.</p>
+      <p>A <strong>virtual IBAN</strong> follows exactly the same format and passes the same checks, so a payer's bank treats it like any other account. The difference is behind the scenes. The bank or payment provider that issued it maps the virtual number to a real <strong>master account</strong>. When money arrives, it is credited to the master account and recorded against the virtual IBAN it was sent to.</p>
+      <p>The same idea exists outside IBAN countries. In the UK, providers issue virtual sort code and account number pairs. In the US, they issue virtual account and routing numbers for ACH and wire payments. The term <strong>virtual account</strong> covers all of these.</p>
+
+      <h2>How virtual accounts work in practice</h2>
+      <ol>
+        <li>You open a master account with a bank, EMI or payment institution that supports virtual accounts.</li>
+        <li>You create virtual numbers through a dashboard or API, one per customer, supplier, entity, currency or purpose.</li>
+        <li>You share each number with the relevant payer, for example on an invoice.</li>
+        <li>Payments arrive over the normal rails, such as <a href="swift-vs-sepa-vs-faster-payments.html">SEPA, Faster Payments or SWIFT</a>.</li>
+        <li>The provider credits the master account and tells you which virtual number received the funds, usually by webhook or a statement field.</li>
+      </ol>
+      <p>Funds sit in one place for liquidity and payouts, while the virtual numbers give you a clean ledger of who paid what.</p>
+
+      <h2>Where virtual IBANs help</h2>
+      <ul>
+        <li><strong>Reconciliation.</strong> Customers often get payment references wrong or leave them out. If each customer has their own virtual IBAN, the account number itself identifies the payer, so matching becomes automatic.</li>
+        <li><strong>Collecting in local currencies.</strong> A business can offer a euro IBAN to European customers, a sterling account to UK customers and a US account for dollars, without opening a local bank account in each country.</li>
+        <li><strong>Marketplaces and platforms.</strong> Each seller or user gets a dedicated number for incoming funds, while the platform controls one pool for payouts and fees.</li>
+        <li><strong>Group treasury.</strong> Subsidiaries can each have their own virtual account for collections, feeding one master account that treasury manages centrally.</li>
+        <li><strong>Payment service providers.</strong> PSPs and EMIs use virtual IBANs to give each client an account identifier without running a separate bank account for each.</li>
+      </ul>
+
+      <h2>Worked example</h2>
+      <p>A software company invoices 400 European customers each month. With one shared IBAN, finance has to match 400 incoming transfers on amount and reference. If 10% of customers paste the wrong reference, that is around 40 payments to investigate by hand every month. With one virtual IBAN per customer, each payment arrives already tagged to the customer, and the exceptions shrink to partial payments and overpayments.</p>
+
+      <h2>Virtual IBAN vs a real account</h2>
+      <ul>
+        <li><strong>Balance:</strong> a virtual IBAN has no balance of its own. The legal account holder is whoever owns the master account.</li>
+        <li><strong>Outgoing payments:</strong> many virtual IBANs only receive funds. Some providers let you send payments that show the virtual IBAN as the sender, but not all do.</li>
+        <li><strong>Country code:</strong> the IBAN prefix reflects where the issuing institution or its partner bank is located, which may not be where your business is based.</li>
+        <li><strong>Deposit protection:</strong> funds held with an EMI or payment institution are usually not covered by deposit guarantee schemes. They are protected instead by <strong>safeguarding</strong> rules, which require the provider to keep client funds separate from its own.</li>
+      </ul>
+
+      <h2>Compliance points to check</h2>
+      <p>Regulators watch virtual IBANs closely because they can make it harder to see who really holds the money. If a provider issues virtual IBANs to clients who then pass them to their own customers, the bank at the top of the chain may have limited sight of the end user. Expect your provider to ask:</p>
+      <ul>
+        <li>Who the virtual numbers are for, and whether you will issue them onward to third parties.</li>
+        <li>Expected volumes, currencies and countries of payers.</li>
+        <li>How you screen incoming payments and who is responsible for monitoring.</li>
+      </ul>
+      <p>If you plan to offer virtual IBANs to your own clients, check whether that activity needs a licence or must sit under a licensed partner. Our guide to <a href="msb-emi-payment-institution-licence.html">EMI and payment institution licences</a> covers the permissions involved.</p>
+      <p>Within SEPA, a payer should not refuse to pay an IBAN just because it carries another member state's country code. This "IBAN discrimination" is prohibited under EU rules, but it still happens in practice with some payroll systems, utilities and government bodies. If your customers are in a market where this is common, a local-country IBAN avoids the friction.</p>
+
+      <h2>Choosing a provider</h2>
+      <ol>
+        <li>Which currencies and countries can it issue numbers in, and are they genuine local accounts or SWIFT-only?</li>
+        <li>Can you create numbers instantly by API, and is there a limit?</li>
+        <li>How quickly does it notify you of incoming funds, and with what data?</li>
+        <li>Who is the underlying bank, and how are client funds safeguarded?</li>
+        <li>What does it charge per virtual number, per payment received and for FX? Check the <a href="fx-spread-cost.html">FX spread</a> as well as the fees.</li>
+      </ol>
+      <p>SMUVPAY arranges multi-currency accounts and virtual IBANs through licensed partners, matched to your currencies and payer markets. See our <a href="../index.html#capabilities">capabilities</a> for the full range.</p>
+      <p>Rules on issuing and using virtual accounts differ by country, so take local legal advice before building them into a client-facing product.</p>

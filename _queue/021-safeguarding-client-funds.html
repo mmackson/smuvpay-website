@@ -1,0 +1,63 @@
+<!--
+slug: safeguarding-client-funds
+title: Safeguarding client funds: rules for EMIs and payment institutions
+h1: Safeguarding client funds:<br><em>rules for EMIs and payment institutions.</em>
+desc: Safeguarding client funds explained for EMIs and payment institutions: segregation, insurance, reconciliation, the UK's 2026 rule changes and common failures.
+cat: Compliance
+mins: 5
+summary: What safeguarding means for e-money and payment firms, the methods allowed, the daily controls regulators expect, and what changed in the UK in 2026.
+lede: Safeguarding is the rule that e-money institutions and payment institutions must protect the money customers give them, so it can be returned if the firm fails. It does not mean deposit insurance. It means keeping customer funds apart from the firm's own money, or covering them with insurance or a guarantee, and proving that every day.
+-->
+      <h2>Why safeguarding client funds matters</h2>
+      <p>Electronic money institutions (EMIs) and payment institutions (PIs) are not banks. They cannot lend out customer money, and customers are not covered by deposit guarantee schemes such as the UK's FSCS. Safeguarding is the protection instead. If the firm becomes insolvent, safeguarded funds are held for customers and paid out ahead of the firm's other creditors, after the costs of distributing them.</p>
+      <p>When safeguarding fails, customers wait months or years and may get back less than they are owed. That is why regulators have made safeguarding a supervisory priority, and why banks, card schemes and partners ask detailed questions about it during due diligence.</p>
+
+      <h2>Which funds must be safeguarded</h2>
+      <p>The regulations call them <strong>relevant funds</strong>. For an EMI, that is money received in exchange for e-money, so customer balances in wallets and accounts. For a PI, it is money received from or for a customer to execute a payment, while the firm holds it. Under UK and EU rules, payment funds still held at the end of the business day after receipt must be protected. Firms commonly safeguard from the moment of receipt to keep things simple.</p>
+      <p>Small payment institutions in the UK do not have to safeguard but may choose to. Firms that provide only payment initiation or account information services never hold client money, so the rules do not apply to them. Our guide to <a href="msb-emi-payment-institution-licence.html">EMI and payment institution licences</a> explains the categories.</p>
+
+      <h2>The two safeguarding methods</h2>
+      <ul>
+        <li><strong>Segregation.</strong> Keep relevant funds separate from the firm's own money and place them in a designated safeguarding account at an authorised bank or the central bank, or invest them in secure, liquid, low-risk assets approved by the regulator. The account name must show it holds customer funds, and the bank should confirm in writing that it has no right of set-off against the money. This is the method most firms use.</li>
+        <li><strong>Insurance or guarantee.</strong> Cover relevant funds with an insurance policy or a comparable guarantee from an insurer or bank outside the firm's group, paying out if the firm fails. It frees up cash but costs a premium and can be hard to obtain at scale.</li>
+      </ul>
+      <p>Many firms use more than one safeguarding bank so that the failure or de-risking of one bank does not freeze all customer money. Banks do exit the payments sector at short notice, and finding a replacement safeguarding account can take months.</p>
+
+      <h2>Reconciliation: the daily control</h2>
+      <p>Safeguarding is proven through reconciliation. Every business day the firm compares two numbers:</p>
+      <ol>
+        <li><strong>Internal:</strong> what the firm's ledger says it owes customers, the safeguarding requirement.</li>
+        <li><strong>External:</strong> what is actually held in safeguarding accounts and assets, the safeguarding resource.</li>
+      </ol>
+      <p>Any shortfall must be topped up from the firm's own money, usually the same day. Any excess belonging to the firm should be withdrawn, so firm and client funds never mix. Breaks must be investigated and documented. Worked example: on Monday the ledger shows £4.20 million owed to customers and the safeguarding account holds £4.05 million because a card settlement has not yet arrived. The firm transfers £150,000 of its own funds into safeguarding and investigates, then withdraws the surplus once the settlement lands. Settlement timing like this is one reason clean <a href="payment-webhooks.html">payment confirmations</a> and ledger events matter to compliance as well as engineering.</p>
+
+      <h2>What changed in the UK in 2026</h2>
+      <p>The FCA's new safeguarding rules, set out in policy statement PS25/12, came into force on <strong>7 May 2026</strong>. They apply to authorised PIs, EMIs and small EMIs, and include:</p>
+      <ul>
+        <li>Detailed internal and external reconciliation requirements, with records the firm must keep</li>
+        <li>A monthly safeguarding return to the FCA</li>
+        <li>A <strong>resolution pack</strong>: documents that let an insolvency practitioner find and return customer funds quickly</li>
+        <li>Responsibility for safeguarding allocated to a director or senior manager</li>
+        <li>An annual safeguarding audit by a qualified auditor for firms that must have their accounts audited</li>
+      </ul>
+      <p>The FCA has said it plans a further stage that replaces the current regulations with a client-asset style regime once the legislation changes. In the EU, safeguarding rules sit in the payment services and e-money directives, applied by each national regulator, and are being revised as part of the new payment services package.</p>
+
+      <h2>Common safeguarding failures</h2>
+      <ul>
+        <li>Customer money sitting in operating accounts overnight</li>
+        <li>Safeguarding accounts not correctly named, or no acknowledgement letter from the bank</li>
+        <li>Reconciliations done weekly, by hand, or not signed off</li>
+        <li>Fees taken out of safeguarded funds before they are earned</li>
+        <li>Funds held by agents or partners not included in the calculation</li>
+        <li>No plan for what happens if the safeguarding bank closes the account</li>
+      </ul>
+
+      <h2>Safeguarding checklist</h2>
+      <ol>
+        <li>Map every point where customer money enters, waits and leaves your flows.</li>
+        <li>Open designated safeguarding accounts, ideally at more than one bank, with acknowledgement letters.</li>
+        <li>Automate daily internal and external reconciliation and record every break.</li>
+        <li>Name the person accountable and report to the board monthly.</li>
+        <li>Keep the resolution pack current and test it.</li>
+      </ol>
+      <p>Firms that work through a licensed partner should ask how that partner safeguards their customers' money. The <a href="../regulatory.html">SMUVPAY regulatory overview</a> explains how we work with authorised institutions. Safeguarding rules differ by country and are changing, so take local legal advice on your own arrangements.</p>

@@ -1,0 +1,65 @@
+<!--
+slug: white-label-payment-gateway
+title: White-label payment gateway: build, buy or license?
+h1: White-label payment gateway:<br><em>build, buy or license.</em>
+desc: What a white-label payment gateway is, how it compares with building your own or reselling a provider, typical costs and contract terms, and how to choose.
+cat: Payment infrastructure
+mins: 4
+summary: How a white-label payment gateway compares with building your own or reselling an existing provider, and the contract terms that decide whether it works.
+lede: A white-label payment gateway is gateway software you license from a technology vendor and run under your own brand. Your merchants see your name, dashboard and API, while the vendor maintains the core code and certifications. It sits between reselling someone else's branded gateway and building your own from scratch.
+-->
+      <h2>What a white-label payment gateway includes</h2>
+      <p>The scope varies by vendor, but a typical white-label package includes:</p>
+      <ul>
+        <li>Hosted checkout and payment pages you can brand and style.</li>
+        <li>A merchant API and documentation under your domain.</li>
+        <li>A merchant dashboard for transactions, refunds, reports and users.</li>
+        <li>An admin back office for onboarding, pricing and risk settings.</li>
+        <li>A card vault and tokenisation, usually already PCI DSS certified.</li>
+        <li>3-D Secure, fraud rules and connectors to a list of acquirers and alternative payment methods.</li>
+      </ul>
+      <p>What it usually does not include: the acquiring relationship, your licences, your settlement bank accounts or your compliance team. A gateway moves payment data. Someone still has to move and hold the money, which is why the <a href="payment-gateway-vs-processor.html">gateway and processor are different layers</a>.</p>
+
+      <h2>The three options</h2>
+      <p><strong>Resell or refer.</strong> You sign merchants to an existing provider under its brand and earn a revenue share. It is fast and cheap, but you own little: no brand, little control of pricing, and the merchant relationship sits with the provider.</p>
+      <p><strong>License a white-label gateway.</strong> You run the vendor's platform under your brand and set your own pricing. Launch commonly takes weeks to a few months, depending on how many acquirers and payment methods you need connected and how long partner onboarding takes.</p>
+      <p><strong>Build.</strong> You write and own every component. You get full control and no licence fees, but it takes a dedicated team, ongoing certification and usually a year or more before the first version is ready. Our guide to <a href="build-your-own-payment-processor.html">building your own payment processor</a> sets out what that involves.</p>
+
+      <h2>Comparing the cost</h2>
+      <p>Pricing differs a lot between vendors, so treat these as the shapes to expect, not quotes:</p>
+      <ul>
+        <li><strong>Set-up fee:</strong> a one-off charge for configuration, branding and initial connectors.</li>
+        <li><strong>Monthly platform fee:</strong> often with a minimum, regardless of volume.</li>
+        <li><strong>Per-transaction fee:</strong> a small fixed amount or basis-point charge on each payment, usually falling in tiers as volume grows.</li>
+        <li><strong>Extras:</strong> new acquirer connectors, custom features, dedicated hosting and premium support are often priced separately.</li>
+      </ul>
+      <p>A simple comparison: suppose a vendor charges a £4,000 monthly minimum plus 2p per transaction, and you process 400,000 transactions a month. That is £4,000 plus £8,000, or £12,000 a month, £144,000 a year. An in-house team of four or five engineers, plus security, compliance and hosting, will usually cost several times that in the UK. Building starts to make sense when volume is high enough that per-transaction fees outgrow a team, or when the product needs things no vendor will build. Plug in your own numbers; the break-even point is different for every business.</p>
+
+      <h2>Contract terms that decide whether it works</h2>
+      <ol>
+        <li><strong>Token and data ownership.</strong> Can you export stored card tokens and transaction history if you leave? Without this, switching vendors means asking every customer to re-enter their card. Ask whether the vendor supports <a href="network-tokenisation.html">network tokens</a>, which can make migration easier.</li>
+        <li><strong>Acquirer choice.</strong> Can you connect any acquirer you sign with, or only the vendor's partners? A short list limits your routing and pricing.</li>
+        <li><strong>Uptime and support.</strong> Look for a written uptime commitment with service credits, round-the-clock incident support and a named contact.</li>
+        <li><strong>Certifications.</strong> The vendor should hold PCI DSS Level 1 as a service provider and share its attestation of compliance each year. See our <a href="pci-dss-compliance.html">PCI DSS guide</a>.</li>
+        <li><strong>Roadmap control.</strong> How are feature requests prioritised, and what does custom work cost?</li>
+        <li><strong>Exit terms.</strong> Notice period, data handover format and help during migration.</li>
+      </ol>
+
+      <h2>When white-label is the right call</h2>
+      <ul>
+        <li>You want your own brand and pricing in months, not years.</li>
+        <li>Your edge is distribution, industry knowledge or service, not gateway code.</li>
+        <li>Your volume does not yet justify an in-house payments engineering team.</li>
+        <li>You plan to become a payment facilitator or licensed institution and need a platform while that work runs.</li>
+      </ul>
+      <p>It is the wrong call if you need deep changes to core payment logic, or if per-transaction fees at your scale already exceed the cost of a team. In those cases, a hybrid often works: license the vault, 3-D Secure and fraud tools, and build the merchant-facing API and ledger yourself.</p>
+
+      <h2>Questions to ask in a demo</h2>
+      <ul>
+        <li>Which acquirers and payment methods are live today, not on the roadmap?</li>
+        <li>How do merchants get event notifications, and are <a href="payment-webhooks.html">webhooks</a> signed and retried?</li>
+        <li>How is merchant onboarding and <a href="kyb-merchant-onboarding.html">KYB</a> handled in the back office?</li>
+        <li>Can we run more than one acquirer and route between them?</li>
+        <li>How many other clients run on the same instance, and how is one client's load kept from slowing another's?</li>
+      </ul>
+      <p>SMUVPAY works with businesses that want their own payment brand, from licensed white-label stacks to fully <a href="../index.html#rails">independent rails</a>. Take local legal advice on whether your model needs its own payment licence.</p>

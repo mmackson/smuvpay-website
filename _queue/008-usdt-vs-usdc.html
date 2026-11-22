@@ -1,0 +1,49 @@
+<!--
+slug: usdt-vs-usdc
+title: USDT vs USDC for business payments: which stablecoin to use
+h1: USDT vs USDC<br><em>for business payments.</em>
+desc: USDT vs USDC for business payments: issuers, reserves, liquidity, networks, EU MiCA status and redemption, with a simple way to choose for each payment flow.
+cat: Treasury & digital assets
+mins: 5
+summary: A side-by-side look at USDT and USDC for businesses: who issues them, how they are backed, where each is liquid, how regulation treats them, and when to use which.
+lede: USDT and USDC are both dollar stablecoins, but they suit different business flows. USDT has the deepest liquidity in emerging markets and on exchanges, while USDC has the clearer regulatory position in the EU and US. Many businesses end up accepting both and choosing per counterparty.
+-->
+      <h2>USDT vs USDC: the short answer</h2>
+      <p>Choose <strong>USDC</strong> when you or your counterparty sit in the EU or work with regulated banks and institutions that want a token issued under an EU or US licence. Choose <strong>USDT</strong> when your counterparties are in markets such as Latin America, Africa, Turkey or parts of Asia, where it is the token people already hold and trade. For payments both hold a $1 value, so the decision is about issuer risk, regulation, liquidity and the networks your counterparties use.</p>
+
+      <h2>Who issues them</h2>
+      <ul>
+        <li><strong>USDT</strong> is issued by Tether. It is the largest stablecoin by circulation and the most traded on crypto exchanges. Tether moved its headquarters to El Salvador in 2025 and publishes quarterly reserve attestations prepared by an accounting firm.</li>
+        <li><strong>USDC</strong> is issued by Circle. It is the second largest stablecoin. Circle publishes monthly reserve attestations, and most USDC reserves sit in a registered money market fund holding short-dated US Treasuries and repo, with the rest in cash at banks. In the EU, USDC is issued by Circle's French entity, which is authorised as an electronic money institution.</li>
+      </ul>
+      <p>Neither attestation is a full audit. An attestation confirms the reserves on a given date; it does not review controls over the whole period. Read the latest reports yourself before you hold large balances in either token.</p>
+
+      <h2>How the reserves differ</h2>
+      <p>Tether reports that most of its reserves are in US Treasury bills and similar instruments, plus other assets including gold, bitcoin and secured loans. Those extra assets have produced large reported surpluses, but they also carry more price risk than cash and Treasuries. Circle's reserves are narrower, limited to cash and short-term US government exposure.</p>
+      <p>For a business holding stablecoins for a few minutes or hours between collection and conversion, this matters less than it sounds. For a treasury holding millions for weeks, it matters more. Our guide to <a href="stablecoins-treasury.html">stablecoins in treasury</a> covers how to size that exposure.</p>
+
+      <h2>Regulation: MiCA and the US</h2>
+      <p>Under the EU's Markets in Crypto-Assets Regulation (MiCA), a dollar stablecoin offered to the public in the EU must be an e-money token issued by an authorised EU bank or e-money institution. USDC meets this through Circle's French authorisation. USDT does not hold that authorisation, and from late 2024 into 2025 several large exchanges restricted or removed USDT trading for EEA users to comply with MiCA.</p>
+      <p>That does not make USDT illegal to hold in the EU, and how far the restrictions reach depends on the service and on national regulators. In practice, an EU business will find USDC easier to buy, sell and bank through EU crypto service providers. In the US, the GENIUS Act of July 2025 created a federal framework for payment stablecoin issuers, with detailed rules still being phased in. Other jurisdictions, including the UK, are still finalising their stablecoin regimes, so check the current position where you operate.</p>
+
+      <h2>Liquidity and networks</h2>
+      <p>Both tokens run on several blockchains. USDT is dominant on Tron, which many emerging-market users and exchanges favour for low transfer fees. USDC is widest on Ethereum, Solana and the main Ethereum layer-2 networks, and Circle runs a cross-chain transfer service for moving USDC between supported networks.</p>
+      <ul>
+        <li><strong>Your counterparty's network.</strong> Ask which token and network they can receive, and confirm with a small test transfer before the first large payment.</li>
+        <li><strong>Fees.</strong> Transfer costs depend on the chain, from fractions of a cent to a few dollars. Tron fees depend on the sender's resources, so costs vary by provider.</li>
+        <li><strong>Conversion depth.</strong> For sizeable amounts, compare quotes from an <a href="otc-desk-stablecoins.html">OTC desk</a> in both tokens. Spreads differ by currency pair and corridor.</li>
+      </ul>
+
+      <h2>Redemption and freezing</h2>
+      <p>Most businesses never redeem directly with the issuer. They sell to an exchange, OTC desk or payment provider for fiat. Direct redemption is limited to verified customers, and terms differ: Circle offers redemption to approved institutional accounts, while Tether's published terms have set a high minimum and a fee for direct redemption. Check the current terms if you plan to rely on it.</p>
+      <p>Both issuers can freeze tokens at specific addresses, usually at the request of law enforcement or in response to sanctions. That protects the system against illicit funds, but it also means a payment received from a tainted address can become unusable. Screen incoming wallets before you accept funds, as covered in our guide on how to <a href="accept-stablecoin-payments.html">accept stablecoin payments</a>.</p>
+
+      <h2>A simple decision table</h2>
+      <ol>
+        <li><strong>EU counterparty or EU entity:</strong> default to USDC.</li>
+        <li><strong>Emerging-market supplier or payout recipient:</strong> USDT is often expected, usually on Tron.</li>
+        <li><strong>Large treasury balances held for weeks:</strong> favour the token with the reserve profile your board accepts, and set a cap per issuer.</li>
+        <li><strong>Exchange or OTC settlement:</strong> use whichever gives the tighter all-in quote for the pair and amount.</li>
+        <li><strong>Uncertain:</strong> accept both, convert quickly, and keep per-issuer limits in your treasury policy.</li>
+      </ol>
+      <p>SMUVPAY supports both tokens across its <a href="../index.html#rails">payment rails</a> and OTC desk, so the token can follow the counterparty rather than the provider. Stablecoin rules are changing in most major markets, so take local legal advice before you make either token part of your treasury policy.</p>

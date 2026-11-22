@@ -1,0 +1,67 @@
+<!--
+slug: 3d-secure-sca
+title: 3-D Secure and SCA explained: cutting card fraud without losing sales
+h1: 3-D Secure and SCA:<br><em>cutting fraud without losing sales.</em>
+desc: 3-D Secure and SCA explained for merchants: when Strong Customer Authentication applies, the exemptions, liability shift, and how to keep conversion high.
+cat: Risk & disputes
+mins: 5
+summary: How 3-D Secure meets the UK and EU Strong Customer Authentication rules, which exemptions apply, and how to use them without hurting conversion.
+lede: 3-D Secure is the card schemes' protocol for checking that the person paying online is the real cardholder. In the UK and EEA it is also how most merchants meet the legal requirement for Strong Customer Authentication. Used well, it cuts fraud and shifts liability to the issuer. Used badly, it adds friction that loses sales.
+-->
+      <h2>What 3-D Secure and SCA are</h2>
+      <p><strong>Strong Customer Authentication (SCA)</strong> is a legal rule from the EU's second Payment Services Directive (PSD2), kept in UK law after Brexit. It requires the payer to prove two of three things for most electronic payments:</p>
+      <ul>
+        <li><strong>Knowledge</strong>: something they know, such as a PIN or password.</li>
+        <li><strong>Possession</strong>: something they have, such as a phone with the banking app.</li>
+        <li><strong>Inherence</strong>: something they are, such as a fingerprint or face scan.</li>
+      </ul>
+      <p><strong>3-D Secure (3DS)</strong> is the technical protocol that carries this check for online card payments. Visa brands it Visa Secure and Mastercard brands it Mastercard Identity Check. The current version, EMV 3DS (often called 3DS2), sends far more data to the issuer than the old version did: device details, shipping address, account age and purchase history. That extra data lets the issuer approve many payments without asking the cardholder to do anything.</p>
+
+      <h2>Frictionless and challenge flows</h2>
+      <p>Every 3DS2 authentication takes one of two paths:</p>
+      <ul>
+        <li><strong>Frictionless</strong>: the issuer reviews the data, judges the risk low and authenticates in the background. The customer sees nothing.</li>
+        <li><strong>Challenge</strong>: the issuer asks the customer to confirm, usually in their banking app or with a one-time code.</li>
+      </ul>
+      <p>The more complete the data you send, the more often the issuer can choose the frictionless path. Merchants who pass only the minimum required fields tend to see more challenges, and every challenge is a point where some customers give up.</p>
+
+      <h2>When SCA applies, and the main exemptions</h2>
+      <p>SCA applies when both the issuer and the acquirer are in the UK or EEA and the payment is initiated by the customer. Several exemptions let you skip the challenge. The issuer always has the final say and can still demand authentication.</p>
+      <ol>
+        <li><strong>Low value</strong>: payments under €30 (or £30 in the UK). After five consecutive exempt payments, or a running total above €100 (£100), the issuer must apply SCA.</li>
+        <li><strong>Transaction risk analysis (TRA)</strong>: the acquirer or issuer can exempt a payment if its own fraud rate is below set levels. The thresholds are tiered: for card payments, a fraud rate up to 0.13% allows exemptions up to €100, up to 0.06% allows up to €250, and up to 0.01% allows up to €500.</li>
+        <li><strong>Trusted beneficiaries</strong>: the customer whitelists your business with their bank. Issuer support for this is still patchy.</li>
+        <li><strong>Secure corporate payments</strong>: payments using dedicated corporate processes, such as some lodged travel cards.</li>
+      </ol>
+      <p>Some payments are out of scope altogether:</p>
+      <ul>
+        <li><strong>Merchant-initiated transactions</strong>, such as subscription renewals or instalments taken after an initial authenticated payment.</li>
+        <li><strong>Mail and telephone orders.</strong></li>
+        <li><strong>One-leg-out payments</strong>, where the issuer or the acquirer is outside the UK and EEA. Authentication is applied on a best-efforts basis.</li>
+      </ul>
+
+      <h2>The liability shift</h2>
+      <p>When a payment is fully authenticated with 3DS, liability for most fraud chargebacks moves from the merchant to the issuer. If a stolen card gets through after a successful challenge or frictionless authentication, the fraud dispute is generally the issuer's loss, not yours.</p>
+      <p>Exemptions change this. If you or your acquirer request an exemption and the issuer accepts, liability usually stays with you. That makes exemptions a commercial choice: you trade lower friction for carrying the fraud risk on those payments. The liability shift also covers fraud reason codes only. A customer who claims the goods never arrived can still raise a dispute.</p>
+      <p>Under Visa's monitoring programme, fraud reports can count toward your ratio even when the dispute itself would fail. We explain how that works in <a href="chargeback-ratio-thresholds.html">chargeback ratio thresholds</a>.</p>
+
+      <h2>A worked example</h2>
+      <p>A UK fashion retailer takes 20,000 online orders a month, average £60. It sends every order through 3DS with minimal data, and sees a high share of challenges with a noticeable drop-off at the challenge screen. The retailer makes three changes:</p>
+      <ol>
+        <li>It sends the full 3DS2 data set, including device and account history, so more issuers choose frictionless.</li>
+        <li>It asks its acquirer to apply the TRA exemption on low-risk orders under €100 equivalent, since the acquirer's fraud rate qualifies.</li>
+        <li>It forces a challenge on high-risk orders, such as new accounts shipping to a different address, to secure the liability shift where fraud is most likely.</li>
+      </ol>
+      <p>The result is fewer challenges on good customers and protection where it matters. The exact gain depends on the card mix and on how individual issuers respond, so measure it rather than assume it.</p>
+
+      <h2>A checklist for payment teams</h2>
+      <ul>
+        <li><strong>Track authentication rates</strong> by issuer and country: frictionless rate, challenge rate, challenge completion rate.</li>
+        <li><strong>Send rich data.</strong> Billing and shipping address, email, device data and account age all help.</li>
+        <li><strong>Flag recurring payments correctly</strong> so renewals are treated as merchant-initiated and are not declined for missing SCA.</li>
+        <li><strong>Handle soft declines.</strong> If an issuer declines an exempt payment with an "authentication required" code, retry it with 3DS instead of failing the order.</li>
+        <li><strong>Use network tokens</strong> for stored cards. They pair well with 3DS and can lift approvals, as covered in <a href="network-tokenisation.html">network tokens vs gateway tokens</a>.</li>
+      </ul>
+
+      <h2>Getting the balance right</h2>
+      <p>3DS works best as part of a risk strategy, applied hard where fraud is likely and lightly where it is not. SMUVPAY helps merchants set this up across acquirers as part of its <a href="../index.html#capabilities">risk and payments capabilities</a>. SCA rules and exemption thresholds are set by regulators and can change, so check the current requirements with your acquirer and take local legal advice on how they apply to your business.</p>

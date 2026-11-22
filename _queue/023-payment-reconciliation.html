@@ -1,0 +1,63 @@
+<!--
+slug: payment-reconciliation
+title: Payment reconciliation explained: matching every transaction to cash
+h1: Payment reconciliation explained:<br><em>matching every transaction to cash.</em>
+desc: Payment reconciliation explained: the three-way match between orders, provider reports and bank deposits, why payouts never equal sales, and how to automate it.
+cat: Payment infrastructure
+mins: 4
+summary: How to match orders, provider settlement reports and bank deposits, why payouts never equal sales, and a daily routine that catches breaks early.
+lede: Payment reconciliation is the process of proving that every sale you recorded turned into the right amount of cash in your bank account, and explaining every difference. Your payment provider deducts fees, refunds, chargebacks and reserves before paying you, so the deposit rarely equals the day's sales. Reconciliation is how finance knows which of those differences are expected and which are money going missing.
+-->
+      <h2>The three-way match in payment reconciliation</h2>
+      <p>Good payment reconciliation compares three records:</p>
+      <ol>
+        <li><strong>Your own records:</strong> orders, invoices or wallet transactions from your platform, plus payment status from your <a href="payment-webhooks.html">webhooks</a>.</li>
+        <li><strong>The provider's reports:</strong> transaction-level settlement reports showing each payment, its fees and which payout it belongs to.</li>
+        <li><strong>Your bank statement:</strong> the deposits that actually arrived.</li>
+      </ol>
+      <p>Matching records one and two proves every sale was processed and every processed payment was a real sale. Matching two and three proves the provider paid what its report says. Skip either half and errors hide in the gap.</p>
+
+      <h2>Why the payout never equals sales</h2>
+      <p>A worked example. On Monday you take £50,000 of card payments. Tuesday's payout from your provider is £45,330. The settlement report explains it:</p>
+      <ul>
+        <li>Gross sales: £50,000</li>
+        <li>Processing fees at 1.4% plus 20p on 1,000 transactions: £700 plus £200, so £900 in total</li>
+        <li>Refunds processed: £1,800</li>
+        <li>Chargeback debited: £450, plus a £20 dispute fee</li>
+        <li>Rolling reserve held at 3%: £1,500</li>
+        <li>Net payout: £45,330</li>
+      </ul>
+      <p>Each line is a separate journal entry. Fees go to an expense account. Refunds and chargebacks reduce revenue or hit a disputes account. The reserve is still your money, so it sits as an asset receivable from the provider until released. Our guide to <a href="rolling-reserve.html">rolling reserves</a> explains how those holds are released. If you book £45,330 as revenue, your accounts are wrong in four places.</p>
+
+      <h2>The usual causes of breaks</h2>
+      <ul>
+        <li><strong>Timing.</strong> A payment captured at 23:50 may fall into the next day's batch. Providers use their own cut-off times and time zones, often UTC, which do not match your own day.</li>
+        <li><strong>Batching.</strong> One deposit covers hundreds or thousands of payments, sometimes several days of them after a weekend or bank holiday.</li>
+        <li><strong>Currency.</strong> Sales in euros settled in sterling carry a conversion rate and a margin. Record both. Our guide to <a href="fx-spread-cost.html">FX spreads</a> shows how to work out what the conversion really cost.</li>
+        <li><strong>Partial captures and refunds.</strong> One order can produce several payment lines, and one refund can cover only part of an order.</li>
+        <li><strong>Missing references.</strong> If your order ID is not passed to the provider as a reference or metadata field, matching falls back on amounts and dates, which fails as soon as two customers pay the same amount.</li>
+        <li><strong>Lost events.</strong> A failed webhook leaves an order unpaid in your system while the provider shows it as captured.</li>
+      </ul>
+
+      <h2>A daily reconciliation routine</h2>
+      <ol>
+        <li><strong>Import the reports.</strong> Pull the settlement report and payout report from each provider's API or SFTP, and the bank statement through your bank feed.</li>
+        <li><strong>Match transactions to your records.</strong> Match on the provider's payment ID and your order reference. Anything unmatched goes on an exceptions list.</li>
+        <li><strong>Match payouts to deposits.</strong> Each payout ID should match one bank credit by amount and date, within a day or two.</li>
+        <li><strong>Post the journals.</strong> Gross sales, fees, refunds, chargebacks and reserve movements, each to its own account.</li>
+        <li><strong>Work the exceptions.</strong> Give each break an owner and a reason code: timing, missing event, provider error or unknown. Timing breaks should clear by themselves the next day; unknowns need investigating the same week.</li>
+        <li><strong>Track the reserve and float.</strong> Keep a running balance of money held by each provider and check it against their statements monthly.</li>
+      </ol>
+      <p>Daily is the right frequency for most businesses taking card payments. Monthly reconciliation means a wrong fee or a missing payout can run for weeks before anyone notices, and providers usually set a time limit for raising billing disputes.</p>
+
+      <h2>Reconciling more than one provider</h2>
+      <p>Each provider formats its reports differently, uses different IDs and pays out on different schedules. Before you add a second acquirer or payment method, map each provider's fields to one internal format: payment ID, your reference, gross, fee, net, currency, payout ID and settlement date. Businesses that run their own stack put this mapping next to the ledger, as described in our guide to <a href="build-your-own-payment-processor.html">building a payment processor</a>. Bank transfers have their own problem: customers mistype references. Giving each customer a dedicated account number through <a href="virtual-iban-accounts.html">virtual IBANs</a> makes incoming transfers match automatically.</p>
+
+      <h2>What to automate first</h2>
+      <ul>
+        <li>Report imports, because manual downloads are skipped on busy days.</li>
+        <li>Transaction matching on IDs, which typically clears the large majority of lines once references are passed correctly.</li>
+        <li>Fee checks against your contract, so a pricing change does not go unnoticed. Our guide to <a href="merchant-account-pricing.html">merchant account pricing</a> covers what each fee line should be.</li>
+        <li>Alerts for payouts that do not arrive on the expected date.</li>
+      </ul>
+      <p>People should spend their time on the exceptions, not the matches. SMUVPAY builds reconciliation reporting into its <a href="../index.html#integration">integrations</a>, so every provider and rail lands in one format your finance team can close from.</p>

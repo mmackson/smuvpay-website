@@ -1,0 +1,77 @@
+<!--
+slug: merchant-account-terminated-match-list
+title: Merchant account terminated? Why it happens and how the MATCH list works
+h1: Why merchant accounts get terminated,<br><em>and the MATCH list.</em>
+desc: Merchant account terminated? The common reasons acquirers close accounts, how the Mastercard MATCH list works, how long a listing lasts and what to do next.
+cat: Merchant acquiring
+mins: 4
+summary: Why acquirers terminate merchant accounts, what a MATCH listing means for your business, and the practical steps to take before and after a termination.
+lede: A merchant account termination can stop card revenue overnight. If the acquirer also adds you to the Mastercard MATCH list, other providers will see the listing for years. Most terminations follow warning signs that can be spotted early, and knowing how the process works gives you options.
+-->
+      <h2>Why merchant accounts get terminated</h2>
+      <p>A merchant account is terminated when the acquirer decides the risk of keeping you outweighs the revenue. The acquirer is liable to the card schemes for what its merchants do, so it acts to protect itself. The most common causes are:</p>
+      <ul>
+        <li><strong>Excessive chargebacks or fraud.</strong> Ratios above scheme thresholds bring fines to the acquirer, which it passes on before deciding to exit. See <a href="chargeback-ratio-thresholds.html">chargeback ratio thresholds</a> for the current levels.</li>
+        <li><strong>Business model change.</strong> Selling products or services that were not declared at onboarding, or moving into a restricted category.</li>
+        <li><strong>Prohibited or illegal transactions.</strong> Goods the acquirer or scheme does not allow, or sales into markets where they are illegal.</li>
+        <li><strong>Transaction laundering.</strong> Processing payments for another business through your account.</li>
+        <li><strong>Data security breaches</strong> or failure to meet <a href="pci-dss-compliance.html">PCI DSS</a> requirements.</li>
+        <li><strong>Financial distress</strong>, such as insolvency, which raises the risk of the acquirer being left with refunds and chargebacks it cannot recover.</li>
+        <li><strong>Sudden unexplained volume spikes</strong> well beyond what you declared, which can look like fraud or bust-out activity.</li>
+      </ul>
+      <p>Many of these risks are checked at onboarding. Our guide to <a href="kyb-merchant-onboarding.html">KYB and merchant onboarding</a> covers what processors look at before they approve a business.</p>
+
+      <h2>What the MATCH list is</h2>
+      <p>MATCH stands for <strong>Member Alert to Control High-risk Merchants</strong>. It is a database run by Mastercard, and acquirers check it when they assess new merchant applications. It used to be called the Terminated Merchant File. Visa operates its own merchant screening service along similar lines.</p>
+      <p>When an acquirer terminates a merchant for certain reasons, Mastercard rules require it to add the merchant to MATCH. The listing records the business and its principal owners, so opening a new company does not avoid it if the same people are behind it.</p>
+
+      <h2>MATCH reason codes</h2>
+      <p>Each listing carries a reason code. The codes include:</p>
+      <ul>
+        <li><strong>01</strong> Account data compromise</li>
+        <li><strong>02</strong> Common point of purchase (your business was the source of stolen card data)</li>
+        <li><strong>03</strong> Laundering</li>
+        <li><strong>04</strong> Excessive chargebacks</li>
+        <li><strong>05</strong> Excessive fraud</li>
+        <li><strong>07</strong> Fraud conviction</li>
+        <li><strong>09</strong> Bankruptcy, liquidation or insolvency</li>
+        <li><strong>10</strong> Violation of Mastercard standards</li>
+        <li><strong>11</strong> Merchant collusion</li>
+        <li><strong>12</strong> PCI DSS non-compliance</li>
+        <li><strong>13</strong> Illegal transactions</li>
+        <li><strong>14</strong> Identity theft</li>
+      </ul>
+      <p>The code matters. A listing for excessive chargebacks tells a new acquirer something very different from one for laundering or fraud conviction.</p>
+
+      <h2>How long a MATCH listing lasts</h2>
+      <p>A MATCH listing stays for <strong>five years</strong> and then drops off automatically. Only the acquirer that added you can remove you early. In practice that happens when the listing was made in error, or in some cases when the problem behind it has been fixed, for example by becoming PCI DSS compliant after a code 12 listing. No third party can remove a listing for you, whatever they charge.</p>
+
+      <h2>Can you get a merchant account while on MATCH?</h2>
+      <p>A listing does not ban you from card acceptance, but most mainstream acquirers will decline the application. Some specialist and high-risk acquirers will consider MATCH-listed merchants, usually with conditions such as:</p>
+      <ul>
+        <li>a higher processing rate,</li>
+        <li>a <a href="rolling-reserve.html">rolling reserve</a>, often 5% to 10% held for several months,</li>
+        <li>lower monthly volume caps,</li>
+        <li>closer monitoring and a written remediation plan.</li>
+      </ul>
+      <p>Your chances depend heavily on the reason code and on evidence that the cause has been addressed. A merchant listed for chargebacks who now shows months of low dispute rates with a different set-up is a very different case from one listed for fraud.</p>
+
+      <h2>Warning signs before a termination</h2>
+      <p>Acquirers rarely terminate without some earlier signal. Watch for:</p>
+      <ol>
+        <li>Requests for updated business information or documents you have not been asked for before.</li>
+        <li>New or increased reserves, or delayed settlements.</li>
+        <li>Notices that you have entered a scheme monitoring programme.</li>
+        <li>Questions about specific transactions, products or websites.</li>
+      </ol>
+      <p>Respond to each quickly and in writing. Agreeing a remediation plan with your acquirer while the relationship is still open is far easier than finding a new one after termination.</p>
+
+      <h2>What to do if your account is terminated</h2>
+      <ul>
+        <li><strong>Ask for the reason in writing,</strong> and whether you have been added to MATCH and under which code.</li>
+        <li><strong>Check the funds position.</strong> The acquirer may hold your balance and reserve to cover future chargebacks, often for several months after termination.</li>
+        <li><strong>Fix the cause first.</strong> Any new acquirer will ask what went wrong and what changed.</li>
+        <li><strong>Be open in new applications.</strong> Hiding a termination will almost always be found, and it ends the conversation.</li>
+        <li><strong>Plan for redundancy.</strong> Once you are processing again, use more than one acquirer so a single decision cannot stop all card revenue. A <a href="high-risk-merchant-account.html">high-risk merchant account</a> guide explains what specialist acquirers look for.</li>
+      </ul>
+      <p>SMUVPAY works with merchants on acquiring set-ups across several providers. If you are facing a termination or a listing, <a href="../enquiry.html">send us an enquiry</a>. Scheme rules and acquirer contracts differ, so take local legal advice on your specific position.</p>

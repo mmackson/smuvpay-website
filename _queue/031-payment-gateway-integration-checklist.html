@@ -1,0 +1,82 @@
+<!--
+slug: payment-gateway-integration-checklist
+title: Payment gateway integration checklist: from sandbox to go-live
+h1: Payment gateway integration checklist:<br><em>from sandbox to go-live.</em>
+desc: A payment gateway integration checklist covering contracts, sandbox testing, security, webhooks, reconciliation, go-live and the first 30 days after launch.
+cat: Payment infrastructure
+mins: 4
+summary: A step-by-step checklist for integrating a payment gateway, from signing and sandbox testing to a controlled go-live and the first 30 days of monitoring.
+lede: A payment gateway integration is ready for go-live when every payment outcome has been tested, money can be traced from checkout to bank account, and someone is watching the first live transactions. This checklist covers each stage from contract to the first month of live payments, for founders, finance leads and payment ops teams managing the project.
+-->
+      <h2>Before you write any code</h2>
+      <ul>
+        <li><strong>Confirm the layers.</strong> Know whether your provider is a gateway only, or gateway, processor and acquirer together. Our guide to the <a href="payment-gateway-vs-processor.html">gateway versus the processor</a> explains the difference, and it decides who you call when something breaks.</li>
+        <li><strong>Finish onboarding first.</strong> Underwriting and <a href="kyb-merchant-onboarding.html">KYB checks</a> can take days or weeks. Start them in parallel with development, not after it.</li>
+        <li><strong>Read the commercial terms.</strong> Pricing, settlement timing, reserves, minimums and notice periods. Our guide to <a href="merchant-account-pricing.html">merchant account pricing</a> covers what to check.</li>
+        <li><strong>Agree the integration type.</strong> Hosted payment page, embedded fields or a direct API. Hosted pages and embedded fields keep card data off your servers and keep PCI DSS scope small.</li>
+        <li><strong>List the payment methods and currencies</strong> you need at launch, and confirm each is live in your merchant account, not only in the documentation.</li>
+        <li><strong>Name the owners.</strong> One person each for engineering, finance and support, plus a named contact at the provider.</li>
+      </ul>
+
+      <h2>Sandbox: test every outcome</h2>
+      <p>Most providers publish test card numbers that trigger specific results. Run each one and confirm your system and your customer messages behave correctly:</p>
+      <ol>
+        <li>Successful payment, in each currency and payment method.</li>
+        <li>Declines: insufficient funds, card expired, generic decline, and a fraud decline.</li>
+        <li>3-D Secure: frictionless approval, challenge passed, challenge failed and challenge abandoned.</li>
+        <li>Authorise then capture, partial capture, and an authorisation left to expire, if you capture separately.</li>
+        <li>Full and partial refunds, and a refund that fails.</li>
+        <li>A disputed payment, so you can see how chargebacks reach your system.</li>
+        <li>Saved cards and repeat payments, if you store cards.</li>
+        <li>Timeouts and provider errors: what does the customer see, and does the order stay in a safe state?</li>
+        <li>Double clicks and page refreshes on the pay button, which should never create two charges.</li>
+      </ol>
+
+      <h2>Webhooks and payment status</h2>
+      <ul>
+        <li>Signature verification is on and tested with a bad signature.</li>
+        <li>Duplicate events are ignored, using the event ID.</li>
+        <li>Orders are released by the confirmed payment status, never by the browser redirect alone.</li>
+        <li>Your endpoint replies within a few seconds and processes work in the background.</li>
+        <li>A scheduled job checks for payments your system missed.</li>
+      </ul>
+      <p>Our guide to <a href="payment-webhooks.html">payment webhooks</a> explains each of these in detail.</p>
+
+      <h2>Security</h2>
+      <ul>
+        <li>API keys live in a secrets manager or environment variables, never in code, tickets or chat.</li>
+        <li>Live and test keys are separate, and only the production system holds live keys.</li>
+        <li>Each key has the minimum permissions it needs. Refund and payout permissions are restricted.</li>
+        <li>Card numbers never appear in logs, error reports or analytics. Search your logs for test card numbers to prove it.</li>
+        <li>Your PCI DSS self-assessment questionnaire is identified and planned. See our <a href="pci-dss-compliance.html">PCI DSS guide</a>.</li>
+        <li>Fraud rules and 3-D Secure settings are configured, not left at defaults you have not reviewed.</li>
+      </ul>
+
+      <h2>Finance and reconciliation</h2>
+      <ul>
+        <li>Your order ID is passed to the provider as a reference on every payment.</li>
+        <li>You can download or fetch settlement and payout reports, and you know the provider's daily cut-off time and time zone.</li>
+        <li>Finance has mapped gross sales, fees, refunds, chargebacks and reserves to accounts.</li>
+        <li>The bank account for payouts is verified and the first payout date is known.</li>
+      </ul>
+      <p>Our guide to <a href="payment-reconciliation.html">payment reconciliation</a> sets out the daily routine.</p>
+
+      <h2>Go-live</h2>
+      <ol>
+        <li><strong>Switch to live keys</strong> and live webhook endpoints, and confirm the webhook secret changed with them.</li>
+        <li><strong>Make a real payment</strong> with a company card for a small amount, then refund it. Check it appears in the provider dashboard, your system and, after settlement, your bank.</li>
+        <li><strong>Roll out in stages</strong> if you can: one market, a share of traffic, or internal users first.</li>
+        <li><strong>Have a rollback plan.</strong> Know how to switch back to the old provider or turn off the new payment method within minutes.</li>
+        <li><strong>Avoid launching on a Friday</strong> or before a bank holiday, when settlement and support are slower.</li>
+      </ol>
+
+      <h2>The first 30 days</h2>
+      <ul>
+        <li>Check approval rate daily against your old provider or the provider's expected range. A sudden gap usually means a configuration or data problem, such as missing billing address or wrong merchant category code.</li>
+        <li>Watch decline reasons, 3-D Secure abandonment, and refund and dispute rates.</li>
+        <li>Reconcile every payout until the process runs clean for several weeks.</li>
+        <li>Read customer support tickets about payment for patterns.</li>
+        <li>Review fees on the first invoice against the contract.</li>
+      </ul>
+      <p>Keep the sandbox test list after launch. Rerun it whenever you change checkout code, add a payment method or the provider announces an API version change. A change tested only on successful payments is a common way for refunds, declines or saved cards to break quietly.</p>
+      <p>Once the first integration is stable, a second provider and <a href="smart-payment-routing.html">smart routing</a> add resilience and can lift approvals. SMUVPAY runs integrations like this as part of its <a href="../index.html#integration">integration service</a>, from sandbox testing to the first month of live payments.</p>

@@ -1,0 +1,52 @@
+<!--
+slug: build-your-own-payment-processor
+title: How to build your own payment processor: the architecture
+h1: How to build your own payment processor:<br><em>the architecture.</em>
+desc: How to build your own payment processor: the core components, from gateway and ledger to acquiring, risk and settlement, plus the partners and licences needed.
+cat: Payment infrastructure
+mins: 5
+summary: The building blocks of a payment processor, what each one does, which you can license instead of build, and the partners and licences you cannot skip.
+lede: To build your own payment processor you need eight working parts: a gateway, a card vault, a connection to the card schemes through an acquirer, a risk engine, a ledger, settlement and payouts, reconciliation, and onboarding with compliance. Software is the smaller half of the job. Banking partners, scheme rules and licences decide how fast you can go live.
+-->
+      <h2>Why companies build their own payment processor</h2>
+      <p>The usual reasons are margin, control and access. At high volume, the fees paid to an all-in-one provider become a large cost line. Some businesses need routing, settlement timing or data that off-the-shelf providers do not offer. Others serve industries or corridors that standard providers turn away. If you are still deciding between referring merchants, onboarding them as a payment facilitator or owning the stack, start with our guide to <a href="payfac-vs-iso.html">ISO, PayFac and owning your rails</a>. This post assumes you have chosen the last option and want to know what the architecture looks like.</p>
+
+      <h2>The core components</h2>
+      <ol>
+        <li><strong>Gateway and API.</strong> The front door: hosted checkout, card fields, payment method selection, 3-D Secure, and the API your merchants integrate with. Our explainer on the <a href="payment-gateway-vs-processor.html">gateway versus the processor</a> covers where this layer ends.</li>
+        <li><strong>Card vault and tokenisation.</strong> A separate, tightly controlled service that stores card numbers and hands out tokens. Keeping it isolated keeps the rest of your platform out of the heaviest PCI DSS scope. Supporting <a href="network-tokenisation.html">network tokens</a> here improves stored-card approvals.</li>
+        <li><strong>Scheme and acquirer connections.</strong> To reach Visa and Mastercard you need a sponsoring acquirer, or your own scheme membership, which requires a licence and is a multi-year route. The connection handles authorisation, capture, reversals and refunds, using message formats based on ISO 8583.</li>
+        <li><strong>Risk and fraud engine.</strong> Rules and scoring that run before authorisation (velocity, device, geography, amount) and after it (chargeback and refund monitoring per merchant).</li>
+        <li><strong>Ledger.</strong> A double-entry record of every amount owed between cardholders, merchants, acquirers, schemes and you. This is the part teams most often underbuild. Every fee, reserve, refund and chargeback must post as balanced entries that can never be edited, only reversed.</li>
+        <li><strong>Settlement and payouts.</strong> Reading the acquirer's settlement files, calculating each merchant's net amount after fees and reserves, and paying out over bank rails such as Faster Payments or SEPA.</li>
+        <li><strong>Reconciliation.</strong> Daily matching of what the ledger says against acquirer files and bank statements. Breaks found the same day are cheap; breaks found at month end are expensive.</li>
+        <li><strong>Onboarding, KYB and monitoring.</strong> Collecting and verifying merchant data, underwriting, and ongoing monitoring. See our guide to <a href="kyb-merchant-onboarding.html">KYB checks</a> for what this involves.</li>
+      </ol>
+
+      <h2>How a payment moves through the stack</h2>
+      <p>A customer pays £80. The gateway collects the card in a hosted field and the vault swaps it for a token. The risk engine scores the payment and passes it. The acquirer connection sends an authorisation request through the scheme to the issuer, which approves it. The ledger records a pending amount owed by the issuer. At capture, the gateway confirms the sale. That night the acquirer settles, the settlement file arrives, reconciliation matches it to the ledger, and the merchant's balance moves from pending to available, minus your fee and any reserve. Later, a payout sends the net amount to the merchant's bank, and a <a href="payment-webhooks.html">webhook</a> tells the merchant's system each step happened.</p>
+
+      <h2>Build, license or partner for each part</h2>
+      <p>Very few companies build every component from scratch. A typical split:</p>
+      <ul>
+        <li><strong>Usually built in-house:</strong> merchant API, ledger, pricing and fee logic, merchant dashboard. These are where your product differs.</li>
+        <li><strong>Often licensed:</strong> card vault, 3-D Secure server, fraud scoring, KYB data checks. These are specialist, heavily certified, and the same for everyone.</li>
+        <li><strong>Always partnered:</strong> the acquiring bank or sponsor, scheme access, and the banks that hold settlement funds. You cannot code your way around these.</li>
+      </ul>
+      <p>A white-label platform can cover the first two groups if speed matters more than full control.</p>
+
+      <h2>Licences and obligations</h2>
+      <p>If you hold or move merchant funds, most jurisdictions require authorisation. In the UK and EU that usually means a payment institution or e-money institution licence, which brings capital requirements and rules on safeguarding client money. Our guide to <a href="msb-emi-payment-institution-licence.html">MSB, EMI and payment institution licences</a> explains the options. You also need PCI DSS Level 1 compliance as a service provider once you process card data at scale, plus registration with the card schemes through your sponsor.</p>
+
+      <h2>Realistic timelines</h2>
+      <p>Timelines vary widely by team, market and partner. As a rough guide, a first version of the software with a single acquirer often takes 6 to 12 months. A UK or EU licence application commonly takes 6 to 12 months or more from submission, and regulators can pause the clock to ask questions. Acquirer onboarding and scheme registration run alongside both. Plan for the slowest partner, not the fastest sprint.</p>
+
+      <h2>Checklist before you start</h2>
+      <ul>
+        <li>Annual volume high enough that saved fees cover a payments, risk and compliance team.</li>
+        <li>At least one acquirer willing to sponsor you, with a second in mind for redundancy.</li>
+        <li>A licensing route, or a licensed partner you can operate under while you apply.</li>
+        <li>A ledger design agreed with finance before any code is written.</li>
+        <li>A plan for chargebacks, reserves and merchant losses, funded with real capital.</li>
+      </ul>
+      <p>SMUVPAY helps businesses design and stand up <a href="../index.html#rails">independent payment rails</a>, combining licensed components and banking partners with the parts worth owning. Take local legal advice on the licences your model requires.</p>

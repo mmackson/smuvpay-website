@@ -1,0 +1,67 @@
+<!--
+slug: chargeback-representment
+title: How to win a chargeback: a representment guide for merchants
+h1: How to win a chargeback:<br><em>a representment guide.</em>
+desc: How to win a chargeback with representment: the dispute timeline, the evidence that works for each reason code, deadlines, and when to accept instead of fight.
+cat: Risk & disputes
+mins: 5
+summary: A practical guide to chargeback representment: how the dispute process runs, what evidence wins each type of claim, and which disputes are worth fighting.
+lede: A chargeback is not final when it lands. Representment is your right to challenge it by sending evidence back through your acquirer to the cardholder's bank. Merchants who respond on time with the right evidence recover a real share of disputed revenue. Those who ignore disputes lose every one by default.
+-->
+      <h2>What representment is</h2>
+      <p>To win a chargeback, you file a <strong>representment</strong>: a formal response, sent through your acquirer, that shows the issuer the transaction was valid. If the issuer accepts your evidence, the funds return to you. If not, the dispute may move to a further stage or to arbitration by the card scheme.</p>
+      <p>Representment is separate from preventing disputes. Prevention keeps your ratio down. Representment recovers money on disputes that have already happened. Note that a won dispute still usually counts toward your chargeback ratio, which we cover in <a href="chargeback-ratio-thresholds.html">chargeback ratio thresholds</a>.</p>
+
+      <h2>How the dispute timeline works</h2>
+      <p>Visa and Mastercard each run their own process, but the outline is similar:</p>
+      <ol>
+        <li><strong>The cardholder disputes the charge</strong> with their bank. They usually have up to 120 days from the transaction or expected delivery date, though some reason codes allow longer.</li>
+        <li><strong>The issuer raises the chargeback.</strong> Funds are debited from your account, and you are usually charged a dispute fee by your acquirer.</li>
+        <li><strong>You respond.</strong> Your acquirer gives you a deadline, often 7 to 20 days, which is shorter than the scheme limit because the acquirer needs time to file. Miss it and you lose automatically.</li>
+        <li><strong>The issuer reviews</strong> your evidence and either reverses the chargeback or rejects your response.</li>
+        <li><strong>Pre-arbitration and arbitration.</strong> If you still disagree, the case can escalate. The scheme decides, and the losing side pays arbitration fees that can run to several hundred pounds or more.</li>
+      </ol>
+      <p>Deadlines and fees vary by scheme, acquirer and region, so check your acquirer's terms.</p>
+
+      <h2>Match the evidence to the reason code</h2>
+      <p>Every chargeback carries a reason code. The single biggest mistake is sending generic evidence that does not answer the specific claim. Group the codes into four families:</p>
+      <ul>
+        <li><strong>Fraud</strong> ("I did not make this purchase"): send 3-D Secure authentication results, AVS and CVV match, IP address and device data, delivery to the cardholder's billing address, and any history of earlier undisputed orders from the same customer. Visa's Compelling Evidence 3.0 rules let you defend some card-not-present fraud claims by showing two earlier undisputed transactions, between 120 and 365 days old, that share key data points such as IP address or device ID.</li>
+        <li><strong>Goods or services not received</strong>: send courier tracking showing delivery to the agreed address, a signature where you have one, or for digital goods, login and usage logs after the purchase date.</li>
+        <li><strong>Not as described or defective</strong>: send the product description at the time of sale, photos, your returns policy, and any correspondence showing you offered a fix or refund.</li>
+        <li><strong>Processing and authorisation errors</strong> (duplicate charge, wrong amount, no authorisation): send transaction logs showing separate valid authorisations, or proof that a refund was already issued.</li>
+      </ul>
+      <p>For a fraud claim on a payment that was fully authenticated with 3-D Secure, the liability shift often means the dispute should not stand at all. Our guide to <a href="3d-secure-sca.html">3-D Secure and SCA</a> explains when that applies.</p>
+
+      <h2>How to write the response</h2>
+      <p>The issuer's analyst may spend only a few minutes on your file. Make it easy to read:</p>
+      <ul>
+        <li><strong>Open with a one-paragraph summary</strong> that names the reason code and states why the claim fails.</li>
+        <li><strong>Attach only relevant evidence,</strong> labelled and in the order you refer to it.</li>
+        <li><strong>Highlight the matching data.</strong> If the billing address matches the delivery address, say so and point to both.</li>
+        <li><strong>Include the terms the customer accepted,</strong> with a screenshot of the checkout showing where they agreed.</li>
+        <li><strong>Keep it factual.</strong> Do not argue about the customer's character. Show what happened.</li>
+      </ul>
+
+      <h2>A worked example</h2>
+      <p>An online electronics shop receives a £450 chargeback under a "goods not received" code. The order shipped with a tracked courier service. The response includes:</p>
+      <ol>
+        <li>A summary: the order was delivered to the cardholder's verified address on a given date.</li>
+        <li>The courier's proof of delivery with the address, date and signature.</li>
+        <li>The order confirmation showing the same address the customer entered at checkout.</li>
+        <li>An email from the customer after delivery asking about a warranty, which shows they had the product.</li>
+      </ol>
+      <p>That file answers the specific claim with direct proof. A response that only included the invoice would very likely fail.</p>
+
+      <h2>When to accept instead of fight</h2>
+      <p>Not every dispute is worth contesting. Work out the cost of responding, including staff time and any further fees, against the value recovered. Accept the chargeback when:</p>
+      <ul>
+        <li>The amount is small and you have no strong evidence.</li>
+        <li>The claim is valid, for example you did ship late or charged twice.</li>
+        <li>The evidence you would need does not exist, such as no tracking on an expensive parcel.</li>
+      </ul>
+      <p>Each accepted case is a lesson. If the same reason code keeps appearing, fix the cause: clearer billing descriptors, tracked shipping above a set value, or easier cancellation. Friendly fraud, where a real customer disputes a genuine purchase, often follows a pattern you can design out.</p>
+
+      <h2>Build a repeatable process</h2>
+      <p>Merchants who win more disputes treat representment as an operations task, not an emergency. Store evidence at the time of sale, use templates by reason code, track win rates by code and by acquirer, and review losses monthly. High dispute volumes can also trigger a <a href="rolling-reserve.html">rolling reserve</a>, so the cash impact goes beyond the disputed amounts.</p>
+      <p>SMUVPAY supports merchants with dispute handling and <a href="../index.html#capabilities">risk tooling</a> across acquirers. Scheme rules on evidence and deadlines change regularly, so confirm the current requirements with your acquirer before you file.</p>

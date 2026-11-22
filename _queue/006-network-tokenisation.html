@@ -1,0 +1,44 @@
+<!--
+slug: network-tokenisation
+title: Network tokenisation: network tokens vs gateway tokens explained
+h1: Network tokens vs gateway tokens:<br><em>what merchants should know.</em>
+desc: Network tokenisation explained: how Visa and Mastercard network tokens differ from gateway tokens, and what they mean for approvals, card updates and PCI scope.
+cat: Payment infrastructure
+mins: 5
+summary: How network tokens from Visa and Mastercard differ from the gateway tokens most merchants already store, and when switching is worth the work.
+lede: Network tokenisation replaces a card number with a token issued by the card scheme itself, such as Visa or Mastercard, instead of by your payment provider. For merchants who store cards for repeat or subscription payments, it changes how often stored cards fail, how portable your card data is and how much of your stack PCI DSS covers.
+-->
+      <h2>Two kinds of token</h2>
+      <p>Most merchants already use tokens without thinking about it. When a customer saves a card, your gateway stores the real card number (the PAN) in its vault and gives you a reference such as tok_8f3a. That is a <strong>gateway token</strong>, sometimes called a PSP token. It means nothing outside that provider.</p>
+      <p>A <strong>network token</strong> is issued by the card scheme's token service: Visa Token Service or Mastercard Digital Enablement Service (MDES), with similar services from other networks. It looks like a card number but is not the real one, and the issuing bank knows which card it maps to. Each transaction made with it carries a one-time cryptogram, which proves the payment came from the merchant the token was issued for. Apple Pay and Google Pay use the same mechanism, with the token bound to a device instead of a merchant.</p>
+
+      <h2>Network tokenisation vs gateway tokens: side by side</h2>
+      <ul>
+        <li><strong>Who issues it:</strong> gateway tokens come from your provider; network tokens come from the card scheme, requested by you or your provider as "token requestor".</li>
+        <li><strong>What the issuer sees:</strong> with a gateway token, the provider sends the real PAN to the issuer. With a network token, the issuer sees a token plus cryptogram, which it can trust more because the token only works for one merchant.</li>
+        <li><strong>Card changes:</strong> when a card is reissued, expires or is reported lost, the issuer can update the network token automatically. A gateway token still points at the old PAN unless the provider runs a separate account updater service.</li>
+        <li><strong>Portability:</strong> gateway tokens are locked to one provider. Network tokens can be used across processors if you are the token requestor, or if your providers agree to share or migrate them. In practice this depends on contracts, so check before assuming it.</li>
+        <li><strong>Security if stolen:</strong> a stolen network token is close to useless outside the merchant and channel it was issued for. A stolen PAN can be used anywhere card-not-present fraud is possible.</li>
+      </ul>
+
+      <h2>Why approval rates often improve</h2>
+      <p>Stored cards decline for dull reasons: the card expired, was replaced after a fraud scare, or the customer's bank no longer recognises the merchant's pattern. Automatic lifecycle updates remove the first two. The cryptogram gives issuers more confidence on the third. Visa and Mastercard both promote network tokens on the basis of higher authorisation rates and lower fraud, and many providers report uplifts on recurring and card-on-file traffic.</p>
+      <p>The size of the gain depends on your mix of issuers, countries and transaction types, so measure it yourself. Run an A/B split on stored-card payments for a month and compare approval rates, not the provider's headline figure. Subscription businesses with large card-on-file bases usually see the clearest difference, because involuntary churn from expired cards is a direct revenue loss.</p>
+      <p>A worked example: a subscription business charges 50,000 stored cards a month at £20. If 3% of those fail because cards were reissued or expired, that is 1,500 failed renewals, or £30,000 of monthly revenue at risk before any retry. Every failure that lifecycle updates prevent is a customer who did not need to be chased.</p>
+
+      <h2>Cost and fees</h2>
+      <p>Schemes may charge fees for token provisioning, lifecycle updates and cryptogram requests, and providers pass these on in different ways: bundled into pricing, charged per token, or charged per update. Some markets and programmes have offered interchange or scheme fee incentives for tokenised transactions. Ask your provider for the specific line items and read them against our guide to <a href="interchange-fees-explained.html">how interchange and card fees are set</a>, so you can compare cost against the approval gain.</p>
+
+      <h2>What it means for PCI DSS</h2>
+      <p>If you never touch the real PAN, your PCI DSS scope stays small whichever token type you use. Network tokens are still treated as sensitive in many cases, so they do not remove PCI obligations on their own. The scope gain comes from keeping raw card numbers off your systems, which a hosted checkout and a compliant vault already do. Our <a href="pci-dss-compliance.html">PCI DSS guide</a> covers how to shrink scope.</p>
+
+      <h2>Checklist: should you switch on network tokens?</h2>
+      <ol>
+        <li><strong>Do you store cards?</strong> If most payments are one-off guest checkouts, the benefit is small.</li>
+        <li><strong>Is your provider a token requestor?</strong> Many large gateways and processors support network tokens with a configuration change instead of a rebuild.</li>
+        <li><strong>Who owns the tokens?</strong> Confirm in writing whether you can take them to another processor. This matters if you route across several acquirers.</li>
+        <li><strong>How are updates reported?</strong> You want an event, often a webhook, when a token's underlying card changes. See our guide to <a href="payment-webhooks.html">payment webhooks</a>.</li>
+        <li><strong>What are the fees?</strong> Get the per-token and per-update charges before you migrate an existing card base.</li>
+        <li><strong>How will you measure it?</strong> Agree a test group and a control group before you flip everything at once.</li>
+      </ol>
+      <p>Network tokens are one of the few changes that can lift approvals and cut fraud at the same time, but the value depends on how you store cards and how many providers you use. SMUVPAY includes tokenisation and card vault design in its <a href="../index.html#capabilities">payment capabilities</a>, including multi-acquirer setups where token portability matters.</p>

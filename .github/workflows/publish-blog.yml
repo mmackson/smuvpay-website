@@ -1,0 +1,28 @@
+name: Publish queued blog post
+
+on:
+  schedule:
+    - cron: "17 * * * *" # hourly; publish.py decides if a London slot (07,10,13,16,19) is due
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/publish.py
+      - name: Commit and push
+        run: |
+          git add -A blog blog.html sitemap.xml _queue
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "smuvpay-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Blog: publish $(git diff --cached --name-only --diff-filter=A -- blog | xargs -n1 basename)"
+          git push

@@ -1,0 +1,55 @@
+<!--
+slug: stablecoin-b2b-settlement
+title: Stablecoin settlement for cross-border B2B payments: how it works
+h1: Stablecoin settlement for<br><em>cross-border B2B payments.</em>
+desc: How stablecoin settlement works for cross-border B2B payments: the payment flow, contract terms, cost against bank wires, reconciliation and compliance.
+cat: Treasury & digital assets
+mins: 4
+summary: A step-by-step view of settling cross-border supplier and intercompany payments in stablecoins, with contract terms, a cost comparison, reconciliation and compliance checks.
+lede: Stablecoin settlement for cross-border B2B payments means paying a supplier, customer or group entity in a dollar or euro stablecoin instead of a bank wire, then converting to local currency at either end. It works best on corridors where correspondent banking is slow, costly or unreliable, and it needs the same contract, accounting and compliance discipline as any bank payment.
+-->
+      <h2>When stablecoin settlement makes sense</h2>
+      <p>The case is strongest on corridors where bank payments are the problem. Typical signs are wires that take three or more days, intermediary banks deducting fees from the amount received, payments held for repeated information requests, or a supplier whose local bank struggles to receive USD. Our post on <a href="correspondent-banking-de-risking.html">correspondent banking and de-risking</a> explains why some corridors get stuck.</p>
+      <p>On corridors with a good local rail, the case is weak. A EUR payment from Germany to Spain over SEPA Instant arrives in seconds at little or no cost, and adding two crypto conversions only adds spread and work. See <a href="swift-vs-sepa-vs-faster-payments.html">SWIFT vs SEPA vs Faster Payments</a> for how bank rails compare.</p>
+
+      <h2>How a stablecoin B2B payment flows</h2>
+      <ol>
+        <li><strong>Invoice.</strong> The supplier invoices in a fiat currency, usually USD or EUR, and states the stablecoin, network and wallet address accepted, or the payment is agreed in stablecoins directly.</li>
+        <li><strong>Address check.</strong> The payer verifies the wallet address through a second channel, such as a call to a known contact, and sends a small test transfer on the first payment.</li>
+        <li><strong>On-ramp.</strong> The payer converts fiat to stablecoins through an exchange, OTC desk or payment provider, or uses an existing stablecoin balance.</li>
+        <li><strong>Transfer.</strong> The stablecoins move on-chain, typically in seconds to minutes depending on the network. Travel rule data travels between the two service providers.</li>
+        <li><strong>Off-ramp.</strong> The supplier converts to local currency, or holds the stablecoins if that suits its own costs and rules.</li>
+        <li><strong>Remittance advice.</strong> The payer sends the transaction hash, amount and invoice number so the supplier can match the payment.</li>
+      </ol>
+      <p>The on-ramp and off-ramp steps carry most of the cost and delay. Our guide to <a href="crypto-on-off-ramp.html">crypto on-ramps and off-ramps</a> covers how to choose them.</p>
+
+      <h2>Cost: a worked comparison</h2>
+      <p>Take a $250,000 payment from a UK importer to a manufacturer in a market with thin USD correspondent coverage. These figures are illustrative; real costs vary by provider, bank and corridor.</p>
+      <ul>
+        <li><strong>Bank wire:</strong> a sending fee of £20 to £50, one or two intermediary deductions of $15 to $50 each, an FX margin on GBP to USD that banks often set between 0.5% and 2% for business clients, and two to five days in transit.</li>
+        <li><strong>Stablecoin route:</strong> a GBP to USDT or USDC conversion at a combined FX and crypto spread of perhaps 0.3% to 0.6% for this size, a network fee of under a few dollars, and an off-ramp spread at the supplier's end that depends heavily on the local market.</li>
+      </ul>
+      <p>The off-ramp in the supplier's country is the deciding number. In some markets, local stablecoin liquidity is deep and conversion is cheap. In others, it is thin, or the local rate differs from the official FX rate, which can create legal and tax issues. Ask the supplier what they actually receive in local currency per $1,000 sent, on both routes.</p>
+
+      <h2>Contract terms to agree first</h2>
+      <ul>
+        <li><strong>Which token and network.</strong> Name them in the contract. Sending the right token on the wrong network can lose the payment. Our comparison of <a href="usdt-vs-usdc.html">USDT vs USDC</a> covers the choice.</li>
+        <li><strong>When payment is complete.</strong> For example, after a set number of confirmations at the agreed address.</li>
+        <li><strong>Who pays which costs.</strong> Network fees and conversion costs at each end.</li>
+        <li><strong>Exchange rate basis.</strong> If the invoice is in EUR but settled in USDC, which rate source and at what time.</li>
+        <li><strong>Address changes.</strong> Changes only take effect after verification through a second channel. Fake address-change emails are a common fraud.</li>
+        <li><strong>Frozen or flagged funds.</strong> What happens if an issuer or provider freezes tokens in transit.</li>
+      </ul>
+
+      <h2>Reconciliation and accounting</h2>
+      <p>Each stablecoin payment needs the same audit trail as a wire: invoice number, amount in invoice currency, amount and token sent, rate used, transaction hash, sending and receiving addresses, and fees. Book the payment at the fiat value on the payment date. If you hold stablecoin balances, track gains or losses on conversion, which some tax authorities apply even to dollar-pegged tokens. The same matching discipline from <a href="payment-reconciliation.html">payment reconciliation</a> applies; the transaction hash replaces the bank reference.</p>
+
+      <h2>Compliance checks</h2>
+      <ul>
+        <li>KYB on the counterparty, as for any supplier.</li>
+        <li>Wallet screening on every receiving address before each payment.</li>
+        <li>Sanctions screening on the counterparty and its country.</li>
+        <li>Travel rule data where both sides use service providers. Thresholds vary by jurisdiction, and the EU applies the rule from the first euro.</li>
+        <li>Local currency and capital controls in the supplier's country. In some countries, settling trade outside the banking system is restricted or must be reported.</li>
+      </ul>
+      <p>SMUVPAY runs bank rails and stablecoin rails side by side, so each corridor can use whichever is cheaper and more reliable. See our <a href="../index.html#rails">independent rails</a> for coverage. Stablecoin, currency control and tax rules differ by country, so take local legal and tax advice before settling trade in stablecoins.</p>

@@ -1,0 +1,61 @@
+<!--
+slug: cross-border-mass-payouts
+title: Cross-border mass payouts to contractors, sellers and creators
+h1: Cross-border mass payouts:<br><em>paying contractors, sellers and creators.</em>
+desc: How cross-border mass payouts work for contractors, sellers and creators: payout methods, prefunding, FX, compliance checks and how to cut failed payments.
+cat: Cross-border payments
+mins: 4
+summary: Paying hundreds or thousands of people in different countries is a funding, FX, compliance and data problem. How mass payouts work and how to run them without failures.
+lede: Cross-border mass payouts let a business pay many recipients in many countries from one funded balance, in a single batch or API run. Done well, each recipient is paid in local currency over a local rail. Done badly, a batch turns into weeks of returned payments, FX leakage and support tickets.
+-->
+      <h2>What a cross-border mass payout is</h2>
+      <p>A mass payout is any process where a business sends a large number of payments to different recipients at once. Common examples are marketplaces paying sellers, platforms paying creators and drivers, and companies paying freelance contractors in dozens of countries. The amounts are often small, the recipients are often individuals, and the countries change all the time.</p>
+      <p>Sending each payment as a separate bank wire works for ten recipients. It breaks at a thousand. Wire fees eat into small amounts, correspondent banks deduct charges, and finance spends days chasing failed payments. A payout provider replaces this with one funding transfer and one instruction file or API call, then delivers each payment through the best rail for that country.</p>
+
+      <h2>How a mass payout run works</h2>
+      <ol>
+        <li><strong>Onboard recipients.</strong> Collect payment details, verify identity where required, and screen names against sanctions lists.</li>
+        <li><strong>Prefund.</strong> Send money to your payout balance before the run. Most providers will not release payouts until funds have cleared.</li>
+        <li><strong>Convert.</strong> Exchange the funding currency into each payout currency, either at the time of the run or from balances you already hold.</li>
+        <li><strong>Submit the batch.</strong> Upload a file or call the API with recipient, amount, currency and reference for each payment.</li>
+        <li><strong>Deliver.</strong> The provider sends each payment over a local rail, card network, wallet or SWIFT.</li>
+        <li><strong>Track and reconcile.</strong> Receive a status for each payment, usually by <a href="payment-webhooks.html">webhook</a>, and handle returns.</li>
+      </ol>
+
+      <h2>Payout methods by recipient</h2>
+      <ul>
+        <li><strong>Local bank transfer:</strong> the default for most countries. The provider pays from an account inside the recipient's country, for example over SEPA in Europe, Faster Payments in the UK, ACH in the US or UPI and IMPS in India. Cheap and predictable.</li>
+        <li><strong>SWIFT:</strong> for countries and currencies the provider cannot reach locally. Slower, more expensive and prone to intermediary deductions. See <a href="swift-vs-sepa-vs-faster-payments.html">SWIFT vs SEPA vs Faster Payments</a>.</li>
+        <li><strong>Push to card:</strong> services such as Visa Direct and Mastercard Move send funds to an eligible debit card, often within minutes. Coverage and limits depend on the issuing bank.</li>
+        <li><strong>Mobile wallets:</strong> in parts of Africa and Asia, mobile money such as M-Pesa is how many people receive money. For gig workers in these markets it may be the only practical option.</li>
+        <li><strong>Stablecoins:</strong> useful where banking is slow or unreliable and recipients can convert locally. Check the recipient's access to an <a href="crypto-on-off-ramp.html">off-ramp</a> and local rules first.</li>
+      </ul>
+
+      <h2>The cost of a payout, line by line</h2>
+      <p>Fees vary widely by provider, corridor and volume, so build your own comparison from these components:</p>
+      <ul>
+        <li><strong>Per-payment fee:</strong> often well under a pound or dollar for local rails, and much higher for SWIFT.</li>
+        <li><strong>FX spread:</strong> usually the largest cost on small, frequent payouts. Our guide to <a href="fx-spread-cost.html">FX spreads</a> shows how to measure it.</li>
+        <li><strong>Funding cost:</strong> fees to move money into the payout balance, plus the cash tied up in prefunding.</li>
+        <li><strong>Failure cost:</strong> return fees, re-send fees and staff time when a payment bounces.</li>
+      </ul>
+      <p>Worked example: a platform pays 2,000 creators an average of $150, so $300,000 a month. A 1% FX spread costs $3,000. A $0.50 local payout fee costs $1,000. If 2% of payments fail and each costs $15 to investigate and resend, that is another $600. The FX line is three times the fees, so negotiate the spread first.</p>
+
+      <h2>Compliance checks you cannot skip</h2>
+      <ul>
+        <li><strong>Sanctions screening</strong> on every recipient and every payment, including name changes and new bank details.</li>
+        <li><strong>Identity checks</strong> proportionate to the amount and risk. Many platforms verify recipients before their first payout, and verify businesses with <a href="kyb-merchant-onboarding.html">KYB</a>.</li>
+        <li><strong>Transaction monitoring</strong> for patterns such as many recipients sharing one bank account. This sits within your <a href="aml-programme-fintech.html">AML programme</a>.</li>
+        <li><strong>Tax information:</strong> some countries require platforms to collect tax details and report seller income. In the EU, DAC7 requires digital platforms to report information on sellers. In the US, platforms collect forms such as W-9 or W-8BEN depending on the payee.</li>
+      </ul>
+
+      <h2>How to cut failed payouts</h2>
+      <ol>
+        <li>Validate bank details at collection: IBAN check digits, sort codes, routing numbers and required fields per country.</li>
+        <li>Use name-checking services where available, such as Confirmation of Payee in the UK and Verification of Payee in the euro area.</li>
+        <li>Ask recipients to confirm details again when they change them, and pause the first payout to new details for review.</li>
+        <li>Keep a clear return flow: credit the funds back, notify the recipient, and resend once fixed.</li>
+        <li>Avoid weekend and holiday cut-offs in the receiving country when timing matters.</li>
+      </ol>
+      <p>SMUVPAY connects platforms to <a href="../index.html#capabilities">payout partners</a> across local, card, wallet and digital asset rails, matched to each recipient market.</p>
+      <p>Payout, tax reporting and licensing rules differ by country, so take local legal and tax advice before launching in a new market.</p>

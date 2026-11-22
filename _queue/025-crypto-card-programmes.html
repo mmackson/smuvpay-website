@@ -1,0 +1,62 @@
+<!--
+slug: crypto-card-programmes
+title: Crypto card programmes: how digital asset cards work
+h1: Crypto card programmes:<br><em>how digital asset cards work.</em>
+desc: How crypto card programmes work: issuer, BIN sponsor and program manager roles, when crypto converts to fiat, fees, compliance and what launch involves.
+cat: Treasury & digital assets
+mins: 4
+summary: How crypto debit and prepaid cards work behind the scenes: who issues them, when the crypto is sold, what each party earns and what a business needs to launch its own programme.
+lede: A crypto card lets a holder spend digital assets anywhere that accepts Visa or Mastercard. The merchant never receives crypto. The card is a normal fiat card issued by a regulated institution, and the programme converts the holder's crypto into fiat at or before the moment of payment.
+-->
+      <h2>How a crypto card works</h2>
+      <p>At the till, a crypto card behaves like any other debit or prepaid card. The merchant's acquirer sends an authorisation request through the card network to the issuer, and the merchant is paid in fiat in the usual way. The crypto part happens on the cardholder's side, inside the programme.</p>
+      <p>Programmes use one of two conversion models:</p>
+      <ul>
+        <li><strong>Pre-funded.</strong> The holder converts crypto into a fiat or stablecoin balance in advance, and the card spends from that balance. Simple to run, with no market risk during authorisation.</li>
+        <li><strong>Just-in-time.</strong> The holder keeps crypto, and the programme sells the exact amount needed when an authorisation arrives. The issuer must approve or decline within the network's response time, usually a few seconds, so the conversion engine and liquidity must be fast and reliable.</li>
+      </ul>
+      <p>Card programmes that settle with the networks in stablecoins have also appeared, but the merchant side still receives fiat in nearly all cases.</p>
+
+      <h2>Who does what in a crypto card programme</h2>
+      <ul>
+        <li><strong>Card network:</strong> Visa or Mastercard sets the rules, approves the programme and runs authorisation and clearing.</li>
+        <li><strong>Issuer or BIN sponsor:</strong> a bank or e-money institution that holds the network licence and issues the cards. It carries ultimate regulatory responsibility to the network and its regulator.</li>
+        <li><strong>Program manager:</strong> the business that designs the product, owns the customer relationship and often runs operations under the issuer's oversight.</li>
+        <li><strong>Issuer processor:</strong> the platform that handles card records, authorisation decisions, balances and transaction data.</li>
+        <li><strong>Crypto service provider:</strong> custody of the holder's assets and the conversion to fiat. This firm needs its own licence or registration, for example MiCA authorisation in the EU.</li>
+      </ul>
+      <p>One firm can fill several roles, but each role carries separate regulatory and network obligations. A program manager without its own licences relies on partners for all of them.</p>
+
+      <h2>How the money flows</h2>
+      <p>Take a just-in-time purchase of €100 in a shop. The authorisation reaches the issuer processor, which asks the programme to fund it. The conversion engine sells about €100 of the holder's USDC, plus any fee, and moves the value to the issuer's settlement account. The issuer approves. A day or so later the network clears the transaction and the issuer pays the acquirer, which pays the merchant.</p>
+      <p>Two timing risks need managing. Prices can move between authorisation and clearing, and refunds or partial captures arrive later in fiat. Programmes decide whether refunds return as fiat or are converted back to crypto, and publish that rule in the cardholder terms.</p>
+
+      <h2>Revenue and costs</h2>
+      <p>Programmes earn mainly from three sources:</p>
+      <ul>
+        <li><strong>Interchange:</strong> a share of the fee paid by the merchant's acquirer on each purchase. In the EU and UK, consumer debit interchange is capped at 0.2% and consumer credit at 0.3%, which limits this revenue. In markets without caps, interchange is higher, and our guide to <a href="interchange-fees-explained.html">how interchange works</a> explains the mechanics.</li>
+        <li><strong>Conversion spread:</strong> the margin on selling crypto for fiat, often the largest income line.</li>
+        <li><strong>Cardholder fees:</strong> issuance, monthly, foreign exchange and ATM fees, depending on the product.</li>
+      </ul>
+      <p>Costs include issuer and processor fees per card and per transaction, network fees, card production, fraud losses, chargebacks, compliance staff and liquidity for the conversion engine. Minimum fees and set-up costs vary widely between partners, so model the economics at your expected volume before signing.</p>
+
+      <h2>Compliance in crypto card programmes</h2>
+      <p>Card networks and issuers apply extra scrutiny to crypto programmes. Expect checks on:</p>
+      <ul>
+        <li><strong>Customer due diligence:</strong> full KYC on every cardholder, usually before the first top-up.</li>
+        <li><strong>Source of crypto:</strong> wallet screening on deposits, and the <a href="crypto-travel-rule.html">travel rule</a> on transfers from other service providers.</li>
+        <li><strong>Geography:</strong> which countries cardholders can live in and spend in. Many issuers restrict this per programme.</li>
+        <li><strong>Transaction monitoring:</strong> spend patterns, ATM use and rapid top-up then withdraw behaviour.</li>
+        <li><strong>Marketing:</strong> rules on crypto promotions differ by country. In the UK, for example, cryptoasset promotions fall under the FCA's financial promotions regime.</li>
+      </ul>
+
+      <h2>Launch checklist</h2>
+      <ol>
+        <li>Which issuer will sponsor the programme, and in which countries can it issue?</li>
+        <li>Pre-funded or just-in-time conversion, and who provides the liquidity?</li>
+        <li>Who holds custody of cardholder crypto, and under which licence?</li>
+        <li>How are refunds, chargebacks and failed conversions handled?</li>
+        <li>What are the per-card and per-transaction costs at your forecast volume?</li>
+        <li>What does the network require for approval, and how long does it take?</li>
+      </ol>
+      <p>Approval timelines depend on the issuer and network, and range from a few months to well over six for a new programme. See SMUVPAY's <a href="../index.html#capabilities">card and digital asset capabilities</a> for how issuing, custody and conversion can be combined. Card and crypto rules differ by country, so take local legal advice before launching a programme.</p>

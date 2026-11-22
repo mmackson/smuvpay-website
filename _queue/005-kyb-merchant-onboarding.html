@@ -1,0 +1,64 @@
+<!--
+slug: kyb-merchant-onboarding
+title: KYB explained: what processors check before onboarding a business
+h1: KYB explained:<br><em>what processors check before onboarding a business.</em>
+desc: KYB explained: the company, ownership, sanctions and business-model checks processors run before onboarding a merchant, and how to pass them quickly.
+cat: Compliance
+mins: 5
+summary: What know your business (KYB) checks cover, the documents processors ask for, and how to prepare so onboarding takes days instead of weeks.
+lede: Know your business (KYB) is the set of checks a processor, acquirer or payment institution runs before it lets a company take or move money. It confirms the business is real, finds out who owns and controls it, and tests whether its model fits the provider's risk appetite.
+-->
+      <h2>What KYB means and why processors run it</h2>
+      <p>KYB is the business version of know your customer (KYC). Anti-money-laundering law in the UK, EU and US requires regulated payment firms to identify their customers, understand the purpose of the relationship and monitor it afterwards. For an acquirer there is a second reason: under card scheme rules, the acquirer is liable for its merchants. If a merchant collapses with unpaid chargebacks or turns out to be a front for fraud, the acquirer carries the loss and the scheme fines. KYB is how it decides whether to take that risk, and on what terms.</p>
+      <p>Most providers split KYB into four questions. Does the company exist? Who owns and controls it? Is anyone involved sanctioned, politically exposed or linked to financial crime? Does the business model, as actually operated, match what the application says?</p>
+
+      <h2>The KYB checklist: what gets checked</h2>
+      <ol>
+        <li><strong>Company verification.</strong> Legal name, registration number, registered address and status, checked against the official register: Companies House in the UK, the e-Business Register in Estonia, state filings in the US. A dissolved or dormant status, or a recent change of name, will prompt questions.</li>
+        <li><strong>Ultimate beneficial owners (UBOs).</strong> Every person who owns or controls more than 25% of the company, directly or through other entities, must be identified and verified. Many providers set a lower line, often 10%, for higher-risk sectors. Layered structures are traced up to the individuals at the top.</li>
+        <li><strong>Directors and controllers.</strong> Identity documents, proof of address and sometimes a liveness check for directors and anyone with signing authority.</li>
+        <li><strong>Screening.</strong> The company, its owners and directors are screened against sanctions lists (such as UK OFSI, EU and US OFAC lists), politically exposed person (PEP) databases and adverse media. A match does not always mean rejection, but it triggers enhanced due diligence.</li>
+        <li><strong>Industry and scheme checks.</strong> The provider assigns a merchant category code, checks whether the sector is restricted, and for card acquiring searches Mastercard's MATCH list for previous terminations.</li>
+        <li><strong>Website and product review.</strong> An analyst checks that the site is live, the products match the application, prices are in the currencies requested, and terms, refund policy, privacy policy and contact details are visible.</li>
+        <li><strong>Financial review.</strong> Bank statements, recent accounts and, for existing merchants, three to six months of processing statements showing volumes, refunds and <a href="chargeback-ratio-thresholds.html">chargeback ratios</a>.</li>
+        <li><strong>Source of funds and wealth.</strong> For higher-risk cases, evidence of where the company's starting capital and the owners' wealth came from.</li>
+      </ol>
+
+      <h2>Documents to have ready</h2>
+      <ul>
+        <li>Certificate of incorporation and articles of association</li>
+        <li>Register of shareholders, plus a structure chart if there is more than one entity</li>
+        <li>Passport or national ID and proof of address for each UBO and director</li>
+        <li>Business bank statement in the company's name, usually from the last three months</li>
+        <li>Latest accounts or management accounts</li>
+        <li>Previous processing statements, if you have processed before</li>
+        <li>Any licence or registration your activity needs, such as a gambling or financial services licence</li>
+        <li>A short description of the business: what you sell, to whom, in which countries, average order value and expected monthly volume</li>
+      </ul>
+
+      <h2>How risk changes the depth of the review</h2>
+      <p>KYB is risk-based. A UK-registered software company with one director and domestic customers might clear automated checks in a day. A company with a holding entity in another jurisdiction, nominee shareholders, and sales into many countries will get manual review and enhanced due diligence. Expect the same for <a href="high-risk-merchant-account.html">high-risk categories</a> such as gaming, adult content, nutraceuticals, travel, forex and crypto. Timelines in those cases commonly run from one to four weeks, and the provider may approve you with conditions such as a <a href="rolling-reserve.html">rolling reserve</a>, volume caps or delayed settlement.</p>
+      <p>The outcome is rarely a simple yes or no. Underwriting usually ends with an approved volume, a settlement schedule, reserve terms and a list of conditions to review after a few months of clean trading.</p>
+
+      <h2>Why applications get delayed or declined</h2>
+      <ul>
+        <li>Ownership that cannot be traced to individuals, or trusts and foundations without supporting deeds</li>
+        <li>The website sells something different from the application, or lacks terms and a refund policy</li>
+        <li>Volume forecasts far above what the company's history or funding can support</li>
+        <li>Mismatched names or addresses across the register, ID documents and bank statements</li>
+        <li>A previous termination that the applicant did not disclose</li>
+        <li>Missing licences for regulated activities</li>
+      </ul>
+
+      <h2>KYB does not stop at onboarding</h2>
+      <p>Providers must keep customer information up to date. They rescreen against sanctions lists, monitor transactions against the profile you declared, and run periodic reviews, typically every one to three years depending on risk. Tell your provider before you change ownership, add a new product line or enter new markets. Discovering those changes in the transaction data is a common trigger for account reviews and freezes.</p>
+
+      <h2>How to make onboarding faster</h2>
+      <ol>
+        <li>Prepare a single pack with every document above, in English or with certified translations.</li>
+        <li>Make sure names and addresses match exactly across all records.</li>
+        <li>Draw your ownership chart down to the individuals, with percentages.</li>
+        <li>Fix the website before you apply: product, prices, policies, company details in the footer.</li>
+        <li>Give honest, evidenced volume forecasts and disclose any past terminations.</li>
+      </ol>
+      <p>If you operate in a regulated activity yourself, your provider will also ask which permissions you hold. Our guide to <a href="msb-emi-payment-institution-licence.html">MSB, EMI and payment institution licences</a> explains the options, and the <a href="../regulatory.html">SMUVPAY regulatory overview</a> sets out how we work with licensed partners. Requirements differ by country and provider, so take local legal advice on your own obligations.</p>

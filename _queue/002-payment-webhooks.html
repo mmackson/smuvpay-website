@@ -1,0 +1,49 @@
+<!--
+slug: payment-webhooks
+title: Payment webhooks: how to handle confirmations and failures correctly
+h1: Payment webhooks:<br><em>handling confirmations and failures correctly.</em>
+desc: How payment webhooks work, why they arrive late, twice or out of order, and the rules for handling payment confirmations, failures and refunds safely.
+cat: Payment infrastructure
+mins: 5
+summary: Why payment webhooks arrive late, twice or out of order, and the handling rules that stop missed orders, double shipments and broken reconciliation.
+lede: A payment webhook is a message your payment provider sends to your server when something happens to a payment: it succeeds, fails, is refunded or is disputed. Most payment bugs that reach customers trace back to webhooks handled as if they were simple, instant and reliable. They are none of those.
+-->
+      <h2>What a payment webhook is and why you need one</h2>
+      <p>When a customer pays, your checkout gets an immediate response from the provider. That response is often not the final answer. Bank transfers, wallet payments, 3-D Secure challenges, delayed captures and many local payment methods settle minutes, hours or days later. Refunds and chargebacks happen weeks later. Payment webhooks are how the provider tells you about those later events without you asking every few seconds.</p>
+      <p>The rule follows from that: treat the webhook, or a direct status check against the provider's API, as the source of truth for whether you have been paid. The browser redirect back to your "thank you" page is not proof of payment. Customers close tabs, lose signal and sometimes edit URLs.</p>
+
+      <h2>The events that matter</h2>
+      <p>Names vary by provider, but most send events in these groups:</p>
+      <ul>
+        <li><strong>Payment succeeded or captured:</strong> release the order, credit the wallet or activate the subscription.</li>
+        <li><strong>Payment failed or expired:</strong> release reserved stock and tell the customer, so they can retry.</li>
+        <li><strong>Payment pending or requires action:</strong> the customer still has a step to complete, such as a 3-D Secure challenge or a bank approval.</li>
+        <li><strong>Refund created or failed:</strong> a refund can fail, for example when the card has been closed, so do not mark it done when you request it.</li>
+        <li><strong>Dispute opened or closed:</strong> starts the clock on your evidence deadline, which is often only 7 to 20 days depending on the provider and card scheme.</li>
+        <li><strong>Payout paid or failed:</strong> the money has moved from the provider to your bank account, or has not.</li>
+      </ul>
+
+      <h2>Three things that will happen in production</h2>
+      <p><strong>Duplicates.</strong> Providers deliver webhooks "at least once". If your server is slow to reply, or the reply is lost, the provider sends the same event again. Without protection, a duplicate "payment succeeded" can ship an order twice or credit a balance twice.</p>
+      <p><strong>Out-of-order delivery.</strong> A "refunded" event can arrive before the "succeeded" event it relates to, because events are sent in parallel and retried on different schedules. Code that assumes events arrive in sequence will eventually write the wrong status.</p>
+      <p><strong>Delays and outages.</strong> If your endpoint is down, most providers retry with increasing gaps for a period that ranges from a few hours to several days, then stop. If the outage outlasts the retry window, those events are gone unless you go and fetch them.</p>
+
+      <h2>Handling rules that prevent most webhook bugs</h2>
+      <ol>
+        <li><strong>Verify the signature.</strong> Providers sign each webhook, usually with an HMAC using a secret only you and they hold. Reject anything that fails the check. Many also include a timestamp so you can reject old messages that are replayed later; a tolerance of a few minutes is common.</li>
+        <li><strong>Reply fast, process later.</strong> Store the raw event, return a 2xx response within a few seconds, then do the real work in a background job. Slow replies cause timeouts, and timeouts cause duplicates.</li>
+        <li><strong>Make processing idempotent.</strong> Record every event ID you have processed and skip any you have seen before. Apply the same idea to the business action: "mark order 1042 paid" should do nothing the second time.</li>
+        <li><strong>Treat the event as a hint.</strong> On receipt, fetch the current state of the payment from the provider's API and act on that. This removes most ordering problems, because you always act on the latest state, not on whichever message arrived last.</li>
+        <li><strong>Only move status forward.</strong> Define allowed transitions, such as pending to succeeded to refunded, and ignore events that would move a payment backwards.</li>
+        <li><strong>Reconcile on a schedule.</strong> Once an hour or once a day, list recent payments from the provider's API and compare them with your records. This catches anything lost during an outage.</li>
+        <li><strong>Alert on silence.</strong> A sudden drop in webhook volume usually means a broken endpoint, an expired secret or a firewall change, not a quiet sales day.</li>
+      </ol>
+
+      <h2>A worked example</h2>
+      <p>A customer pays £240 by bank transfer through an open banking flow. Your checkout receives "pending" and shows "payment processing". Forty seconds later your server is mid-deploy and returns an error to the "succeeded" webhook. The provider retries two minutes later. Your handler verifies the signature, stores event ID evt_001, replies 200, then a background job fetches the payment, sees "succeeded" and marks the order paid.</p>
+      <p>Ten minutes later the provider sends evt_001 again because its record of your earlier 200 was lost. Your handler finds evt_001 already stored and stops. One order, one shipment, one ledger entry. Without the stored event ID, the customer would have received two parcels.</p>
+
+      <h2>Webhooks and the rest of your payment stack</h2>
+      <p>Webhook handling belongs to whoever owns payments operations, not only to engineering. Finance relies on refund, dispute and payout events to keep the books right, and risk teams rely on dispute events to keep <a href="chargeback-ratio-thresholds.html">chargeback ratios</a> inside scheme limits. If you use more than one provider, each sends its own event format, which is one reason businesses move to a <a href="payment-orchestrator.html">payment orchestrator</a> that normalises events into one schema.</p>
+      <p>It also helps to know which layer each event comes from. Authorisation and capture events come from the gateway and processor; payout events come from settlement. The distinction is covered in our guide to the <a href="payment-gateway-vs-processor.html">gateway versus the processor</a>.</p>
+      <p>Before go-live, test each event type in the provider's sandbox, including duplicates and deliberate failures from your own endpoint. SMUVPAY designs webhook and event handling as part of its <a href="../index.html#integration">integration work</a>, so payment status, finance records and customer messages stay in line.</p>

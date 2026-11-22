@@ -1,0 +1,48 @@
+<!--
+slug: crypto-travel-rule
+title: The crypto travel rule: what businesses must send and check
+h1: The crypto travel rule:<br><em>what businesses must send and check.</em>
+desc: The crypto travel rule explained: what sender and recipient data must travel with transfers, EU, UK and US thresholds, and how self-hosted wallets are handled.
+cat: Compliance & licensing
+mins: 5
+summary: What the crypto travel rule requires, which data must travel with each transfer, how thresholds differ between the EU, UK and US, and what businesses should check.
+lede: The crypto travel rule requires crypto service providers to send identifying information about the sender and recipient along with a cryptoasset transfer, and to check the information they receive. It applies the same principle that banks have followed for wire transfers for decades. What you must send, and from what amount, depends on where you and your counterparty are regulated.
+-->
+      <h2>What the crypto travel rule is</h2>
+      <p>The rule comes from Recommendation 16 of the Financial Action Task Force (FATF), the global standard-setter for anti-money-laundering. In 2019 FATF extended it to virtual asset service providers (VASPs), the term for exchanges, custodians, brokers and similar firms. Each country then writes the rule into its own law, which is why thresholds, data fields and start dates differ.</p>
+      <p>The rule applies to the service providers, not directly to every business that holds crypto. If your company sends USDC from an exchange account to a supplier's exchange account, the two exchanges carry the obligation. But they will ask you for the data, and they may hold or return your payment if it is missing. If your business itself provides crypto services to customers, you carry the obligation directly.</p>
+
+      <h2>What information must travel</h2>
+      <p>For a transfer between two service providers, the sending provider typically has to collect and send:</p>
+      <ul>
+        <li><strong>Originator:</strong> full name, the account or wallet address used, and, depending on the jurisdiction, a physical address, official ID number, customer number or date and place of birth.</li>
+        <li><strong>Beneficiary:</strong> full name and the account or wallet address.</li>
+      </ul>
+      <p>For legal entities, the name is the registered company name, and some jurisdictions also expect a legal entity identifier (LEI) where the company has one. The receiving provider must check that the data is present, screen it against sanctions lists, and have a policy for transfers that arrive with missing or mismatched information.</p>
+
+      <h2>Thresholds by jurisdiction</h2>
+      <p>FATF allows countries to set a de minimis threshold of up to USD/EUR 1,000, below which less information is required. Countries have used that freedom differently:</p>
+      <ul>
+        <li><strong>European Union:</strong> under the Transfer of Funds Regulation, applied from 30 December 2024, there is no threshold for transfers between crypto-asset service providers. Every transfer, however small, must carry full originator and beneficiary information.</li>
+        <li><strong>United Kingdom:</strong> the rule has applied since 1 September 2023. Full information is required for transfers of €1,000 or more (the UK rules use a euro figure); below that, names and wallet or account details are enough.</li>
+        <li><strong>United States:</strong> the long-standing Bank Secrecy Act travel rule applies to transfers of $3,000 or more, and FinCEN treats cryptoasset transfers by money services businesses as covered.</li>
+        <li><strong>Elsewhere:</strong> many countries apply the FATF figure of around 1,000 in local currency or USD. Some have not yet implemented the rule at all, which creates gaps known as the sunrise problem.</li>
+      </ul>
+      <p>These figures can change, and local guidance often adds detail. Confirm the current rules with your provider or adviser for each corridor you use.</p>
+
+      <h2>Self-hosted wallets</h2>
+      <p>A self-hosted (unhosted) wallet is one the user controls directly, with no service provider in between. There is no counterparty provider to receive the data, so the rule works differently. Service providers still record originator or beneficiary information from their own customer, and screen the wallet for risk.</p>
+      <p>In the EU, for transfers above €1,000 to or from a self-hosted wallet owned by the provider's own customer, the provider must verify that the customer owns or controls that wallet. Common methods include signing a message with the wallet's key, a small test transfer, or a screenshot or video check, depending on the provider. Expect this step when you withdraw stablecoins from an EU provider to your own company wallet.</p>
+
+      <h2>How the data is exchanged</h2>
+      <p>The data does not travel on the blockchain. Providers send it separately using travel rule messaging networks and protocols. Several exist and not all connect to each other, so a provider first has to discover whether the counterparty is a regulated provider, which network it uses, and whether it can receive the data securely. When it cannot, the sending provider may delay the transfer, ask the customer for more information or refuse it, depending on its risk policy.</p>
+
+      <h2>What businesses should check</h2>
+      <ol>
+        <li><strong>Know your counterparty's provider.</strong> Before paying a supplier in stablecoins, ask which exchange or custodian holds their wallet and whether it is regulated.</li>
+        <li><strong>Use exact legal names.</strong> Name mismatches are a common cause of held transfers. Use the registered company name on both sides.</li>
+        <li><strong>Whitelist and verify your own wallets.</strong> Complete ownership proofs for company wallets in advance, not on the day of a large payment.</li>
+        <li><strong>Allow time on new corridors.</strong> The first transfer to a new provider may be held for checks. Send a small test payment first.</li>
+        <li><strong>Keep records.</strong> Store transaction hashes, counterparty details and screening results with the invoice, as you would for a bank payment.</li>
+      </ol>
+      <p>The travel rule sits alongside wider anti-money-laundering controls, which our <a href="aml-programme-fintech.html">guide to building an AML programme</a> covers. If you accept crypto from customers, see how to <a href="accept-stablecoin-payments.html">accept stablecoin payments</a> with screening built in, and our <a href="../regulatory.html">regulatory overview</a> for licensing context. SMUVPAY handles travel rule data on stablecoin flows through its regulated partners. Requirements differ by country and change often, so take local legal advice on your own obligations.</p>

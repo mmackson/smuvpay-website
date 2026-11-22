@@ -1,0 +1,58 @@
+<!--
+slug: iso-20022-explained
+title: ISO 20022 explained: what the payments messaging change means for business
+h1: ISO 20022 explained:<br><em>what the messaging change means for business.</em>
+desc: ISO 20022 explained for business: what the payments messaging standard is, which systems have migrated, key message types and what finance teams must change.
+cat: Cross-border payments
+mins: 4
+summary: ISO 20022 replaced older SWIFT MT messages and now runs most major payment systems. What it is, which messages matter to finance teams, and what businesses need to update.
+lede: ISO 20022 is the global standard for the data inside payment messages. It replaces older formats with richer, structured fields, and it now runs SWIFT cross-border payments and most major high-value systems. For businesses, it means better remittance data and fewer manual repairs, but also stricter rules on names and addresses.
+-->
+      <h2>What ISO 20022 is</h2>
+      <p>Every bank transfer carries a message: who is paying, who is receiving, how much, in which currency and why. For decades, cross-border payments used SWIFT's MT formats, such as the MT103 customer transfer. MT messages are short and loosely structured. A beneficiary's whole address might sit in a few free-text lines, and the remittance information is capped at 140 characters.</p>
+      <p><strong>ISO 20022</strong> is an international standard for financial messages, written in XML. It defines many more fields, each with a clear meaning. A town, a country code and a postcode each have their own place. An invoice reference can be carried in full, along with structured details about the purpose of the payment.</p>
+
+      <h2>Who has migrated to ISO 20022</h2>
+      <ul>
+        <li><strong>SEPA</strong> has used ISO 20022 XML since it launched in 2008.</li>
+        <li><strong>CHAPS</strong>, the UK's high-value system, moved to ISO 20022 in June 2023.</li>
+        <li><strong>T2</strong>, the Eurosystem's high-value system, replaced TARGET2 in March 2023 using ISO 20022.</li>
+        <li><strong>SWIFT cross-border payments</strong> ran MT and ISO 20022 side by side from March 2023. That coexistence period for payment instructions ended in November 2025.</li>
+        <li><strong>Fedwire</strong>, the US high-value system, moved to ISO 20022 in July 2025.</li>
+      </ul>
+      <p>Many domestic and instant payment schemes around the world use or are moving to the standard, though timelines vary by country.</p>
+
+      <h2>The message types finance teams should know</h2>
+      <p>ISO 20022 messages are named by business area and number. Banks handle the interbank side, but finance teams meet several of these in files and statements:</p>
+      <ul>
+        <li><strong>pain.001:</strong> a payment instruction from a business to its bank, such as a supplier or payroll file.</li>
+        <li><strong>pain.002:</strong> the bank's status report on that instruction, accepted or rejected.</li>
+        <li><strong>pacs.008:</strong> the bank-to-bank customer credit transfer, the successor to the MT103.</li>
+        <li><strong>pacs.004:</strong> a payment return.</li>
+        <li><strong>camt.053:</strong> the end-of-day account statement, replacing the MT940.</li>
+        <li><strong>camt.054:</strong> a notification of an individual debit or credit, used for near real-time updates.</li>
+      </ul>
+
+      <h2>What ISO 20022 means for business</h2>
+      <p><strong>Better reconciliation.</strong> Structured remittance data can carry full invoice numbers, multiple invoices per payment and the originator's own reference end to end. When the data arrives intact, matching incoming cash to open invoices can be largely automated. Our guide to <a href="payment-reconciliation.html">payment reconciliation</a> shows how that flow works.</p>
+      <p><strong>Fewer false compliance hits.</strong> Sanctions screening works better when a name is a name and a country is a country code. Free-text fields that mix names, addresses and notes cause many of the false matches that hold up legitimate payments.</p>
+      <p><strong>Clearer tracking.</strong> Each cross-border payment carries a unique end-to-end reference (the UETR), so you and your bank can trace exactly where a payment sits in a correspondent chain.</p>
+      <p><strong>Stricter data.</strong> The richer format comes with obligations. Banks increasingly reject or query payments with missing or poorly structured party details.</p>
+
+      <h2>Structured addresses: the deadline that affects you now</h2>
+      <p>From November 2026, SWIFT no longer accepts fully unstructured postal addresses in cross-border payment messages. Addresses must be either fully structured, with fields such as street, building number, postcode, town and country, or in a "hybrid" format where at least town and country sit in their own fields. Banks pass this requirement on to their clients.</p>
+      <p>In practice, this means supplier and customer records in your ERP or payment platform must hold addresses in separate fields, with a valid ISO country code. Records with the whole address in one text box will cause payments to be rejected or delayed.</p>
+
+      <h2>A checklist for finance teams</h2>
+      <ol>
+        <li><strong>Clean master data.</strong> Split beneficiary addresses into structured fields and add country codes. Start with the suppliers you pay most often.</li>
+        <li><strong>Check your payment files.</strong> Ask your bank which pain.001 version it accepts and whether legacy formats will be withdrawn.</li>
+        <li><strong>Move statements to camt.053.</strong> If you still import MT940 statements, find out how long your bank will support them, and whether your accounting system can read camt files.</li>
+        <li><strong>Use the remittance fields.</strong> Put invoice numbers in structured remittance fields so customers' banks can pass them on.</li>
+        <li><strong>Ask about truncation.</strong> Data can still be cut short where a payment passes through a system that does not carry the full format. Ask providers which of your corridors are affected.</li>
+        <li><strong>Review your providers.</strong> Payment platforms, <a href="virtual-iban-accounts.html">virtual account</a> providers and payout partners should explain how they map and pass ISO 20022 data.</li>
+      </ol>
+
+      <h2>Where it fits with rails and routing</h2>
+      <p>ISO 20022 does not change which rail a payment uses or what it costs. It changes how much information travels with it. Choosing the right rail is still covered in our comparison of <a href="swift-vs-sepa-vs-faster-payments.html">SWIFT, SEPA and Faster Payments</a>. Richer data does make it easier to route payments across several providers without losing references along the way.</p>
+      <p>SMUVPAY builds client payment flows around ISO 20022-ready messaging with SWIFT-connected partners where applicable. You can see how on our <a href="../index.html#integration">integration</a> page.</p>

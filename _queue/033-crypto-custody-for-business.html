@@ -1,0 +1,56 @@
+<!--
+slug: crypto-custody-for-business
+title: Crypto custody for businesses: hot, cold and MPC wallets compared
+h1: Crypto custody for businesses:<br><em>hot, cold and MPC wallets.</em>
+desc: Crypto custody for businesses: hot, cold, multisig and MPC wallets, self-custody vs a custodian, approval policies and the due diligence questions to ask.
+cat: Treasury & digital assets
+mins: 4
+summary: How businesses hold digital assets safely: the difference between hot, cold, multisig and MPC wallets, when to self-custody, and the questions to ask a custodian.
+lede: Crypto custody is how a business holds and controls the private keys that move its digital assets. Whoever controls the keys controls the funds, and an on-chain transfer cannot be reversed. Choosing between hot, cold and MPC wallets, and between holding keys yourself or using a custodian, sets how fast you can pay and how much a single mistake can cost.
+-->
+      <h2>What crypto custody for businesses means</h2>
+      <p>A blockchain records which address holds which tokens. A private key authorises transfers from that address. Custody is the set of tools, people and rules that protect those keys and decide who can use them. For a business, the question is less "where is the crypto" and more "who can approve a payment, how many people does it take, and what happens if one of them is unavailable, compromised or gone".</p>
+      <p>If your business only collects stablecoins and converts them the same day, your provider may hold the assets and custody is mostly their problem. If you hold balances for treasury or payouts, as covered in <a href="stablecoins-treasury.html">stablecoins in treasury</a>, custody becomes a board-level control.</p>
+
+      <h2>Hot, warm and cold wallets</h2>
+      <ul>
+        <li><strong>Hot wallets</strong> keep keys on internet-connected systems so transfers can be signed in seconds. They suit daily operations such as payouts and refunds. They are the most exposed to hacking and phishing, so keep only working balances there.</li>
+        <li><strong>Cold wallets</strong> keep keys offline, in hardware devices or air-gapped systems, often in secure locations. Moving funds takes hours or days and several people. They suit long-term reserves.</li>
+        <li><strong>Warm wallets</strong> sit between the two: online, but with policy checks and human approvals before any transfer is signed.</li>
+      </ul>
+      <p>A common pattern is a small hot balance sized to one or two days of outgoing payments, a warm wallet for larger scheduled transfers, and the rest in cold storage. Set the split from your own payment volumes, and review it when volumes change.</p>
+
+      <h2>Multisig and MPC</h2>
+      <p>Both remove the single point of failure of one key held by one person.</p>
+      <ul>
+        <li><strong>Multisig</strong> uses several separate keys and a rule on-chain, for example two of three signatures needed to move funds. The approval rule is visible on the blockchain. Support and fees differ by network, and changing signers can mean moving funds to a new address.</li>
+        <li><strong>MPC (multi-party computation)</strong> splits one key into shares held by different parties or devices. The shares jointly sign a transaction without the full key ever existing in one place. To the blockchain it looks like a normal single signature, so it works across most networks, and shares can be rotated without moving funds.</li>
+      </ul>
+      <p>MPC is now widely used by institutional custody and wallet providers. Multisig is simpler to verify independently. Both still depend on good approval policies: three key shares on three laptops in the same office give little real protection.</p>
+
+      <h2>Self-custody or a custodian</h2>
+      <p>With <strong>self-custody</strong>, your business holds the keys, usually through wallet infrastructure software. You keep full control and avoid custodian fees, but you carry the security, backup, staffing and insurance burden, and a mistake is final.</p>
+      <p>With a <strong>third-party custodian</strong>, a regulated firm holds the keys for you. In the EU, providing custody of cryptoassets for clients requires MiCA authorisation as a crypto-asset service provider, and the custodian must keep client assets separate from its own. Rules elsewhere differ: in the UK, crypto firms currently register with the FCA for anti-money-laundering purposes, and a fuller regime is being introduced. Check what protection applies if the custodian fails, because it varies by jurisdiction and by contract.</p>
+      <p>Many businesses use a mix: a custodian for reserves and an MPC wallet they control for daily payments.</p>
+
+      <h2>Approval policies that prevent losses</h2>
+      <ol>
+        <li><strong>Address allowlists.</strong> Funds can only go to pre-approved addresses, and adding an address needs separate approval and a waiting period.</li>
+        <li><strong>Amount limits.</strong> Higher amounts need more approvers. For example, one approver up to $10,000, two up to $250,000, three above.</li>
+        <li><strong>Separation of duties.</strong> The person who creates a payment cannot approve it.</li>
+        <li><strong>Out-of-band checks.</strong> Confirm new or changed supplier addresses by phone to a known contact, never by the email that requested the change.</li>
+        <li><strong>Recovery plan.</strong> Documented, tested steps for losing a device, a key share or a key person.</li>
+        <li><strong>Screening.</strong> Check counterparty wallets before sending and incoming funds before using them, alongside <a href="crypto-travel-rule.html">travel rule</a> data where it applies.</li>
+      </ol>
+
+      <h2>Custodian due diligence checklist</h2>
+      <ul>
+        <li>Which licence or registration covers custody in your jurisdiction?</li>
+        <li>Are client assets held in segregated wallets or pooled, and how is that shown?</li>
+        <li>Which key technology is used, and which independent security audits or certifications cover it?</li>
+        <li>What insurance exists, what does it exclude, and what is the limit per client?</li>
+        <li>How long do withdrawals from cold storage take, and what are the fees?</li>
+        <li>Which assets and networks are supported, including the stablecoins you use? See <a href="usdt-vs-usdc.html">USDT vs USDC</a>.</li>
+        <li>What happens to your assets if the custodian becomes insolvent?</li>
+      </ul>
+      <p>SMUVPAY coordinates custody, settlement and conversion through authorised partners matched to each client's market; see our <a href="../regulatory.html">regulatory overview</a>. Custody rules and insolvency protection differ by country, so take local legal advice before choosing a custody model.</p>

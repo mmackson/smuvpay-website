@@ -1,0 +1,52 @@
+<!--
+slug: swift-vs-sepa-vs-faster-payments
+title: SWIFT vs SEPA vs Faster Payments: which transfer rail to use
+h1: SWIFT vs SEPA vs Faster Payments:<br><em>which transfer rail to use.</em>
+desc: SWIFT vs SEPA vs Faster Payments compared on currency, reach, speed, limits and cost, with a checklist for choosing the right rail for each business payment.
+cat: Cross-border payments
+mins: 5
+summary: Faster Payments for UK sterling, SEPA for euros across Europe, SWIFT for everything else. How each rail works, what it costs and when to use CHAPS or SEPA Instant instead.
+lede: SWIFT, SEPA and Faster Payments all move money between bank accounts, but each covers a different currency and geography. In short: use Faster Payments for sterling within the UK, SEPA for euros across Europe, and SWIFT when the payment leaves both zones or uses another currency.
+-->
+      <h2>SWIFT vs SEPA vs Faster Payments at a glance</h2>
+      <ul>
+        <li><strong>Faster Payments:</strong> the UK's domestic scheme for sterling, run by Pay.UK. It runs 24/7, payments usually arrive in seconds, and the scheme limit is £1 million per payment. Most banks set lower limits, especially on business accounts.</li>
+        <li><strong>SEPA:</strong> euro-only schemes covering the EU plus several other European countries, including the UK, Switzerland and Norway. A standard SEPA Credit Transfer arrives within one business day. SEPA Instant arrives in about ten seconds, at any hour.</li>
+        <li><strong>SWIFT:</strong> a global messaging network linking more than 11,000 banks and financial institutions in over 200 countries and territories. It carries payment instructions; the money itself moves across accounts that banks hold with each other. It handles any currency and corridor, at higher and less predictable cost.</li>
+      </ul>
+
+      <h2>Faster Payments: sterling inside the UK</h2>
+      <p>Faster Payments launched in 2008 and now carries most UK bank transfers, from payroll to supplier invoices. Both accounts must be in the UK and the payment must be in sterling. Most payments are credited within seconds, although a bank can hold one for fraud checks and the scheme allows up to two hours. Business pricing ranges from free to a small fee per payment, depending on the bank.</p>
+      <p>Above your bank's Faster Payments limit, UK businesses use <strong>CHAPS</strong>, the Bank of England's high-value payment system. CHAPS has no upper limit and settles the same day if you send before your bank's cut-off. Banks charge a fee per CHAPS payment that varies widely, often in the range of £10 to £35. Use it for property completions, large treasury transfers and anything time-critical that is too big for Faster Payments.</p>
+
+      <h2>SEPA: euros across Europe</h2>
+      <p>SEPA lets a business send euros from a Dutch account to a Spanish one on the same terms as a domestic transfer. Under EU rules, a cross-border euro payment within the EU cannot cost more than the same payment made domestically. You need only the beneficiary's name and IBAN, and the full amount must reach the beneficiary without deductions along the way.</p>
+      <p>Two credit transfer schemes matter for businesses. <strong>SEPA Credit Transfer (SCT)</strong> settles within one business day. <strong>SEPA Instant Credit Transfer (SCT Inst)</strong> settles in seconds, around the clock. The EU Instant Payments Regulation required euro-area payment providers to receive instant payments from January 2025 and to send them from October 2025, at a price no higher than a standard transfer. Since October 2025 they must also offer Verification of Payee, which checks the beneficiary's name against the IBAN before you approve the payment.</p>
+      <p>SEPA's hard limit is the currency. A euro payment from London to Paris can use SEPA if your UK provider participates in the scheme. A sterling payment to Paris cannot.</p>
+
+      <h2>SWIFT: everything else</h2>
+      <p>When the currency or country falls outside a domestic scheme, the payment usually goes over SWIFT. Your bank sends a message to the beneficiary's bank, or more often to one or more correspondent banks in between. Each bank in the chain can take a fee, often in the range of $10 to $50 depending on the bank and corridor, so the beneficiary may receive less than you sent.</p>
+      <p>A charge code on the payment decides who bears those fees:</p>
+      <ul>
+        <li><strong>OUR:</strong> you pay all fees and the beneficiary should receive the full amount. It costs more and intermediaries do not always honour it.</li>
+        <li><strong>SHA:</strong> you pay your bank's fee, the beneficiary pays the rest. This is the usual default.</li>
+        <li><strong>BEN:</strong> the beneficiary pays everything, deducted from the amount received.</li>
+      </ul>
+      <p>SWIFT gpi now tracks most cross-border payments end to end with a unique reference called a UETR, and many arrive the same day. Delays still happen at cut-off times, during compliance checks and in corridors with few correspondent banks. Our guide to <a href="cross-border-rails.html">cross-border rails</a> explains why the route a payment takes matters as much as the provider you pick.</p>
+
+      <h2>Which transfer rail to use: a checklist</h2>
+      <ol>
+        <li><strong>Sterling, UK to UK, within your bank's limit:</strong> Faster Payments.</li>
+        <li><strong>Sterling, large or time-critical:</strong> CHAPS.</li>
+        <li><strong>Euros, both accounts in SEPA:</strong> SEPA Instant if your provider supports it and the amount fits its limit, otherwise SEPA Credit Transfer.</li>
+        <li><strong>Other currencies:</strong> check whether your provider can pay out on the receiving country's domestic rail, such as ACH in the United States. Paying locally avoids correspondent fees and is usually faster.</li>
+        <li><strong>Everything left:</strong> SWIFT, especially for large B2B payments in less common currencies or where the beneficiary's bank only accepts SWIFT.</li>
+      </ol>
+
+      <h2>Worked example: a €40,000 supplier invoice</h2>
+      <p>A UK company owes a German supplier €40,000. <strong>Option A:</strong> send a SWIFT payment in euros from a sterling account. The bank converts at its own rate, charges a payment fee, and intermediaries may take further fees, so the supplier could receive slightly less than €40,000 and chase the difference. <strong>Option B:</strong> convert sterling to euros with an FX provider, then send from a euro account over SEPA. The supplier receives the full €40,000 the same day or within seconds, and the main cost is the FX spread, which you can see and compare.</p>
+      <p>For recurring euro flows, option B is usually cheaper and easier to reconcile. The bigger saving often sits in the currency conversion itself, not the transfer fee.</p>
+
+      <h2>Where newer rails fit</h2>
+      <p>Bank rails still cover most business payments, but they leave gaps: weekends on some corridors, markets with thin correspondent coverage, and transfers between entities that need to settle outside banking hours. <a href="stablecoins-treasury.html">Stablecoins</a> can fill some of those gaps, with their own trade-offs on conversion and custody. Businesses with many corridors increasingly route each payment to the best available rail through a <a href="payment-orchestrator.html">payment orchestration</a> layer instead of sending everything through one bank.</p>
+      <p>SMUVPAY routes payments across bank, local and digital asset rails corridor by corridor. You can see how on our <a href="../index.html#rails">independent rails</a> page.</p>

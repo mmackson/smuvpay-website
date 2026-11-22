@@ -1,0 +1,56 @@
+<!--
+slug: crypto-on-off-ramp
+title: Crypto on-ramps and off-ramps: how businesses move between fiat and digital assets
+h1: Crypto on-ramps and off-ramps:<br><em>moving between fiat and digital assets.</em>
+desc: What crypto on-ramps and off-ramps are, how businesses convert fiat to stablecoins and back, where the real costs sit, and what to check in a provider.
+cat: Treasury & digital assets
+mins: 5
+summary: How crypto on-ramps and off-ramps work for businesses, where the costs sit in a fiat to stablecoin round trip, and the checks to run before you pick a provider.
+lede: A crypto on-ramp converts fiat money such as EUR, GBP or USD into digital assets, and an off-ramp converts digital assets back into fiat in a bank account. For businesses using stablecoins, the ramps are where most of the cost, delay and compliance work sits, so choosing them well matters more than choosing the blockchain.
+-->
+      <h2>What crypto on-ramps and off-ramps do</h2>
+      <p>An on-ramp takes a bank transfer or card payment and delivers stablecoins or other cryptoassets to a wallet. An off-ramp does the reverse: you send digital assets to the provider and receive fiat by bank transfer. The blockchain transfer between the two may take seconds. The ramps decide how fast money enters and leaves the system, at what rate, and with what checks.</p>
+      <p>Businesses use ramps for three main jobs: funding stablecoin payouts or supplier payments, converting stablecoin revenue into fiat for payroll and costs, and moving treasury balances between banks and digital assets. Our guide to <a href="stablecoins-treasury.html">stablecoins in treasury</a> covers when that last use makes sense.</p>
+
+      <h2>The main types of ramp</h2>
+      <ul>
+        <li><strong>Exchanges.</strong> You deposit fiat to an exchange account, buy on the order book and withdraw. Good for small and medium amounts. Large orders can move the price, and withdrawal limits apply.</li>
+        <li><strong>OTC desks.</strong> You request a quote for a fixed amount and settle bilaterally. Best for large, infrequent conversions where one agreed price matters. See how an <a href="otc-desk-stablecoins.html">OTC desk</a> works.</li>
+        <li><strong>Embedded ramp providers.</strong> APIs or widgets that let a platform's users buy or sell inside the platform's own app. The provider handles user verification and the fiat leg.</li>
+        <li><strong>Payment providers with stablecoin rails.</strong> Collections and payouts in fiat and stablecoins through one account, with conversion built into the flow. Useful when ramps are part of daily payment operations rather than one-off trades.</li>
+      </ul>
+
+      <h2>Where the cost sits</h2>
+      <p>Ramp pricing has several layers, and headline fees often show only one of them.</p>
+      <ol>
+        <li><strong>Fiat deposit or withdrawal fee.</strong> Bank transfers through SEPA or Faster Payments are often free or cheap. Card on-ramps cost far more, commonly a few percent, because the provider pays card fees and carries chargeback risk.</li>
+        <li><strong>Conversion spread.</strong> The difference between the rate you get and a reference rate. For major pairs at business volumes, spreads are often a fraction of a percent, but they widen for smaller currencies and smaller tickets.</li>
+        <li><strong>Explicit trading or service fee.</strong> A percentage or flat fee per conversion. Some providers charge this; others build everything into the spread.</li>
+        <li><strong>Network fee.</strong> The blockchain transfer cost, from fractions of a cent to several dollars depending on the chain.</li>
+        <li><strong>FX conversion.</strong> Most stablecoins are dollar tokens. If you start in EUR or GBP, there is a currency conversion as well as a crypto conversion, and the same <a href="fx-spread-cost.html">FX spread</a> logic applies.</li>
+      </ol>
+      <p>Worked example: a business converts €500,000 into USDC to pay a supplier, who off-ramps it into USD. If each ramp costs 0.25% in spread and fees, and the EUR to USD leg costs another 0.2%, the round trip costs about €3,500, or 0.7%. Compare that with what the same payment would cost through bank rails, including correspondent fees and time in transit, before you assume the stablecoin route is cheaper.</p>
+
+      <h2>Speed and cut-offs</h2>
+      <p>Blockchains run around the clock, but ramps depend on banking hours. If the fiat leg uses SEPA Instant or Faster Payments, an off-ramp can settle in minutes. If it uses standard SEPA or SWIFT, expect same day to several days, plus the provider's own processing time. Ask each provider for its real settlement times by currency, and whether weekend off-ramps settle on the next business day.</p>
+
+      <h2>Compliance on the ramps</h2>
+      <p>Ramps are where digital assets meet the regulated banking system, so this is where checks are strictest. Expect:</p>
+      <ul>
+        <li><strong>Onboarding.</strong> Full KYB on your company, its owners and directors, and source-of-funds evidence for larger volumes.</li>
+        <li><strong>Wallet screening.</strong> The provider analyses incoming wallets and may hold or reject funds linked to sanctioned or high-risk sources.</li>
+        <li><strong>Travel rule information.</strong> Transfers between crypto service providers carry sender and recipient details. Thresholds vary: the EU applies the rule to transfers of any amount, while other jurisdictions set minimums.</li>
+        <li><strong>Name matching on fiat accounts.</strong> Many providers only off-ramp to a bank account in your own company's name.</li>
+      </ul>
+      <p>Check the provider's licence or registration in your market. In the EU this means MiCA authorisation as a crypto-asset service provider, with transitional periods that differ by member state. In the UK, firms must be registered with the FCA for anti-money-laundering purposes. Our <a href="../regulatory.html">regulatory overview</a> explains what to look for.</p>
+
+      <h2>Checklist for choosing a ramp</h2>
+      <ol>
+        <li>Which fiat currencies and payment rails does it support for deposits and withdrawals?</li>
+        <li>Which stablecoins and networks, and what are the minimum and maximum amounts?</li>
+        <li>What is the all-in cost against a reference rate, at your typical size?</li>
+        <li>How long do fiat withdrawals take, including weekends?</li>
+        <li>What licence or registration does it hold where you operate?</li>
+        <li>What happens to funds flagged by screening, and how fast are they reviewed?</li>
+      </ol>
+      <p>SMUVPAY combines fiat rails, stablecoin rails and an OTC desk, so on-ramp and off-ramp legs can be priced and settled as one flow. Rules on converting and holding cryptoassets differ by country, so take local legal and tax advice before setting up regular conversions.</p>

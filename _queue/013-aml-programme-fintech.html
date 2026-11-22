@@ -1,0 +1,66 @@
+<!--
+slug: aml-programme-fintech
+title: How to build an AML programme for a fintech or payments business
+h1: How to build an AML programme<br><em>for a fintech or payments business.</em>
+desc: How to build an AML programme for a fintech or payments business: risk assessment, KYC, screening, monitoring, reporting, training and governance.
+cat: Compliance
+mins: 5
+summary: The building blocks of an anti-money-laundering programme for fintechs and payment firms, and what banks, regulators and partners will ask to see.
+lede: An AML programme is the set of policies, people, systems and records a regulated firm uses to stop its services being used for money laundering, terrorist financing and sanctions evasion. Regulators expect it before you go live, and banks and payment partners will ask for it during due diligence.
+-->
+      <h2>What an AML programme for a fintech must cover</h2>
+      <p>The detail differs by country, but the structure is broadly the same in the UK under the Money Laundering Regulations 2017, in the EU under the anti-money-laundering directives and the new AML regulation, and in the US under the Bank Secrecy Act. The US rules name five pillars: internal controls, independent testing, a designated compliance officer, training, and customer due diligence. UK and EU rules use different words for the same core. An AML programme that covers the components below will match what most supervisors and partner banks expect.</p>
+
+      <h2>1. Business-wide risk assessment</h2>
+      <p>Start here, because every other control is sized from it. Write down where your firm could be used for financial crime, across five areas: customers, products, countries, delivery channels and transaction types. A payout platform serving contractors in many countries has a different risk profile from a domestic card acquirer. Rate each risk, describe the controls that reduce it, and record what is left. Review the assessment at least once a year and whenever you launch a product or enter a market.</p>
+
+      <h2>2. Policies and procedures</h2>
+      <p>The policy says what the firm will do. The procedures say how staff do it, step by step. Cover customer due diligence, enhanced due diligence, screening, monitoring, investigations, reporting, record keeping, exiting customers and training. Board or senior management should approve the policy. Keep the documents short enough that the operations team actually uses them.</p>
+
+      <h2>3. Customer due diligence</h2>
+      <ul>
+        <li><strong>Identify and verify</strong> individuals (KYC) and businesses (KYB), including beneficial owners. Our guide to <a href="kyb-merchant-onboarding.html">KYB checks</a> covers the business side.</li>
+        <li><strong>Understand the purpose</strong> of the relationship and the expected activity: volumes, countries, counterparties.</li>
+        <li><strong>Apply enhanced due diligence</strong> for higher-risk cases such as politically exposed persons, high-risk third countries, complex ownership and unusual business models. This usually means source of funds or wealth evidence and senior approval.</li>
+        <li><strong>Keep it current</strong> with periodic reviews, more frequent for higher-risk customers.</li>
+      </ul>
+
+      <h2>4. Sanctions screening</h2>
+      <p>Screen customers, owners and, where relevant, payment counterparties against the sanctions lists that apply to you, for example the UK OFSI list, EU consolidated list and US OFAC lists. Screen at onboarding, whenever lists update, and on payments in real time where your product moves money. Sanctions are strict liability in many regimes, so tune your fuzzy matching carefully and document why each alert was cleared.</p>
+
+      <h2>5. Transaction monitoring</h2>
+      <p>Monitoring compares what customers actually do with what they said they would do. Start with rules that fit your risks, for example:</p>
+      <ul>
+        <li>Volume or value well above the declared profile</li>
+        <li>Many small payments just below a review threshold</li>
+        <li>Funds received and paid out again almost immediately</li>
+        <li>Payments to or from high-risk countries the customer never mentioned</li>
+        <li>Many unrelated payers funding one account</li>
+      </ul>
+      <p>Each alert needs a documented review and a decision. Track alert volumes, false-positive rates and review times, and retune rules as your data grows. A rule set that nobody reviews is a regulatory finding waiting to happen.</p>
+
+      <h2>6. Suspicious activity reporting</h2>
+      <p>Staff must escalate suspicions internally to the money laundering reporting officer (MLRO). The MLRO decides whether to file a report with the national financial intelligence unit: the National Crime Agency in the UK, FinCEN in the US, or the national FIU in each EU country. Staff must not tip off the customer. Record every decision, including decisions not to report.</p>
+
+      <h2>7. Governance and people</h2>
+      <p>Name an MLRO with enough seniority, time and budget to do the job. Larger firms add a deputy and a separate compliance monitoring function. Give the board regular management information: alerts, reports filed, overdue reviews, high-risk customers and open audit actions. In the UK, the Money Laundering Regulations also expect a board member or senior manager to be responsible for the firm's compliance, where that suits its size and nature.</p>
+
+      <h2>8. Training</h2>
+      <p>Train all staff at joining and at least annually, with deeper training for onboarding, operations and customer support teams. Use examples from your own product. Keep records of who completed what.</p>
+
+      <h2>9. Independent testing and record keeping</h2>
+      <p>Have the programme tested by someone independent of the people running it, through internal audit or an outside firm, typically every year or two. Keep due diligence and transaction records for at least five years after the relationship ends, as UK and EU rules require.</p>
+
+      <h2>Crypto, payments and partner expectations</h2>
+      <p>Firms that handle crypto assets have extra obligations, including the travel rule for transfers, and need blockchain analytics alongside fiat monitoring. Firms operating under a partner's licence, as an agent or distributor, still need their own controls. The partner will audit them, and its regulator will hold it responsible for your failings. Our guide to <a href="msb-emi-payment-institution-licence.html">payment licences</a> explains which permissions bring which obligations.</p>
+
+      <h2>A first-90-days checklist</h2>
+      <ol>
+        <li>Appoint the MLRO and agree reporting lines.</li>
+        <li>Complete and approve the business-wide risk assessment.</li>
+        <li>Write the policy and core procedures.</li>
+        <li>Choose KYC, KYB, screening and monitoring tools and configure them to your risks.</li>
+        <li>Train the team and run test cases end to end.</li>
+        <li>Set up management information and a schedule for independent testing.</li>
+      </ol>
+      <p>For a view of how SMUVPAY works with licensed partners, see our <a href="../regulatory.html">regulatory overview</a>. AML rules differ by country and change often, so take local legal advice when you design your programme.</p>

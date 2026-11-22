@@ -1,0 +1,63 @@
+<!--
+slug: interchange-fees-explained
+title: Interchange fees explained: what interchange is and how card fees are set
+h1: Interchange fees explained:<br><em>how card fees are really set.</em>
+desc: Interchange fees explained for merchants: who sets interchange, what drives the rate, the UK and EU caps, and how to check what you actually pay per card.
+cat: Merchant pricing
+mins: 5
+summary: Interchange is the largest part of most card processing bills. Here is who sets it, what moves the rate, and how to check your own statements.
+lede: Interchange is the fee your acquirer pays the cardholder's bank every time you take a card payment. It is usually the largest single part of what you pay to accept cards, and you cannot negotiate it directly. You can, however, understand it well enough to stop overpaying around it.
+-->
+      <h2>What is interchange?</h2>
+      <p>Interchange is a per-transaction fee paid by the merchant's bank (the acquirer) to the cardholder's bank (the issuer). The card schemes, mainly Visa and Mastercard, publish the rate tables. Issuers use the income to fund fraud losses, rewards, credit risk and the cost of running card programmes. Your acquirer passes the cost on to you, either itemised or folded into a single rate.</p>
+      <p>A card payment carries three layers of cost:</p>
+      <ul>
+        <li><strong>Interchange</strong>: paid to the issuer, set by the scheme's rate tables and, in some markets, capped by law.</li>
+        <li><strong>Scheme fees</strong>: paid to Visa or Mastercard for using the network. These are smaller per transaction but come in dozens of line items.</li>
+        <li><strong>Acquirer markup</strong>: the processor's own margin. This is the only part you can negotiate directly.</li>
+      </ul>
+      <p>How these layers show up on your invoice depends on your pricing model. We cover interchange-plus, blended and flat-rate pricing in <a href="merchant-account-pricing.html">how merchant account pricing works</a>.</p>
+
+      <h2>Who sets interchange fees?</h2>
+      <p>In four-party schemes like Visa and Mastercard, the scheme sets the default interchange rates. Regulators set ceilings in some regions. American Express has traditionally run a three-party model, where it acts as issuer and acquirer at once, so there is no separate interchange in the same sense; it sets the merchant fee directly or through partner acquirers.</p>
+      <p>The main regulatory caps a UK or European merchant will meet are:</p>
+      <ul>
+        <li><strong>EEA consumer cards at EEA merchants</strong>: the EU Interchange Fee Regulation caps interchange at 0.2% for consumer debit and 0.3% for consumer credit.</li>
+        <li><strong>UK consumer cards at UK merchants</strong>: the UK kept the same 0.2% and 0.3% caps after leaving the EU.</li>
+        <li><strong>UK cards at EEA merchants online (and the reverse)</strong>: these became cross-region transactions after Brexit. Visa and Mastercard raised the rates to 1.15% for debit and 1.5% for credit in 2021. The UK Payment Systems Regulator has been working on a cap for these flows, so check the current position.</li>
+        <li><strong>US debit</strong>: the Durbin Amendment (the Federal Reserve's Regulation II) caps debit interchange for large issuers at 21 cents plus 0.05%, with a possible 1 cent fraud-prevention adjustment. The Federal Reserve has proposed lowering this cap, so check the current figure. US credit interchange is not capped and commonly runs from around 1.5% to over 3% depending on the card.</li>
+      </ul>
+      <p>Commercial and corporate cards sit outside the EU and UK consumer caps, so they usually carry noticeably higher rates.</p>
+
+      <h2>What changes the interchange rate on a transaction</h2>
+      <p>Two payments of the same amount can carry very different interchange. The rate tables are keyed on several factors:</p>
+      <ol>
+        <li><strong>Card type.</strong> Debit is cheaper than credit. Premium rewards cards and commercial cards cost more than standard consumer cards outside capped markets.</li>
+        <li><strong>Geography.</strong> Domestic transactions are cheapest. Intra-regional (for example, a French card at a German merchant) is next. Inter-regional (a US card at a UK merchant) costs the most.</li>
+        <li><strong>Channel.</strong> Card-not-present payments often carry higher rates than chip-and-PIN or contactless, especially for cross-region cards.</li>
+        <li><strong>Merchant category.</strong> Your merchant category code can qualify you for specific rates in some markets, such as reduced rates for charities or utilities in the US.</li>
+        <li><strong>Data quality and security.</strong> Sending complete transaction data, authenticating with 3-D Secure where required, and clearing within the scheme's time limits all help a transaction qualify for its best rate. Late or incomplete data can drop it into a more expensive band.</li>
+      </ol>
+
+      <h2>A worked example</h2>
+      <p>Take a UK online retailer that sells a £100 order three times in one day.</p>
+      <ul>
+        <li>A UK consumer debit card: 0.2% interchange, so £0.20.</li>
+        <li>A UK consumer credit card: 0.3% interchange, so £0.30.</li>
+        <li>A French consumer credit card online: as a cross-region card-not-present payment, 1.5%, so £1.50.</li>
+      </ul>
+      <p>Scheme fees and the acquirer's markup come on top of each. The third sale costs five times as much in interchange as the second, for the same basket. If a large share of your customers pay with foreign or commercial cards, a blended rate quoted on an assumed domestic card mix may not reflect your real costs, in either direction.</p>
+
+      <h2>How to check what you are paying</h2>
+      <p>You cannot negotiate interchange, but you can make sure you are not paying more than the real interchange plus a fair margin. A practical check:</p>
+      <ul>
+        <li><strong>Ask for an interchange-plus statement</strong> or a monthly breakdown by card type and region. If your provider will not give one, you cannot audit your costs.</li>
+        <li><strong>Calculate your effective rate</strong>: total fees divided by total card volume. Compare it month to month and against your card mix.</li>
+        <li><strong>Look for downgrades.</strong> Transactions charged at a higher band than expected often point to missing data, late settlement or unauthenticated payments.</li>
+        <li><strong>Separate the markup.</strong> Once interchange and scheme fees are itemised, the acquirer's markup is the number to compare between offers.</li>
+        <li><strong>Review your geography.</strong> If you sell heavily into one region, a local acquirer there can turn cross-region transactions into domestic or intra-regional ones with lower interchange.</li>
+      </ul>
+
+      <h2>Interchange and your wider payment set-up</h2>
+      <p>Interchange is set at the network level, so every acquirer pays broadly the same rate on the same transaction. What differs is the markup, how well each provider passes through data that qualifies for lower bands, and whether they can acquire locally in your main markets. Businesses with volume in several regions often route each payment to the acquirer best placed for that card, which is the job of a <a href="payment-orchestrator.html">payment orchestrator</a>.</p>
+      <p>SMUVPAY works with merchants on <a href="../index.html#rails">acquiring and rail selection</a> across markets. Interchange rates and caps change, and regional rules differ, so confirm the current tables with your acquirer before you model costs.</p>

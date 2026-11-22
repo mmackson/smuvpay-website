@@ -1,0 +1,52 @@
+<!--
+slug: payment-approval-rate
+title: How to raise your card payment approval rate: a practical guide
+h1: How to raise your card<br><em>payment approval rate.</em>
+desc: How to raise your card payment approval rate: measure it correctly, read decline codes, fix soft declines, use network tokens, retries and local acquiring.
+cat: Merchant acquiring
+mins: 5
+summary: Every declined card payment from a genuine customer is lost revenue. Here is how to measure your approval rate, find the causes of declines and fix them.
+lede: Your card payment approval rate is the share of attempted payments that the issuing bank authorises. A few points of difference can be worth more than any fee negotiation, because a declined genuine customer is a lost sale. Most of the gain comes from fixing a handful of known causes.
+-->
+      <h2>How to measure your approval rate</h2>
+      <p>To raise your card payment approval rate, first measure it the same way every month. The basic formula is approved authorisations divided by total authorisation attempts. Two adjustments make the number useful:</p>
+      <ul>
+        <li><strong>Count unique payment attempts, not raw requests.</strong> If a customer retries the same card three times, raw counts show one approval out of three. Measure both, but judge success on whether the customer's order was eventually paid.</li>
+        <li><strong>Segment it.</strong> Split by card country, issuer, card type (debit, credit, commercial), channel and acquirer. A healthy overall rate can hide one issuer or market that declines most of your traffic.</li>
+      </ul>
+      <p>Approval rates vary widely by sector, region and risk profile, so there is no single good number. Domestic debit card payments in a mature market usually approve at much higher rates than cross-border card-not-present payments in a high-risk category. Compare yourself against your own history and against each acquirer you use, not against a published average.</p>
+
+      <h2>Read the decline codes</h2>
+      <p>Each decline returns a response code from the issuer. Group them into two families:</p>
+      <ul>
+        <li><strong>Hard declines</strong>: the payment will not succeed if retried. Examples are stolen card, closed account or invalid card number. Do not retry these. Repeated retries on hard declines can lead to scheme fees and damage your standing with issuers.</li>
+        <li><strong>Soft declines</strong>: the payment might succeed later or with changes. Examples are insufficient funds, "do not honour", issuer unavailable, or authentication required.</li>
+      </ul>
+      <p>"Do not honour" is the most common and least helpful code. It is a generic refusal, often triggered by the issuer's fraud model. The fixes below mostly target that group.</p>
+
+      <h2>Seven ways to raise your approval rate</h2>
+      <ol>
+        <li><strong>Send complete transaction data.</strong> Billing address, CVV, cardholder name and email help the issuer's risk model trust the payment. Missing fields lead to more cautious decisions.</li>
+        <li><strong>Use 3-D Secure where it helps.</strong> In SCA markets, a payment that should have been authenticated will be soft-declined with an "authentication required" code. Retry those through 3DS instead of failing the order. Our guide to <a href="3d-secure-sca.html">3-D Secure and SCA</a> covers when to request exemptions and when to authenticate.</li>
+        <li><strong>Use network tokens for stored cards.</strong> Network tokens are updated automatically when a card is reissued, so renewals do not fail on expired card numbers. Issuers also tend to trust them more. See <a href="network-tokenisation.html">network tokens vs gateway tokens</a>.</li>
+        <li><strong>Use account updater services.</strong> Visa and Mastercard both run services that refresh stored card details when a card is replaced. This matters most for subscriptions.</li>
+        <li><strong>Retry soft declines intelligently.</strong> For subscriptions, retry insufficient-funds declines a few days later, or near common pay dates, instead of immediately. Follow the schemes' retry limits. Mastercard and Visa both restrict how often you can retry the same declined transaction within a set period, and charge fees for excessive retries.</li>
+        <li><strong>Acquire locally.</strong> Issuers approve domestic transactions more readily than cross-border ones. If a large share of your customers are in one country, a local acquirer there can lift approvals and cut interchange at the same time. Our guide to <a href="interchange-fees-explained.html">interchange fees</a> explains the cost side.</li>
+        <li><strong>Get your descriptor and MCC right.</strong> A billing descriptor that customers recognise reduces disputes, and a merchant category code that matches what you sell avoids issuer rules that block certain categories.</li>
+      </ol>
+
+      <h2>A worked example</h2>
+      <p>A subscription software business bills 50,000 cards a month at £20 each, and 8% of renewals decline. That is 4,000 failed payments and £80,000 of monthly revenue at risk. Analysis shows three causes:</p>
+      <ul>
+        <li>About a quarter are expired or replaced cards. Turning on account updater and network tokens recovers most of these.</li>
+        <li>About half are insufficient funds. Moving retries from the same day to three and seven days later recovers a share of them.</li>
+        <li>The rest are a mix of "do not honour" and hard declines. Some are recovered by sending fuller data, and the remainder go to an email asking the customer to update their card.</li>
+      </ul>
+      <p>The exact recovery depends on the customer base and issuers, so the business tests each change separately and measures it. Even recovering a third of the declines in this example would be worth over £26,000 a month.</p>
+
+      <h2>Do not raise approvals by letting fraud through</h2>
+      <p>An approval rate can always be pushed up by loosening your own fraud filters. That shifts the problem to chargebacks, which carry fees, can trigger scheme monitoring and may lead to a <a href="rolling-reserve.html">rolling reserve</a>. Track approval rate, fraud rate and dispute rate together, so a gain in one does not hide a loss in another.</p>
+
+      <h2>Use more than one acquirer</h2>
+      <p>Different acquirers get different results from the same issuers, depending on their local presence, data handling and relationships. With two or more acquirers, you can send each payment to the one most likely to approve it, and fail over when one has an outage. This is a core use case for a <a href="payment-orchestrator.html">payment orchestrator</a>.</p>
+      <p>SMUVPAY helps merchants set up <a href="../index.html#rails">multi-acquirer rails</a> and measure approval rates across them. Scheme retry rules and fees change, so confirm the current limits with your acquirer.</p>

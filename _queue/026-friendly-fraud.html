@@ -1,0 +1,59 @@
+<!--
+slug: friendly-fraud
+title: Friendly fraud: how to spot it, prevent it and fight it
+h1: Friendly fraud:<br><em>how to spot it and stop it.</em>
+desc: Friendly fraud explained: why genuine customers dispute real purchases, the warning signs, how to prevent first-party misuse and how to fight disputes.
+cat: Risk & disputes
+mins: 5
+summary: Friendly fraud is when a real customer disputes a genuine purchase. Here is why it happens, how to recognise it and the steps that cut it down.
+lede: Friendly fraud happens when a genuine cardholder makes a purchase and then disputes it with their bank instead of asking the merchant for a refund. Some cases are honest confusion and some are deliberate. Either way the merchant loses the sale, the goods and a dispute fee, and the case counts toward its chargeback ratio.
+-->
+      <h2>What friendly fraud is</h2>
+      <p>Friendly fraud, also called first-party misuse or chargeback fraud, is a dispute raised by the real cardholder on a transaction they made or authorised. It differs from third-party fraud, where a criminal uses a stolen card. The card schemes have started to treat it as its own category: Visa uses the term "first-party misuse" and has built rules to help merchants defend these cases.</p>
+      <p>Friendly fraud usually falls into three groups:</p>
+      <ul>
+        <li><strong>Confusion.</strong> The customer does not recognise the billing descriptor, forgot about a subscription, or did not know a family member used the card.</li>
+        <li><strong>Frustration.</strong> The customer tried to get a refund, found it difficult, and went to their bank instead.</li>
+        <li><strong>Deliberate abuse.</strong> The customer received the goods and claims they did not, or claims fraud to get their money back while keeping the product.</li>
+      </ul>
+      <p>The first two groups are largely in the merchant's control. The third needs evidence and a firm dispute process.</p>
+
+      <h2>Why it matters more than it used to</h2>
+      <p>A disputed transaction costs more than its face value. You lose the revenue, often the goods, a dispute fee from your acquirer, and staff time. Disputes also count toward the card schemes' monitoring ratios. Under Visa's acquirer monitoring programme, fraud reports and disputes are added together, so a friendly fraud claim filed under a fraud reason code can hit your ratio twice. We explain the thresholds in <a href="chargeback-ratio-thresholds.html">chargeback ratio thresholds</a>.</p>
+
+      <h2>How to spot friendly fraud</h2>
+      <p>Look for patterns in your dispute data rather than judging single cases. Common signals include:</p>
+      <ul>
+        <li>A fraud claim from a customer with a long history of undisputed orders on the same card, device or IP address.</li>
+        <li>Disputes filed shortly before or after a subscription renewal or free trial conversion.</li>
+        <li>"Goods not received" claims where tracking shows delivery to the customer's usual address.</li>
+        <li>Disputes on digital goods where your logs show the account used the product after the purchase.</li>
+        <li>The same customer disputing several orders, or ordering again after a dispute.</li>
+        <li>Disputes clustered on one product, price point or marketing channel, which often points to a description or expectations problem.</li>
+      </ul>
+
+      <h2>Prevention: remove the reasons to dispute</h2>
+      <ol>
+        <li><strong>Make your billing descriptor clear.</strong> Use a name customers will recognise from your website, ideally with a short product reference or support phone number. Many disputes start with "I don't know what this charge is".</li>
+        <li><strong>Make refunds easier than disputes.</strong> Put contact details and a refund route in every receipt and on your website. A refund costs you the sale. A dispute costs the sale plus fees and ratio damage.</li>
+        <li><strong>Send renewal reminders.</strong> For subscriptions, email before each renewal and before a trial converts. Make cancellation as easy as sign-up.</li>
+        <li><strong>Confirm delivery.</strong> Use tracked shipping above a value you set, and send a delivery confirmation to the customer.</li>
+        <li><strong>Use pre-dispute alerts.</strong> Visa's Order Insight and Rapid Dispute Resolution, and Mastercard's Ethoca services, can share order details with the issuer or let you refund before a dispute becomes a chargeback.</li>
+        <li><strong>Authenticate high-value or risky orders.</strong> 3-D Secure does not stop "item not received" claims, but it shifts liability for fraud claims to the issuer. See <a href="3d-secure-sca.html">3-D Secure and SCA</a>.</li>
+      </ol>
+
+      <h2>Fighting the disputes you get</h2>
+      <p>When a customer has clearly used the product or received the goods, contest the dispute. The most useful tool for fraud-coded friendly fraud is Visa's <strong>Compelling Evidence 3.0</strong> (CE 3.0). For card-not-present fraud disputes, you can submit details of at least two earlier undisputed transactions on the same card, made between 120 and 365 days before the disputed one. They must share at least two data points with the disputed order, one of which must be the IP address or device ID, with the others drawn from items such as shipping address or account login. If the evidence qualifies, liability moves back to the issuer.</p>
+      <p>For other reason codes, match your evidence to the claim: delivery proof for "not received", usage logs for digital services, and signed terms for subscriptions. Our <a href="chargeback-representment.html">chargeback representment guide</a> covers the full process and what to put in each response.</p>
+
+      <h2>A worked example</h2>
+      <p>A streaming service sees a rise in fraud-coded disputes after its annual renewal date. Analysis shows most come from customers who had used the service for over a year. It makes three changes:</p>
+      <ul>
+        <li>It sends a renewal reminder 14 days ahead with a one-click cancel link.</li>
+        <li>It updates its billing descriptor to include the service name and a support URL.</li>
+        <li>It stores IP address and device ID on every payment, so it can file CE 3.0 responses when a long-standing customer claims fraud.</li>
+      </ul>
+      <p>The reminders and descriptor reduce confusion disputes. The stored data lets it win more of the deliberate cases. It tracks both effects separately each month.</p>
+
+      <h2>Keep friendly fraud out of your risk profile</h2>
+      <p>Unchecked friendly fraud can push a merchant into a monitoring programme, raise reserve requirements and, at worst, end the acquiring relationship. Treat it as a process with clear owners for prevention, alerts and disputes. SMUVPAY helps merchants set up dispute workflows and <a href="../index.html#capabilities">risk controls</a> across their acquirers. Scheme programmes and evidence rules change, so check the current requirements with your acquirer.</p>
