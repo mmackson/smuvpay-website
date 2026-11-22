@@ -25,12 +25,12 @@ lede: Smart payment routing is the logic that decides which acquirer or processo
       <ul>
         <li><strong>Send low-risk domestic traffic to the cheapest route.</strong> If two acquirers approve UK debit at the same rate, the cheaper one should take it.</li>
         <li><strong>Watch pricing models.</strong> An acquirer on interchange-plus pricing may be cheaper for debit and consumer cards, while a blended rate may be cheaper for premium and commercial cards. Our guide to <a href="interchange-fees-explained.html">interchange fees</a> explains why costs vary by card.</li>
-        <li><strong>Choose the network on co-badged cards.</strong> In the EU, where a card carries two brands, such as a domestic scheme and Visa or Mastercard, merchants can choose which to process on, although the cardholder can override that choice. The cheaper network is often the domestic one.</li>
+        <li><strong>Choose the network on co-badged cards.</strong> In the EU, where a card carries two brands, such as a domestic scheme and Visa or Mastercard, the Interchange Fee Regulation lets merchants set a priority brand at checkout, although the cardholder can override that choice. The cheaper network is often the domestic one.</li>
         <li><strong>Respect volume commitments.</strong> If a contract gives you a lower rate above a monthly volume, routing should make sure you reach it.</li>
       </ul>
 
       <h2>Retrying declines safely</h2>
-      <p>A declined payment can sometimes be approved on a second attempt, either on another route or later. But card schemes watch for repeated attempts on the same card. Visa and Mastercard both limit how many times a declined transaction can be retried and charge acquirers fees for excessive retries, which are passed on to merchants. The exact limits change, so ask your acquirer for the current rules.</p>
+      <p>A declined payment can sometimes be approved on a second attempt, either on another route or later. But card schemes watch for repeated attempts on the same card. Visa bars any reattempt after a "never approve" (Category 1) decline and caps reattempts on other declines over a rolling 30-day period. Mastercard charges a fee when the same card has 10 unsuccessful attempts within 24 hours. Acquirers pass these fees on to merchants. The exact limits and fees change, so ask your acquirer for the current rules.</p>
       <ul>
         <li><strong>Never retry hard declines:</strong> lost or stolen card, closed account, invalid card number, or a "do not try again" response.</li>
         <li><strong>Retry soft declines selectively:</strong> insufficient funds, issuer unavailable, or "do not honour". For subscriptions, a retry a few days later, often timed around common paydays, usually works better than an instant one.</li>
@@ -50,3 +50,10 @@ lede: Smart payment routing is the logic that decides which acquirer or processo
         <li>Review rules monthly. Acquirer performance changes, and a rule that was right in spring can be wrong by autumn.</li>
       </ol>
       <p>Routing is one lever among several. Our guide to <a href="payment-approval-rate.html">raising your approval rate</a> covers the others, from checkout data to <a href="network-tokenisation.html">network tokens</a>. SMUVPAY designs routing across multiple acquirers and <a href="../index.html#rails">payment rails</a>, with the reporting needed to see which rules are paying for themselves.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2015/751" target="_blank" rel="noopener">EUR-Lex: Regulation (EU) 2015/751 on interchange fees for card-based payment transactions</a></li>
+        <li><a href="https://usa.visa.com/dam/VCOM/global/support-legal/documents/updates-to-rules-for-declined-transaction-resubmission-and-use-of-authorization-response-codes.pdf" target="_blank" rel="noopener">Visa: Updates to rules for declined transaction resubmission and use of authorization response codes</a></li>
+        <li><a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/excessive-transaction-attempts%281125%29.pdf" target="_blank" rel="noopener">TD Bank: Excessive transaction attempts, compliance integrity fees and advice decline fees</a></li>
+      </ul>

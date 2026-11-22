@@ -27,10 +27,10 @@ lede: Network tokenisation replaces a card number with a token issued by the car
       <p>A worked example: a subscription business charges 50,000 stored cards a month at £20. If 3% of those fail because cards were reissued or expired, that is 1,500 failed renewals, or £30,000 of monthly revenue at risk before any retry. Every failure that lifecycle updates prevent is a customer who did not need to be chased.</p>
 
       <h2>Cost and fees</h2>
-      <p>Schemes may charge fees for token provisioning, lifecycle updates and cryptogram requests, and providers pass these on in different ways: bundled into pricing, charged per token, or charged per update. Some markets and programmes have offered interchange or scheme fee incentives for tokenised transactions. Ask your provider for the specific line items and read them against our guide to <a href="interchange-fees-explained.html">how interchange and card fees are set</a>, so you can compare cost against the approval gain.</p>
+      <p>Schemes may charge fees for token provisioning, lifecycle updates and cryptogram requests, and providers pass these on in different ways: bundled into pricing, charged per token, or charged per update. Some schemes also reward tokenised payments. Visa's US interchange schedule, for example, gives qualifying card-not-present transactions made with an EMV token a 0.05 percentage point incentive. Ask your provider for the specific line items and read them against our guide to <a href="interchange-fees-explained.html">how interchange and card fees are set</a>, so you can compare cost against the approval gain.</p>
 
       <h2>What it means for PCI DSS</h2>
-      <p>If you never touch the real PAN, your PCI DSS scope stays small whichever token type you use. Network tokens are still treated as sensitive in many cases, so they do not remove PCI obligations on their own. The scope gain comes from keeping raw card numbers off your systems, which a hosted checkout and a compliant vault already do. Our <a href="pci-dss-compliance.html">PCI DSS guide</a> covers how to shrink scope.</p>
+      <p>If you never touch the real PAN, your PCI DSS scope stays small whichever token type you use. The PCI Security Standards Council says a network token used to the EMVCo specification, outside the token service's own environment, is not account data and is not in PCI DSS scope. That does not remove PCI obligations on its own: any system that also handles real card numbers, or connects to one that does, stays in scope. The scope gain comes from keeping raw card numbers off your systems, which a hosted checkout and a compliant vault already do. Our <a href="pci-dss-compliance.html">PCI DSS guide</a> covers how to shrink scope.</p>
 
       <h2>Checklist: should you switch on network tokens?</h2>
       <ol>
@@ -42,3 +42,10 @@ lede: Network tokenisation replaces a card number with a token issued by the car
         <li><strong>How will you measure it?</strong> Agree a test group and a control group before you flip everything at once.</li>
       </ol>
       <p>Network tokens are one of the few changes that can lift approvals and cut fraud at the same time, but the value depends on how you store cards and how many providers you use. SMUVPAY includes tokenisation and card vault design in its <a href="../index.html#capabilities">payment capabilities</a>, including multi-acquirer setups where token portability matters.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.pcisecuritystandards.org/faqs/1326/" target="_blank" rel="noopener">PCI SSC: How does PCI DSS apply to EMVCo Payment Tokens?</a></li>
+        <li><a href="https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf" target="_blank" rel="noopener">Visa: Visa USA Interchange Reimbursement Fees</a></li>
+        <li><a href="https://www.visa.com/en-us/products/visa-token-service" target="_blank" rel="noopener">Visa: Visa Token Service</a></li>
+      </ul>

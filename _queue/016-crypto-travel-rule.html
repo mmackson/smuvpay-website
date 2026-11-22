@@ -21,10 +21,10 @@ lede: The crypto travel rule requires crypto service providers to send identifyi
       <p>For legal entities, the name is the registered company name, and some jurisdictions also expect a legal entity identifier (LEI) where the company has one. The receiving provider must check that the data is present, screen it against sanctions lists, and have a policy for transfers that arrive with missing or mismatched information.</p>
 
       <h2>Thresholds by jurisdiction</h2>
-      <p>FATF allows countries to set a de minimis threshold of up to USD/EUR 1,000, below which less information is required. Countries have used that freedom differently:</p>
+      <p>FATF standards let countries ask for less information on smaller transfers, using a reference figure of USD/EUR 1,000. Countries have used that freedom differently:</p>
       <ul>
         <li><strong>European Union:</strong> under the Transfer of Funds Regulation, applied from 30 December 2024, there is no threshold for transfers between crypto-asset service providers. Every transfer, however small, must carry full originator and beneficiary information.</li>
-        <li><strong>United Kingdom:</strong> the rule has applied since 1 September 2023. Full information is required for transfers of €1,000 or more (the UK rules use a euro figure); below that, names and wallet or account details are enough.</li>
+        <li><strong>United Kingdom:</strong> the rule has applied since 1 September 2023. Names and account or wallet details must accompany every transfer. Where the transfer leaves the UK, extra originator details such as an address, ID number or date and place of birth are needed from £800 (the threshold was €1,000 until 30 June 2026). For transfers that stay within UK firms, the extra details must be supplied on request within three working days.</li>
         <li><strong>United States:</strong> the long-standing Bank Secrecy Act travel rule applies to transfers of $3,000 or more, and FinCEN treats cryptoasset transfers by money services businesses as covered.</li>
         <li><strong>Elsewhere:</strong> many countries apply the FATF figure of around 1,000 in local currency or USD. Some have not yet implemented the rule at all, which creates gaps known as the sunrise problem.</li>
       </ul>
@@ -32,7 +32,7 @@ lede: The crypto travel rule requires crypto service providers to send identifyi
 
       <h2>Self-hosted wallets</h2>
       <p>A self-hosted (unhosted) wallet is one the user controls directly, with no service provider in between. There is no counterparty provider to receive the data, so the rule works differently. Service providers still record originator or beneficiary information from their own customer, and screen the wallet for risk.</p>
-      <p>In the EU, for transfers above €1,000 to or from a self-hosted wallet owned by the provider's own customer, the provider must verify that the customer owns or controls that wallet. Common methods include signing a message with the wallet's key, a small test transfer, or a screenshot or video check, depending on the provider. Expect this step when you withdraw stablecoins from an EU provider to your own company wallet.</p>
+      <p>In the EU, for transfers above €1,000 to or from a self-hosted wallet owned by the provider's own customer, the provider must assess whether the customer owns or controls that wallet. EBA guidelines list methods such as signing a message with the wallet's key, sending a small predefined amount from the wallet, or a remote identity-style verification. Expect this step when you withdraw stablecoins from an EU provider to your own company wallet.</p>
 
       <h2>How the data is exchanged</h2>
       <p>The data does not travel on the blockchain. Providers send it separately using travel rule messaging networks and protocols. Several exist and not all connect to each other, so a provider first has to discover whether the counterparty is a regulated provider, which network it uses, and whether it can receive the data securely. When it cannot, the sending provider may delay the transfer, ask the customer for more information or refuse it, depending on its risk policy.</p>
@@ -46,3 +46,11 @@ lede: The crypto travel rule requires crypto service providers to send identifyi
         <li><strong>Keep records.</strong> Store transaction hashes, counterparty details and screening results with the invoice, as you would for a bank payment.</li>
       </ol>
       <p>The travel rule sits alongside wider anti-money-laundering controls, which our <a href="aml-programme-fintech.html">guide to building an AML programme</a> covers. If you accept crypto from customers, see how to <a href="accept-stablecoin-payments.html">accept stablecoin payments</a> with screening built in, and our <a href="../regulatory.html">regulatory overview</a> for licensing context. SMUVPAY handles travel rule data on stablecoin flows through its regulated partners. Requirements differ by country and change often, so take local legal advice on your own obligations.</p>
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/update-Recommendation-16-payment-transparency-june-2025.html" target="_blank" rel="noopener">FATF: Updates to Recommendation 16 on payment transparency</a></li>
+        <li><a href="https://eur-lex.europa.eu/EN/legal-content/summary/information-accompanying-transfers-of-funds-and-certain-crypto-assets.html" target="_blank" rel="noopener">EUR-Lex: Information accompanying transfers of funds and certain crypto-assets</a></li>
+        <li><a href="https://www.eba.europa.eu/sites/default/files/2024-07/6de6e9b9-0ed9-49cd-985d-c0834b5b4356/Travel%20Rule%20Guidelines.pdf" target="_blank" rel="noopener">EBA: Travel Rule Guidelines under Regulation (EU) 2023/1113</a></li>
+        <li><a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/64C" target="_blank" rel="noopener">legislation.gov.uk: Money Laundering Regulations 2017, regulation 64C</a></li>
+        <li><a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-certain-business-models" target="_blank" rel="noopener">FinCEN: Application of FinCEN's regulations to certain business models involving convertible virtual currencies</a></li>
+      </ul>

@@ -40,7 +40,7 @@ lede: A white-label payment gateway is gateway software you license from a techn
         <li><strong>Token and data ownership.</strong> Can you export stored card tokens and transaction history if you leave? Without this, switching vendors means asking every customer to re-enter their card. Ask whether the vendor supports <a href="network-tokenisation.html">network tokens</a>, which can make migration easier.</li>
         <li><strong>Acquirer choice.</strong> Can you connect any acquirer you sign with, or only the vendor's partners? A short list limits your routing and pricing.</li>
         <li><strong>Uptime and support.</strong> Look for a written uptime commitment with service credits, round-the-clock incident support and a named contact.</li>
-        <li><strong>Certifications.</strong> The vendor should hold PCI DSS Level 1 as a service provider and share its attestation of compliance each year. See our <a href="pci-dss-compliance.html">PCI DSS guide</a>.</li>
+        <li><strong>Certifications.</strong> A vendor handling 300,000 or more Visa transactions a year should hold PCI DSS Level 1 as a service provider, validated by a Qualified Security Assessor every 12 months, and share its attestation of compliance each year. See our <a href="pci-dss-compliance.html">PCI DSS guide</a>.</li>
         <li><strong>Roadmap control.</strong> How are feature requests prioritised, and what does custom work cost?</li>
         <li><strong>Exit terms.</strong> Notice period, data handover format and help during migration.</li>
       </ol>
@@ -63,3 +63,9 @@ lede: A white-label payment gateway is gateway software you license from a techn
         <li>How many other clients run on the same instance, and how is one client's load kept from slowing another's?</li>
       </ul>
       <p>SMUVPAY works with businesses that want their own payment brand, from licensed white-label stacks to fully <a href="../index.html#rails">independent rails</a>. Take local legal advice on whether your model needs its own payment licence.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://usa.visa.com/content/dam/VCOM/regional/ap/documents/data-security-compliance-service-providers.pdf" target="_blank" rel="noopener">Visa: Data security compliance requirements for service providers</a></li>
+        <li><a href="https://www.pcisecuritystandards.org/faqs/1568/" target="_blank" rel="noopener">PCI SSC: Is the PCI DSS Attestation of Compliance intended to be shared?</a></li>
+      </ul>

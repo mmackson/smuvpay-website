@@ -19,7 +19,7 @@ lede: A payment webhook is a message your payment provider sends to your server 
         <li><strong>Payment failed or expired:</strong> release reserved stock and tell the customer, so they can retry.</li>
         <li><strong>Payment pending or requires action:</strong> the customer still has a step to complete, such as a 3-D Secure challenge or a bank approval.</li>
         <li><strong>Refund created or failed:</strong> a refund can fail, for example when the card has been closed, so do not mark it done when you request it.</li>
-        <li><strong>Dispute opened or closed:</strong> starts the clock on your evidence deadline, which is often only 7 to 20 days depending on the provider and card scheme.</li>
+        <li><strong>Dispute opened or closed:</strong> starts the clock on your evidence deadline, which is often only 7 to 21 days depending on the provider and card scheme.</li>
         <li><strong>Payout paid or failed:</strong> the money has moved from the provider to your bank account, or has not.</li>
       </ul>
 
@@ -47,3 +47,10 @@ lede: A payment webhook is a message your payment provider sends to your server 
       <p>Webhook handling belongs to whoever owns payments operations, not only to engineering. Finance relies on refund, dispute and payout events to keep the books right, and risk teams rely on dispute events to keep <a href="chargeback-ratio-thresholds.html">chargeback ratios</a> inside scheme limits. If you use more than one provider, each sends its own event format, which is one reason businesses move to a <a href="payment-orchestrator.html">payment orchestrator</a> that normalises events into one schema.</p>
       <p>It also helps to know which layer each event comes from. Authorisation and capture events come from the gateway and processor; payout events come from settlement. The distinction is covered in our guide to the <a href="payment-gateway-vs-processor.html">gateway versus the processor</a>.</p>
       <p>Before go-live, test each event type in the provider's sandbox, including duplicates and deliberate failures from your own endpoint. SMUVPAY designs webhook and event handling as part of its <a href="../index.html#integration">integration work</a>, so payment status, finance records and customer messages stay in line.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://docs.stripe.com/webhooks" target="_blank" rel="noopener">Stripe: Receive Stripe events in your webhook endpoint</a></li>
+        <li><a href="https://docs.stripe.com/disputes/responding" target="_blank" rel="noopener">Stripe: Respond to disputes</a></li>
+        <li><a href="https://docs.adyen.com/development-resources/webhooks/troubleshoot/" target="_blank" rel="noopener">Adyen: Troubleshoot webhooks</a></li>
+      </ul>

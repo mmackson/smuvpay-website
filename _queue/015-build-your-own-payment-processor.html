@@ -36,10 +36,10 @@ lede: To build your own payment processor you need eight working parts: a gatewa
       <p>A white-label platform can cover the first two groups if speed matters more than full control.</p>
 
       <h2>Licences and obligations</h2>
-      <p>If you hold or move merchant funds, most jurisdictions require authorisation. In the UK and EU that usually means a payment institution or e-money institution licence, which brings capital requirements and rules on safeguarding client money. Our guide to <a href="msb-emi-payment-institution-licence.html">MSB, EMI and payment institution licences</a> explains the options. You also need PCI DSS Level 1 compliance as a service provider once you process card data at scale, plus registration with the card schemes through your sponsor.</p>
+      <p>If you hold or move merchant funds, most jurisdictions require authorisation. In the UK and EU that usually means a payment institution or e-money institution licence, which brings capital requirements and rules on safeguarding client money. Our guide to <a href="msb-emi-payment-institution-licence.html">MSB, EMI and payment institution licences</a> explains the options. You also need PCI DSS compliance as a service provider. Visa classes service providers handling 300,000 or more of its transactions a year as Level 1, which means an annual assessment by a Qualified Security Assessor. You also register with the card schemes through your sponsor.</p>
 
       <h2>Realistic timelines</h2>
-      <p>Timelines vary widely by team, market and partner. As a rough guide, a first version of the software with a single acquirer often takes 6 to 12 months. A UK or EU licence application commonly takes 6 to 12 months or more from submission, and regulators can pause the clock to ask questions. Acquirer onboarding and scheme registration run alongside both. Plan for the slowest partner, not the fastest sprint.</p>
+      <p>Timelines vary widely by team, market and partner. As a rough guide, a first version of the software with a single acquirer often takes 6 to 12 months. In the UK, the FCA must decide a payment institution application within three months of receiving it complete, and within 12 months if it is incomplete. Most applications draw follow-up questions, so plan for the longer end. Acquirer onboarding and scheme registration run alongside both. Plan for the slowest partner, not the fastest sprint.</p>
 
       <h2>Checklist before you start</h2>
       <ul>
@@ -50,3 +50,10 @@ lede: To build your own payment processor you need eight working parts: a gatewa
         <li>A plan for chargebacks, reserves and merchant losses, funded with real capital.</li>
       </ul>
       <p>SMUVPAY helps businesses design and stand up <a href="../index.html#rails">independent payment rails</a>, combining licensed components and banking partners with the parts worth owning. Take local legal advice on the licences your model requires.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.legislation.gov.uk/uksi/2017/752/regulation/9" target="_blank" rel="noopener">legislation.gov.uk: The Payment Services Regulations 2017, regulation 9</a></li>
+        <li><a href="https://www.fca.org.uk/firms/apply-emoney-payment-institution" target="_blank" rel="noopener">FCA: Apply to become an electronic money or a payment institution</a></li>
+        <li><a href="https://usa.visa.com/content/dam/VCOM/regional/ap/documents/data-security-compliance-service-providers.pdf" target="_blank" rel="noopener">Visa: Data security compliance requirements for service providers</a></li>
+      </ul>

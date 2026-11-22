@@ -80,3 +80,10 @@ lede: A payment gateway integration is ready for go-live when every payment outc
       </ul>
       <p>Keep the sandbox test list after launch. Rerun it whenever you change checkout code, add a payment method or the provider announces an API version change. A change tested only on successful payments is a common way for refunds, declines or saved cards to break quietly.</p>
       <p>Once the first integration is stable, a second provider and <a href="smart-payment-routing.html">smart routing</a> add resilience and can lift approvals. SMUVPAY runs integrations like this as part of its <a href="../index.html#integration">integration service</a>, from sandbox testing to the first month of live payments.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://docs.stripe.com/testing" target="_blank" rel="noopener">Stripe: Testing</a></li>
+        <li><a href="https://docs.stripe.com/api/idempotent_requests" target="_blank" rel="noopener">Stripe: Idempotent requests</a></li>
+        <li><a href="https://docs.stripe.com/webhooks" target="_blank" rel="noopener">Stripe: Receive Stripe events in your webhook endpoint</a></li>
+      </ul>
