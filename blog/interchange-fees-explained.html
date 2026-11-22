@@ -10,14 +10,14 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
   <script src="../script.js" defer></script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Interchange fees explained: what interchange is and how card fees are set", "description": "Interchange fees explained for merchants: who sets interchange, what drives the rate, the UK and EU caps, and how to check what you actually pay per card.", "datePublished": "2026-11-22", "mainEntityOfPage": "https://smuvpay.com/blog/interchange-fees-explained.html", "author": {"@type": "Organization", "name": "SMUVPAY"}, "publisher": {"@type": "Organization", "name": "SMUVPAY", "url": "https://smuvpay.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Interchange fees explained: what interchange is and how card fees are set", "description": "Interchange fees explained for merchants: who sets interchange, what drives the rate, the UK and EU caps, and how to check what you actually pay per card.", "datePublished": "2026-11-22", "mainEntityOfPage": "https://smuvpay.com/blog/interchange-fees-explained.html", "author": {"@type": "Organization", "name": "SMUVPAY Daily Articles Review", "url": "https://smuvpay.com/blog.html"}, "publisher": {"@type": "Organization", "name": "SMUVPAY", "url": "https://smuvpay.com/"}}</script>
 </head>
 <body class="subpage">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html" aria-label="SMUVPAY home"><span class="brand-mark" aria-hidden="true">S</span><span class="brand-name">SMUV<span>PAY</span></span></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button><nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="../index.html#model">The model</a><a href="../index.html#capabilities">Capabilities</a><a href="../index.html#rails">Independent rails</a><a href="../index.html#integration">Integration</a><a href="../index.html#otc">OTC desk</a><a href="../index.html#industries">Industries</a><a href="../index.html#partners">Partners</a><a href="../regulatory.html">Regulatory guide</a><a href="../blog.html" aria-current="page">Blog</a><a class="nav-contact" href="../index.html#connect">Let's connect <span aria-hidden="true">↗</span></a></nav></div></header>
 
   <main id="main">
-    <section class="guide-hero"><div class="wrap"><a class="back-link" href="../blog.html">← All insights</a><p class="eyebrow light">Merchant pricing</p><h1>Interchange fees explained:<br><em>how card fees are really set.</em></h1><div class="guide-meta"><span>22 Nov 2026</span><span>5 min read</span><span>Merchant pricing</span></div></div></section>
+    <section class="guide-hero"><div class="wrap"><a class="back-link" href="../blog.html">← All insights</a><p class="eyebrow light">Merchant pricing</p><h1>Interchange fees explained:<br><em>how card fees are really set.</em></h1><div class="guide-meta"><span>By SMUVPAY Daily Articles Review</span><span>22 Nov 2026</span><span>5 min read</span><span>Merchant pricing</span></div></div></section>
 
     <article class="post"><div class="wrap post-body">
       <p class="post-lede">Interchange is the fee your acquirer pays the cardholder's bank every time you take a card payment. It is usually the largest single part of what you pay to accept cards, and you cannot negotiate it directly. You can, however, understand it well enough to stop overpaying around it.</p>
@@ -37,8 +37,8 @@
       <ul>
         <li><strong>EEA consumer cards at EEA merchants</strong>: the EU Interchange Fee Regulation caps interchange at 0.2% for consumer debit and 0.3% for consumer credit.</li>
         <li><strong>UK consumer cards at UK merchants</strong>: the UK kept the same 0.2% and 0.3% caps after leaving the EU.</li>
-        <li><strong>UK cards at EEA merchants online (and the reverse)</strong>: these became cross-region transactions after Brexit. Visa and Mastercard raised the rates to 1.15% for debit and 1.5% for credit in 2021. The UK Payment Systems Regulator has been working on a cap for these flows, so check the current position.</li>
-        <li><strong>US debit</strong>: the Durbin Amendment (the Federal Reserve's Regulation II) caps debit interchange for large issuers at 21 cents plus 0.05%, with a possible 1 cent fraud-prevention adjustment. The Federal Reserve has proposed lowering this cap, so check the current figure. US credit interchange is not capped and commonly runs from around 1.5% to over 3% depending on the card.</li>
+        <li><strong>EEA consumer cards at UK merchants online</strong>: these became cross-region transactions after Brexit. Visa and Mastercard raised the rates from 0.2% and 0.3% to 1.15% for debit and 1.5% for credit. The UK Payment Systems Regulator found the increases were not justified and is working on a cap, but no cap was in force as of November 2026, so check the current position.</li>
+        <li><strong>US debit</strong>: the Federal Reserve's Regulation II, which implements the Durbin Amendment, sets debit interchange for issuers with over $10 billion in assets at 21 cents plus 0.05%, plus 1 cent for fraud prevention. In October 2026 a US appeals court upheld a ruling that the Fed calculated this cap unlawfully and ordered a rewrite, and another appeals court is considering the same question, so the figure is likely to change. US credit interchange is not capped and commonly runs from around 1.5% to over 3% depending on the card.</li>
       </ul>
       <p>Commercial and corporate cards sit outside the EU and UK consumer caps, so they usually carry noticeably higher rates.</p>
 
@@ -74,6 +74,13 @@
       <h2>Interchange and your wider payment set-up</h2>
       <p>Interchange is set at the network level, so every acquirer pays broadly the same rate on the same transaction. What differs is the markup, how well each provider passes through data that qualifies for lower bands, and whether they can acquire locally in your main markets. Businesses with volume in several regions often route each payment to the acquirer best placed for that card, which is the job of a <a href="payment-orchestrator.html">payment orchestrator</a>.</p>
       <p>SMUVPAY works with merchants on <a href="../index.html#rails">acquiring and rail selection</a> across markets. Interchange rates and caps change, and regional rules differ, so confirm the current tables with your acquirer before you model costs.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.psr.org.uk/our-work/card-payments/the-ifr/" target="_blank" rel="noopener">Payment Systems Regulator: The IFR</a></li>
+        <li><a href="https://www.psr.org.uk/our-work/market-reviews/market-review-into-cross-border-interchange-fees/" target="_blank" rel="noopener">Payment Systems Regulator: Market review into cross-border interchange fees</a></li>
+        <li><a href="https://bankingjournal.aba.com/2026/10/federal-appeals-court-strikes-down-the-feds-debit-card-fee-cap/" target="_blank" rel="noopener">ABA Banking Journal: Federal appeals court strikes down the Fed's debit card fee cap</a></li>
+      </ul>
 
       <p><strong>Working through this for your business?</strong> <a href="../enquiry.html">Send us an enquiry</a> or email <a href="mailto:support@smuvpay.com">support@smuvpay.com</a> and we will map it to your volumes, markets and risk profile.</p>
     </div></article>

@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BLOG, QUEUE = ROOT / "blog", ROOT / "_queue"
 SLOTS = (7, 10, 13, 16, 19)  # London local hours; a missed slot is caught up on the next run
 FIELDS = ("slug", "title", "h1", "desc", "cat", "mins", "summary", "lede")
+AUTHOR = "SMUVPAY Daily Articles Review"
 
 
 def parse(path):
@@ -56,7 +57,7 @@ def render(meta, body, now):
     slug, date, date_h = meta["slug"], now.date().isoformat(), f"{now.day} {now:%b %Y}"
     ld = {"@context": "https://schema.org", "@type": "Article", "headline": meta["title"], "description": meta["desc"],
           "datePublished": date, "mainEntityOfPage": f"https://smuvpay.com/blog/{slug}.html",
-          "author": {"@type": "Organization", "name": "SMUVPAY"},
+          "author": {"@type": "Organization", "name": AUTHOR, "url": "https://smuvpay.com/blog.html"},
           "publisher": {"@type": "Organization", "name": "SMUVPAY", "url": "https://smuvpay.com/"}}
     cta = ('<p><strong>Working through this for your business?</strong> <a href="../enquiry.html">Send us an enquiry</a> '
            'or email <a href="mailto:support@smuvpay.com">support@smuvpay.com</a> and we will map it to your volumes, markets and risk profile.</p>')
@@ -79,7 +80,7 @@ def render(meta, body, now):
 {header}
 
   <main id="main">
-    <section class="guide-hero"><div class="wrap"><a class="back-link" href="../blog.html">← All insights</a><p class="eyebrow light">{meta["cat"]}</p><h1>{meta["h1"]}</h1><div class="guide-meta"><span>{date_h}</span><span>{meta["mins"]} min read</span><span>{meta["cat"]}</span></div></div></section>
+    <section class="guide-hero"><div class="wrap"><a class="back-link" href="../blog.html">← All insights</a><p class="eyebrow light">{meta["cat"]}</p><h1>{meta["h1"]}</h1><div class="guide-meta"><span>By {AUTHOR}</span><span>{date_h}</span><span>{meta["mins"]} min read</span><span>{meta["cat"]}</span></div></div></section>
 
     <article class="post"><div class="wrap post-body">
       <p class="post-lede">{meta["lede"]}</p>
